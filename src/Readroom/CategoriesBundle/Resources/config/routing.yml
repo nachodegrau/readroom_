@@ -1,0 +1,25 @@
+category_show:
+   path: /category
+   defaults: { _controller: ReadroomCategoriesBundle:Categories:showCategory }
+   methods: [GET]
+   
+category_save:
+   path: /category
+   defaults: { _controller: ReadroomCategoriesBundle:Categories:addCategory }
+   methods: [POST]
+   
+category_update:
+   path: /category
+   defaults: { _controller: ReadroomCategoriesBundle:Categories:updateCategory }
+   methods: [PUT]
+   
+category_delete:
+   path: /category
+   defaults: { _controller: ReadroomCategoriesBundle:Categories:deleteCategory }
+   methods: [DELETE]
+   
+category_show:
+   path: /categories
+   defaults: { _controller: ReadroomCategoriesBundle:Categories:showCategories }
+   methods: [GET]
+

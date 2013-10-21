@@ -1,0 +1,582 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ncx PUBLIC '-//NISO//DTD ncx 2005-1//EN' 'http://www.daisy.org/z3986/2005/ncx-2005-1.dtd'>
+
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
+  <head>
+    <meta content="http://www.gutenberg.org/ebooks/27827" name="dtb:uid"/>
+    <meta content="3" name="dtb:depth"/>
+    <meta content="EpubMaker 0.3.20a3 by Marcello Perathoner &lt;webmaster@gutenberg.org&gt;" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>The Kama Sutra of Vatsyayana&#13;
+Translated From the Sanscrit in Seven Parts With Preface, Introduction and Concluding Remarks</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="np-1" playOrder="1">
+      <navLabel>
+        <text>Transcriber's note</text>
+      </navLabel>
+      <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00000"/>
+    </navPoint>
+    <navPoint id="np-2" playOrder="2">
+      <navLabel>
+        <text>THE KAMA SUTRA OF VATSYAYANA.</text>
+      </navLabel>
+      <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00001"/>
+      <navPoint id="np-3" playOrder="3">
+        <navLabel>
+          <text>PREFACE.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00002"/>
+      </navPoint>
+      <navPoint id="np-4" playOrder="4">
+        <navLabel>
+          <text>INTRODUCTION.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00003"/>
+      </navPoint>
+      <navPoint id="np-5" playOrder="5">
+        <navLabel>
+          <text>PART I. THE VATSYAYANA SUTRA. INTRODUCTORY PREFACE.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00004"/>
+        <navPoint id="np-6" playOrder="6">
+          <navLabel>
+            <text>SALUTATION TO DHARMA, ARTHA AND KAMA.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00005"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-7" playOrder="7">
+        <navLabel>
+          <text>PART I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00006"/>
+      </navPoint>
+      <navPoint id="np-8" playOrder="8">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00007"/>
+        <navPoint id="np-9" playOrder="9">
+          <navLabel>
+            <text>ON THE ACQUISITION OF DHARMA, ARTHA AND KAMA.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00008"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-10" playOrder="10">
+        <navLabel>
+          <text>CHAPTER III.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00009"/>
+        <navPoint id="np-11" playOrder="11">
+          <navLabel>
+            <text>ON THE ARTS AND SCIENCES TO BE STUDIED.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00010"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-12" playOrder="12">
+        <navLabel>
+          <text>CHAPTER IV.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00011"/>
+        <navPoint id="np-13" playOrder="13">
+          <navLabel>
+            <text>THE LIFE OF A CITIZEN.[13]</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html#pgepubid00012"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-14" playOrder="14">
+        <navLabel>
+          <text>CHAPTER V.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00013"/>
+        <navPoint id="np-15" playOrder="15">
+          <navLabel>
+            <text>ABOUT THE KINDS OF WOMEN RESORTED TO BY THE CITIZENS, AND OF FRIENDS AND MESSENGERS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00014"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-16" playOrder="16">
+        <navLabel>
+          <text>PART II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00015"/>
+      </navPoint>
+      <navPoint id="np-17" playOrder="17">
+        <navLabel>
+          <text>OF SEXUAL UNION.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00016"/>
+      </navPoint>
+      <navPoint id="np-18" playOrder="18">
+        <navLabel>
+          <text>CHAPTER I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00017"/>
+        <navPoint id="np-19" playOrder="19">
+          <navLabel>
+            <text>KINDS OF SEXUAL UNION ACCORDING TO</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00018"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-20" playOrder="20">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00019"/>
+        <navPoint id="np-21" playOrder="21">
+          <navLabel>
+            <text>OF THE EMBRACE.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00020"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-22" playOrder="22">
+        <navLabel>
+          <text>CHAPTER III.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00021"/>
+        <navPoint id="np-23" playOrder="23">
+          <navLabel>
+            <text>ON KISSING.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00022"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-24" playOrder="24">
+        <navLabel>
+          <text>CHAPTER IV.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00023"/>
+        <navPoint id="np-25" playOrder="25">
+          <navLabel>
+            <text>ON PRESSING, OR MARKING, OR SCRATCHING WITH THE NAILS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00024"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-26" playOrder="26">
+        <navLabel>
+          <text>CHAPTER V.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00025"/>
+        <navPoint id="np-27" playOrder="27">
+          <navLabel>
+            <text>ON BITING, AND THE MEANS TO BE EMPLOYED WITH REGARD TO WOMEN OF DIFFERENT COUNTRIES.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00026"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-28" playOrder="28">
+        <navLabel>
+          <text>CHAPTER VI.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00027"/>
+        <navPoint id="np-29" playOrder="29">
+          <navLabel>
+            <text>OF THE DIFFERENT WAYS OF LYING DOWN, AND VARIOUS KINDS OF CONGRESS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00028"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-30" playOrder="30">
+        <navLabel>
+          <text>CHAPTER VII.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00029"/>
+        <navPoint id="np-31" playOrder="31">
+          <navLabel>
+            <text>OF THE VARIOUS MODES OF STRIKING, AND OF THE SOUNDS APPROPRIATE TO THEM.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html#pgepubid00030"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-32" playOrder="32">
+        <navLabel>
+          <text>CHAPTER VIII.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00031"/>
+        <navPoint id="np-33" playOrder="33">
+          <navLabel>
+            <text>ABOUT WOMEN ACTING THE PART OF A MAN; AND OF THE WORK OF A MAN.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00032"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-34" playOrder="34">
+        <navLabel>
+          <text>CHAPTER IX.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00033"/>
+        <navPoint id="np-35" playOrder="35">
+          <navLabel>
+            <text>OF THE AUPARISHTAKA[39] OR MOUTH CONGRESS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00034"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-36" playOrder="36">
+        <navLabel>
+          <text>CHAPTER X.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00035"/>
+        <navPoint id="np-37" playOrder="37">
+          <navLabel>
+            <text>OF THE WAY HOW TO BEGIN AND HOW TO END THE CONGRESS. DIFFERENT KINDS OF CONGRESS AND LOVE QUARRELS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00036"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-38" playOrder="38">
+        <navLabel>
+          <text>PART III.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00037"/>
+      </navPoint>
+      <navPoint id="np-39" playOrder="39">
+        <navLabel>
+          <text>ABOUT THE ACQUISITION OF A WIFE.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00038"/>
+      </navPoint>
+      <navPoint id="np-40" playOrder="40">
+        <navLabel>
+          <text>CHAPTER I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00039"/>
+        <navPoint id="np-41" playOrder="41">
+          <navLabel>
+            <text>ON MARRIAGE.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00040"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-42" playOrder="42">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00041"/>
+        <navPoint id="np-43" playOrder="43">
+          <navLabel>
+            <text>OF CREATING CONFIDENCE IN THE GIRL.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00042"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-44" playOrder="44">
+        <navLabel>
+          <text>CHAPTER III.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00043"/>
+        <navPoint id="np-45" playOrder="45">
+          <navLabel>
+            <text>ON COURTSHIP, AND THE MANIFESTATION OF THE FEELINGS BY OUTWARD SIGNS AND DEEDS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00044"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-46" playOrder="46">
+        <navLabel>
+          <text>CHAPTER IV.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00045"/>
+        <navPoint id="np-47" playOrder="47">
+          <navLabel>
+            <text>ABOUT THINGS TO BE DONE ONLY BY THE MAN, AND THE ACQUISITION OF THE GIRL THEREBY. ALSO WHAT IS TO BE DONE BY A GIRL TO GAIN OVER A MAN, AND SUBJECT HIM TO HER.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00046"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-48" playOrder="48">
+        <navLabel>
+          <text>CHAPTER V.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00047"/>
+        <navPoint id="np-49" playOrder="49">
+          <navLabel>
+            <text>ON CERTAIN FORMS OF MARRIAGE[50]</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00048"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-50" playOrder="50">
+        <navLabel>
+          <text>PART IV.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00049"/>
+      </navPoint>
+      <navPoint id="np-51" playOrder="51">
+        <navLabel>
+          <text>ABOUT A WIFE.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00050"/>
+      </navPoint>
+      <navPoint id="np-52" playOrder="52">
+        <navLabel>
+          <text>CHAPTER I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00051"/>
+        <navPoint id="np-53" playOrder="53">
+          <navLabel>
+            <text>ON THE MANNER OF LIVING OF A VIRTUOUS WOMAN, AND OF HER BEHAVIOUR DURING THE ABSENCE OF HER HUSBAND.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html#pgepubid00052"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-54" playOrder="54">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00053"/>
+        <navPoint id="np-55" playOrder="55">
+          <navLabel>
+            <text>ON THE CONDUCT OF THE ELDER WIFE TOWARDS THE OTHER WIVES OF HER HUSBAND, AND ON THAT OF A YOUNGER WIFE TOWARDS THE ELDER ONES. ALSO ON THE CONDUCT OF A VIRGIN WIDOW RE-MARRIED; OF A WIFE DISLIKED BY HER HUSBAND; OF THE WOMEN IN THE KING'S HAREM; AND LASTLY ON THE CONDUCT OF A HUSBAND TOWARDS MANY WIVES.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00054"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-56" playOrder="56">
+        <navLabel>
+          <text>PART V.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00055"/>
+      </navPoint>
+      <navPoint id="np-57" playOrder="57">
+        <navLabel>
+          <text>ABOUT THE WIVES OF OTHER MEN.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00056"/>
+      </navPoint>
+      <navPoint id="np-58" playOrder="58">
+        <navLabel>
+          <text>CHAPTER I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00057"/>
+        <navPoint id="np-59" playOrder="59">
+          <navLabel>
+            <text>OF THE CHARACTERISTICS OF MEN AND WOMEN.—THE REASONS WHY WOMEN REJECT THE ADDRESSES OF MEN.—ABOUT MEN WHO HAVE SUCCESS WITH WOMEN, AND ABOUT WOMEN WHO ARE EASILY GAINED OVER.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00058"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-60" playOrder="60">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00059"/>
+        <navPoint id="np-61" playOrder="61">
+          <navLabel>
+            <text>ABOUT MAKING ACQUAINTANCE WITH THE WOMAN, AND OF THE EFFORTS TO GAIN HER OVER.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00060"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-62" playOrder="62">
+        <navLabel>
+          <text>CHAPTER III.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00061"/>
+        <navPoint id="np-63" playOrder="63">
+          <navLabel>
+            <text>EXAMINATION OF THE STATE OF A WOMAN'S MIND.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00062"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-64" playOrder="64">
+        <navLabel>
+          <text>CHAPTER IV.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00063"/>
+        <navPoint id="np-65" playOrder="65">
+          <navLabel>
+            <text>ABOUT THE BUSINESS OF A GO-BETWEEN.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00064"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-66" playOrder="66">
+        <navLabel>
+          <text>CHAPTER V.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00065"/>
+        <navPoint id="np-67" playOrder="67">
+          <navLabel>
+            <text>ABOUT THE LOVE OF PERSONS IN AUTHORITY FOR THE WIVES OF OTHER MEN.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00066"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-68" playOrder="68">
+        <navLabel>
+          <text>CHAPTER VI.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00067"/>
+        <navPoint id="np-69" playOrder="69">
+          <navLabel>
+            <text>ABOUT THE WOMEN OF THE ROYAL HAREM; AND OF THE KEEPING OF ONE'S OWN WIFE.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html#pgepubid00068"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-70" playOrder="70">
+        <navLabel>
+          <text>PART VI.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00069"/>
+      </navPoint>
+      <navPoint id="np-71" playOrder="71">
+        <navLabel>
+          <text>ABOUT COURTESANS.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00070"/>
+      </navPoint>
+      <navPoint id="np-72" playOrder="72">
+        <navLabel>
+          <text>INTRODUCTORY REMARKS.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00071"/>
+      </navPoint>
+      <navPoint id="np-73" playOrder="73">
+        <navLabel>
+          <text>CHAPTER I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00072"/>
+        <navPoint id="np-74" playOrder="74">
+          <navLabel>
+            <text>OF THE CAUSES OF A COURTESAN RESORTING TO MEN; OF THE MEANS OF ATTACHING TO HERSELF THE MAN DESIRED; AND OF THE KIND OF MAN THAT IT IS DESIRABLE TO BE ACQUAINTED WITH.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00073"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-75" playOrder="75">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00074"/>
+        <navPoint id="np-76" playOrder="76">
+          <navLabel>
+            <text>OF LIVING LIKE A WIFE.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00075"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-77" playOrder="77">
+        <navLabel>
+          <text>CHAPTER III.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00076"/>
+        <navPoint id="np-78" playOrder="78">
+          <navLabel>
+            <text>OF THE MEANS OF GETTING MONEY. OF THE SIGNS OF THE CHANGE OF A LOVER'S FEELINGS, AND OF THE WAY TO GET RID OF HIM.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00077"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-79" playOrder="79">
+        <navLabel>
+          <text>CHAPTER IV.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00078"/>
+        <navPoint id="np-80" playOrder="80">
+          <navLabel>
+            <text>ABOUT RE-UNION WITH A FORMER LOVER.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00079"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-81" playOrder="81">
+        <navLabel>
+          <text>CHAPTER V.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00080"/>
+        <navPoint id="np-82" playOrder="82">
+          <navLabel>
+            <text>OF DIFFERENT KINDS OF GAIN.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00081"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-83" playOrder="83">
+        <navLabel>
+          <text>CHAPTER VI.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00082"/>
+        <navPoint id="np-84" playOrder="84">
+          <navLabel>
+            <text>OF GAINS AND LOSSES; ATTENDANT GAINS AND LOSSES; AND DOUBTS; AS ALSO OF THE DIFFERENT KINDS OF COURTESANS.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00083"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-85" playOrder="85">
+        <navLabel>
+          <text>PART VII.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00084"/>
+      </navPoint>
+      <navPoint id="np-86" playOrder="86">
+        <navLabel>
+          <text>ABOUT THE MEANS OF ATTRACTING OTHERS TO YOURSELF.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00085"/>
+      </navPoint>
+      <navPoint id="np-87" playOrder="87">
+        <navLabel>
+          <text>CHAPTER I.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00086"/>
+        <navPoint id="np-88" playOrder="88">
+          <navLabel>
+            <text>ON PERSONAL ADORNMENT; ON SUBJUGATING THE HEARTS OF OTHERS; AND ON TONIC MEDICINES.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html#pgepubid00087"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-89" playOrder="89">
+        <navLabel>
+          <text>CHAPTER II.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-5.htm.html#pgepubid00088"/>
+        <navPoint id="np-90" playOrder="90">
+          <navLabel>
+            <text>OF THE WAYS OF EXCITING DESIRE, AND MISCELLANEOUS EXPERIMENTS, AND RECIPES.</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-5.htm.html#pgepubid00089"/>
+        </navPoint>
+      </navPoint>
+      <navPoint id="np-91" playOrder="91">
+        <navLabel>
+          <text>CONCLUDING REMARKS.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-5.htm.html#pgepubid00090"/>
+      </navPoint>
+      <navPoint id="np-92" playOrder="92">
+        <navLabel>
+          <text>FOOTNOTES:</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-5.htm.html#pgepubid00091"/>
+      </navPoint>
+      <navPoint id="np-93" playOrder="93">
+        <navLabel>
+          <text>Works issued by the Council of the Kama Shastra Society.</text>
+        </navLabel>
+        <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-5.htm.html#pgepubid00092"/>
+        <navPoint id="np-94" playOrder="94">
+          <navLabel>
+            <text>Transcriber's note</text>
+          </navLabel>
+          <content src="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-6.htm.html#pgepubid00093"/>
+        </navPoint>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

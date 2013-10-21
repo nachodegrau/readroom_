@@ -1,0 +1,34 @@
+input_show:
+   path: /input
+   defaults: { _controller: ReadroomInputBundle:Input:showInput }
+   methods: [GET]
+   
+input_save:
+   path: /input
+   defaults: { _controller: ReadroomInputBundle:Input:addInput }
+   methods: [POST]
+   
+input_update:
+   path: /input
+   defaults: { _controller: ReadroomInputBundle:Input:updateInput }
+   methods: [PUT]
+   
+input_delete:
+   path: /input
+   defaults: { _controller: ReadroomInputBundle:Input:deleteInput }
+   methods: [DELETE]
+   
+inputs_show:
+   path: /inputs
+   defaults: { _controller: ReadroomInputBundle:Input:showInputs }
+   methods: [GET]
+   
+reply_save:
+   path: /reply
+   defaults: { _controller: ReadroomInputBundle:Reply:addReply }
+   methods: [POST]
+   
+replies_show:
+   path: /replies
+   defaults: { _controller: ReadroomInputBundle:Reply:showReplies }
+   methods: [GET]

@@ -1,0 +1,7 @@
+parameters:
+#    readroom_home.example.class: Readroom\HomeBundle\Example
+
+services:
+#    readroom_home.example:
+#        class: %readroom_home.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

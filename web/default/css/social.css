@@ -1,0 +1,38 @@
+/* 
+    Document   : social
+    Created on : 15-ago-2013, 19:33:41
+    Author     : nachodegrau
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.inputs {
+    border-bottom: 1px dotted #89CDFA;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.inputs .quote {
+    color: gray;
+}
+
+.openInputPopup {
+    width: 100%;
+    height: 15px;
+}
+
+.openInputPopup div{
+    float: right;
+    text-align: right;
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+    color: #F0F0F0;
+    width: 100px;
+    background: #89CDFA;
+}
+

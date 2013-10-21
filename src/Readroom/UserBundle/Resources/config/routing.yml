@@ -1,0 +1,54 @@
+user_show:
+   path: /user
+   defaults: { _controller: ReadroomUserBundle:User:showUser }
+   methods: [GET]
+   
+user_facebook_login:
+   path: /facebookuser
+   defaults: { _controller: ReadroomUserBundle:User:loginFacebook }
+   methods: [POST]
+   
+user_save:
+   path: /user
+   defaults: { _controller: ReadroomUserBundle:User:addUser }
+   methods: [POST]
+   
+user_update:
+   path: /user
+   defaults: { _controller: ReadroomUserBundle:User:updateUser }
+   methods: [PUT]
+   
+image_update:
+   path: /userimage
+   defaults: { _controller: ReadroomUserBundle:User:chageUserImage }
+   methods: [POST]
+   
+user_delete:
+   path: /user
+   defaults: { _controller: ReadroomUserBundle:User:deleteUser }
+   methods: [DELETE]
+   
+users_show:
+   path: /users
+   defaults: { _controller: ReadroomUserBundle:User:showBooks }
+   methods: [GET]
+   
+user_has_books_show:
+  path: /user_has_books
+  defaults: { _controller: ReadroomUserBundle:UserHasBooks:showUserHasBooks }
+  methods: [GET]
+  
+user_has_books_save:
+  path: /user_has_books
+  defaults: { _controller: ReadroomUserBundle:UserHasBooks:saveUserHasBooks }
+  methods: [POST]
+  
+user_has_books_update:
+  path: /user_has_books
+  defaults: { _controller: ReadroomUserBundle:UserHasBooks:updateUserHasBooks }
+  methods: [PUT]
+  
+user_has_books_delete:
+  path: /user_has_books
+  defaults: { _controller: ReadroomUserBundle:UserHasBooks:deleteUserHasBooks }
+  methods: [DELETE]

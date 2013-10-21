@@ -1,0 +1,33 @@
+<div class="row">
+    <div id="reader-content" class="large-12 columns"></div>
+</div>
+
+<script type="text/html" id="template-reader">
+    <div class="row"> 
+        <div id="reader-header" class="large-12 columns"> 
+            <div class="row">
+                <div class="large-2 columns"> 
+                    <a id="open-inputs-bar"> <img width="30px" height="30px" src="{{ asset('default/images/input_icon.png') }}"> </a> 
+                    <a id="open-chapters-bar"> <img width="30px" height="30px" src="{{ asset('default/images/chapters_icon.png') }}"> </a>
+                    <a id="open-config-bar"> <img width="30px" height="30px" src="{{ asset('default/images/config_icon.png') }}"> </a> 
+                </div>
+                <div class="large-10 columns">
+                    <h4 id="reader-book-title" > </h4>
+                </div>
+                
+        </div>
+    </div>
+    <div class="row">
+        <div id="prev-page" >
+            <img id="prev-page-image" width="16px" height="30px" src="{{ asset('default/images/previous_page.png') }}">
+        </div>
+        <div id="reader" class="large-12 columns" > 
+
+        </div>
+        <div id="next-page">
+            <img id="next-page-image" width="16px" height="30px" src="{{ asset('default/images/next_page.png') }}">
+        </div>
+   </div>
+
+
+</script>

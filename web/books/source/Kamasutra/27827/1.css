@@ -1,0 +1,33 @@
+@charset "utf-8";
+/**/
+span.c12 {
+    margin-left: 1.5em
+    }
+span.c11 {
+    font-weight: bold
+    }
+hr.c10 {
+    width: 45%
+    }
+table.c9 {
+    border: solid 1pt black
+    }
+table.c8 {
+    border: 1px solid black
+    }
+td.c7 {
+    border: 1px solid black
+    }
+span.c6 {
+    margin-left: 15em
+    }
+ul.c5 {
+    list-style: none
+    }
+p.c3 {
+    font-style: italic
+    }
+hr.c1 {
+    width: 65%
+    }
+/**/

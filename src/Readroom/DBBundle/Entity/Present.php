@@ -1,0 +1,195 @@
+<?php
+
+namespace Readroom\DBBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Readroom\DBBundle\Entity\Present
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="presents", indexes={@ORM\Index(name="book_id_idx", columns={"book_id"}), @ORM\Index(name="origin_customer_id_idx", columns={"source_reader_id"})})
+ */
+class Present
+{
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	protected $id;
+
+	/**
+	 * @ORM\Column(type="integer", nullable=true)
+	 */
+	protected $target_reader_id;
+
+	/**
+	 * @ORM\Column(type="string", length=45, nullable=true)
+	 */
+	protected $target_reader_email;
+
+	/**
+	 * @ORM\Column(type="datetime")
+	 */
+	protected $date;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="Book", inversedBy="presents")
+	 * @ORM\JoinColumn(name="book_id", referencedColumnName="id", nullable=false)
+	 */
+	protected $book;
+
+	/**
+	 * @ORM\ManyToOne(targetEntity="Reader", inversedBy="presents")
+	 * @ORM\JoinColumn(name="source_reader_id", referencedColumnName="id", nullable=false)
+	 */
+	protected $reader;
+
+	public function __construct()
+	{
+	}
+
+	/**
+	 * Set the value of id.
+	 *
+	 * @param integer $id
+	 * @return \Readroom\DBBundle\Entity\Present
+	 */
+	public function setId($id)
+	{
+		$this->id = $id;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of id.
+	 *
+	 * @return integer
+	 */
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	/**
+	 * Set the value of target_reader_id.
+	 *
+	 * @param integer $target_reader_id
+	 * @return \Readroom\DBBundle\Entity\Present
+	 */
+	public function setTargetReaderId($target_reader_id)
+	{
+		$this->target_reader_id = $target_reader_id;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of target_reader_id.
+	 *
+	 * @return integer
+	 */
+	public function getTargetReaderId()
+	{
+		return $this->target_reader_id;
+	}
+
+	/**
+	 * Set the value of target_reader_email.
+	 *
+	 * @param string $target_reader_email
+	 * @return \Readroom\DBBundle\Entity\Present
+	 */
+	public function setTargetReaderEmail($target_reader_email)
+	{
+		$this->target_reader_email = $target_reader_email;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of target_reader_email.
+	 *
+	 * @return string
+	 */
+	public function getTargetReaderEmail()
+	{
+		return $this->target_reader_email;
+	}
+
+	/**
+	 * Set the value of date.
+	 *
+	 * @param datetime $date
+	 * @return \Readroom\DBBundle\Entity\Present
+	 */
+	public function setDate($date)
+	{
+		$this->date = $date;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of date.
+	 *
+	 * @return datetime
+	 */
+	public function getDate()
+	{
+		return $this->date;
+	}
+
+	/**
+	 * Set Book entity (many to one).
+	 *
+	 * @param \Readroom\DBBundle\Entity\Book $book
+	 * @return \Readroom\DBBundle\Entity\Present
+	 */
+	public function setBook(Book $book = null)
+	{
+		$this->book = $book;
+
+		return $this;
+	}
+
+	/**
+	 * Get Book entity (many to one).
+	 *
+	 * @return \Readroom\DBBundle\Entity\Book
+	 */
+	public function getBook()
+	{
+		return $this->book;
+	}
+
+	/**
+	 * Set Reader entity (many to one).
+	 *
+	 * @param \Readroom\DBBundle\Entity\Reader $reader
+	 * @return \Readroom\DBBundle\Entity\Present
+	 */
+	public function setReader(Reader $reader = null)
+	{
+		$this->reader = $reader;
+
+		return $this;
+	}
+
+	/**
+	 * Get Reader entity (many to one).
+	 *
+	 * @return \Readroom\DBBundle\Entity\Reader
+	 */
+	public function getReader()
+	{
+		return $this->reader;
+	}
+
+	public function __sleep()
+	{
+		return array('id', 'book_id', 'source_reader_id', 'target_reader_id', 'target_reader_email', 'date');
+	}
+}

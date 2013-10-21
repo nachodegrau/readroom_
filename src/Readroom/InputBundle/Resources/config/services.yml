@@ -1,0 +1,7 @@
+parameters:
+#    readroom_input.example.class: Readroom\InputBundle\Example
+
+services:
+#    readroom_input.example:
+#        class: %readroom_input.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

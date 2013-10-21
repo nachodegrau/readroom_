@@ -1,0 +1,3 @@
+readroom_db_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ReadroomDBBundle:Default:index }

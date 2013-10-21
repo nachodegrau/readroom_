@@ -1,0 +1,128 @@
+<div id="left-bar" class="no-home-structure" >
+    
+</div>
+
+    
+    <script type="text/html" id="template-top-menu"> 
+            <ul class="title-area" >
+                <li class="name" >
+                    <h1>
+                        <a href="#">
+                            Readroom
+                        </a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#" id="menu-expand"><span>menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section" >
+                <ul class="left" >
+                    <li class="has-form">
+                        <form >
+                            <div class="row collapse" >
+
+                                <div class="large-centered columns">
+                                    <input type="text">
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="left">
+                    <li id="categories-menu" class="has-dropdown">
+
+
+                    </li>
+
+                </ul>
+            </section>
+            <section class="top-bar-section">
+                <ul class="right">
+                    <li class="divider"></li>
+                    <li id="user-menu" class="has-dropdown">
+
+                    </li>
+                </ul>
+            </section>
+        </script>
+    
+    <script type="text/html" id="template-left-menu">
+        
+            <div id="close-leftbar"> 
+                <img src="{{ asset('default/images/close_icon.png') }}">
+            </div>
+
+        <div class="row"> 
+            <div id="user-info" class="large-12 columns"> 
+                <a href="{{url('readroom_home_homepage')}}#library/<%= id %>">
+                    <span id="user-thumbnail">
+                        <img width="25px" height="25px" src="{{ asset('readers/') }}images/<%= image %>"/>
+                    </span>
+                    <span id="user-name"> <%= name %> </span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="section-container accordion" data-section="accordion">
+            <section id="inputs-section" class="active">
+              <p class="title" data-section-title><a href="#"><img width="30px" height="30px" src="{{ asset('default/images/input_icon.png') }}"> Social</a></p>
+              <div id="left-bar-social" class="content" data-section-content>
+                
+              </div>
+            </section>
+            <section id="chapters-section">
+              <p class="title" data-section-title><a href="#"><img width="30px" height="30px" src="{{ asset('default/images/chapters_icon.png') }}"> Capítulos</a></p>
+              <div id="left-bar-chapters" class="content" data-section-content>
+                
+              </div>
+            </section>
+            <section id="config-section">
+              <p class="title" data-section-title><a href="#"><img width="30px" height="30px" src="{{ asset('default/images/config_icon.png') }}"> Configuración</a></p>
+              <div class="content" data-section-content>
+                <p>Content of section 2.</p>
+              </div>
+            </section>
+        </div>
+
+        <div style="position:absolute; top:0px; right:-10px;">
+            <img src="" id="openCloseLeftMenu" />
+        </div>
+        
+    </script>
+
+    <script type="text/html" id="template-left-menu-social">
+        <form id="leftbar-social-form" action="javascript:null">
+            <div class="row collapse">
+                <div id="user-input-form" class="large-12 columns"> 
+                    <textarea id="publish-content" name="publishContent" ></textarea>
+                </div>
+            </div>
+            <div class="row collapse">
+                <div class="large-3 columns"> <input id="archivos" class="file" type="file" name="archivos" multiple="multiple" /></div>
+                <div id="publish-options" class="large-9 columns">
+                    <button id="publish-submit" class="button disabled">Publicar</button>
+                </div>
+            </div>
+            <div class="row collapse">
+                <div class="large-12 columns"> 
+                    <div class="loading-container" style="display: none;"> 
+                        <img src="{{ asset('default/images/loader.gif') }}"/>
+                    </div>
+                    <div class="info" style="display: none;"> </div>
+                </div>
+            </div>
+        </form>
+    </script>
+    
+    <script type="text/html" id="template-left-menu-chapters">
+        <ul>
+        <% _.each(chapters, function(chapter){  %>
+           <li class="chapter" data-spine="<%= chapter.spine %>" data-elementid="<%= chapter.elementId %>"> <%= chapter.name %></li>
+        <% }); %>
+        </ul>
+    </script>

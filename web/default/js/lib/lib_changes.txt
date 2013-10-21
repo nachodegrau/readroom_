@@ -1,0 +1,16 @@
+// changes in radium library
+
+/****************************/
+16/6/2013
+
+functions height() and width() are a jquery function, therefore they need a jquery object
+
+
+Class: EpubReader.EpubReader
+Function: fitCurrentPagesView
+Changes:
+
+	this.get("parentElement").height() -> $(this.get("parentElement")).height()
+	this.get("parentElement").width() -> $(this.get("parentElement")).width()
+
+/****************************/

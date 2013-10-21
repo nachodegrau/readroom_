@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd"><ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+    <head>
+        <meta content="385d04c9-5d60-4065-9ebc-ab1c481320ac" name="dtb:uid"/>
+        <meta content="3" name="dtb:depth"/>
+        <meta content="0" name="dtb:totalPageCount"/>
+        <meta content="0" name="dtb:maxPageNumber"/>
+    </head>
+    <docTitle>
+        <text>Steve Jobs</text>
+    </docTitle>
+    <navMap>
+        <navPoint id="navPoint-1" playOrder="1">
+            <navLabel>
+                <text>Cubierta</text>
+            </navLabel>
+            <content src="Text/cubierta.xhtml"/>
+        </navPoint>
+        <navPoint id="navPoint-2" playOrder="2">
+            <navLabel>
+                <text>Steve Jobs</text>
+            </navLabel>
+            <content src="Text/Section0003.xhtml"/>
+            <navPoint id="navPoint-3" playOrder="3">
+                <navLabel>
+                    <text>Personajes</text>
+                </navLabel>
+                <content src="Text/Section0007.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-4" playOrder="4">
+                <navLabel>
+                    <text>Introducción</text>
+                </navLabel>
+                <content src="Text/Section0008.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-5" playOrder="5">
+                <navLabel>
+                    <text>1 Infancia</text>
+                </navLabel>
+                <content src="Text/Section0014.xhtml"/>
+                <navPoint id="navPoint-6" playOrder="6">
+                    <navLabel>
+                        <text>LA ADOPCIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0015.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-7" playOrder="7">
+                    <navLabel>
+                        <text>SILICON VALLEY</text>
+                    </navLabel>
+                    <content src="Text/Section0015.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-8" playOrder="8">
+                    <navLabel>
+                        <text>EL COLEGIO</text>
+                    </navLabel>
+                    <content src="Text/Section0015.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-9" playOrder="9">
+                <navLabel>
+                    <text>2 La extraña pareja</text>
+                </navLabel>
+                <content src="Text/Section0016.xhtml"/>
+                <navPoint id="navPoint-10" playOrder="10">
+                    <navLabel>
+                        <text>WOZ</text>
+                    </navLabel>
+                    <content src="Text/Section0017.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-11" playOrder="11">
+                    <navLabel>
+                        <text>LA CAJA AZUL</text>
+                    </navLabel>
+                    <content src="Text/Section0017.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-12" playOrder="12">
+                <navLabel>
+                    <text>3 El abandono de los estudios</text>
+                </navLabel>
+                <content src="Text/Section0018.xhtml"/>
+                <navPoint id="navPoint-13" playOrder="13">
+                    <navLabel>
+                        <text>CHRISANN BRENNAN</text>
+                    </navLabel>
+                    <content src="Text/Section0019.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-14" playOrder="14">
+                    <navLabel>
+                        <text>EL REED COLLEGE</text>
+                    </navLabel>
+                    <content src="Text/Section0019.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-15" playOrder="15">
+                    <navLabel>
+                        <text>ROBERT FRIEDLAND</text>
+                    </navLabel>
+                    <content src="Text/Section0019.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-16" playOrder="16">
+                    <navLabel>
+                        <text>... Y ABANDONA</text>
+                    </navLabel>
+                    <content src="Text/Section0019.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-17" playOrder="17">
+                <navLabel>
+                    <text>4 Atari y la India</text>
+                </navLabel>
+                <content src="Text/Section0020.xhtml"/>
+                <navPoint id="navPoint-18" playOrder="18">
+                    <navLabel>
+                        <text>ATARI</text>
+                    </navLabel>
+                    <content src="Text/Section0021.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-19" playOrder="19">
+                    <navLabel>
+                        <text>LA INDIA</text>
+                    </navLabel>
+                    <content src="Text/Section0021.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-20" playOrder="20">
+                    <navLabel>
+                        <text>LA BÚSQUEDA</text>
+                    </navLabel>
+                    <content src="Text/Section0021.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-21" playOrder="21">
+                    <navLabel>
+                        <text>FUGA</text>
+                    </navLabel>
+                    <content src="Text/Section0021.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-22" playOrder="22">
+                <navLabel>
+                    <text>5 El Apple I</text>
+                </navLabel>
+                <content src="Text/Section0022.xhtml"/>
+                <navPoint id="navPoint-23" playOrder="23">
+                    <navLabel>
+                        <text>MÁQUINAS DE AMANTE BELLEZA</text>
+                    </navLabel>
+                    <content src="Text/Section0023.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-24" playOrder="24">
+                    <navLabel>
+                        <text>EL HOMEBREW COMPUTER CLUB</text>
+                    </navLabel>
+                    <content src="Text/Section0023.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-25" playOrder="25">
+                    <navLabel>
+                        <text>EL NACIMIENTO DE APPLE</text>
+                    </navLabel>
+                    <content src="Text/Section0023.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-26" playOrder="26">
+                    <navLabel>
+                        <text>EL GRUPO DEL GARAJE</text>
+                    </navLabel>
+                    <content src="Text/Section0023.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-27" playOrder="27">
+                <navLabel>
+                    <text>6 El Apple II</text>
+                </navLabel>
+                <content src="Text/Section0024.xhtml"/>
+                <navPoint id="navPoint-28" playOrder="28">
+                    <navLabel>
+                        <text>UN PAQUETE INTEGRADO</text>
+                    </navLabel>
+                    <content src="Text/Section0025.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-29" playOrder="29">
+                    <navLabel>
+                        <text>MIKE MARKKULA</text>
+                    </navLabel>
+                    <content src="Text/Section0025.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-30" playOrder="30">
+                    <navLabel>
+                        <text>REGIS MCKENNA</text>
+                    </navLabel>
+                    <content src="Text/Section0025.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-31" playOrder="31">
+                    <navLabel>
+                        <text>LA PRIMERA Y ESPECTACULAR PRESENTACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0025.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-32" playOrder="32">
+                    <navLabel>
+                        <text>MIKE SCOTT</text>
+                    </navLabel>
+                    <content src="Text/Section0025.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-33" playOrder="33">
+                <navLabel>
+                    <text>7 Chrisann y Lisa</text>
+                </navLabel>
+                <content src="Text/Section0026.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-34" playOrder="34">
+                <navLabel>
+                    <text>8 Xerox y Lisa</text>
+                </navLabel>
+                <content src="Text/Section0028.xhtml"/>
+                <navPoint id="navPoint-35" playOrder="35">
+                    <navLabel>
+                        <text>UN NUEVO BEBÉ</text>
+                    </navLabel>
+                    <content src="Text/Section0029.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-36" playOrder="36">
+                    <navLabel>
+                        <text>EL XEROX PARC</text>
+                    </navLabel>
+                    <content src="Text/Section0029.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-37" playOrder="37">
+                    <navLabel>
+                        <text>«LOS ARTISTAS GENIALES ROBAN»</text>
+                    </navLabel>
+                    <content src="Text/Section0029.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-38" playOrder="38">
+                <navLabel>
+                    <text>9 La salida a Bolsa</text>
+                </navLabel>
+                <content src="Text/Section0030.xhtml"/>
+                <navPoint id="navPoint-39" playOrder="39">
+                    <navLabel>
+                        <text>OPCIONES</text>
+                    </navLabel>
+                    <content src="Text/Section0031.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-40" playOrder="40">
+                    <navLabel>
+                        <text>MUCHACHO, ERES UN HOMBRE RICO</text>
+                    </navLabel>
+                    <content src="Text/Section0031.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-41" playOrder="41">
+                <navLabel>
+                    <text>10 El nacimiento del Mac</text>
+                </navLabel>
+                <content src="Text/Section0032.xhtml"/>
+                <navPoint id="navPoint-42" playOrder="42">
+                    <navLabel>
+                        <text>EL BEBÉ DE JEF RASKIN</text>
+                    </navLabel>
+                    <content src="Text/Section0033.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-43" playOrder="43">
+                    <navLabel>
+                        <text>LAS TORRES TEXACO</text>
+                    </navLabel>
+                    <content src="Text/Section0033.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-44" playOrder="44">
+                <navLabel>
+                    <text>11 El campo de distorsión de la realidad</text>
+                </navLabel>
+                <content src="Text/Section0034.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-45" playOrder="45">
+                <navLabel>
+                    <text>12 El diseño</text>
+                </navLabel>
+                <content src="Text/Section0036.xhtml"/>
+                <navPoint id="navPoint-46" playOrder="46">
+                    <navLabel>
+                        <text>UNA ESTÉTICA BAUHAUS</text>
+                    </navLabel>
+                    <content src="Text/Section0037.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-47" playOrder="47">
+                    <navLabel>
+                        <text>COMO UN PORSCHE</text>
+                    </navLabel>
+                    <content src="Text/Section0037.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-48" playOrder="48">
+                <navLabel>
+                    <text>13 La construcción del Mac</text>
+                </navLabel>
+                <content src="Text/Section0038.xhtml"/>
+                <navPoint id="navPoint-49" playOrder="49">
+                    <navLabel>
+                        <text>COMPETENCIA</text>
+                    </navLabel>
+                    <content src="Text/Section0039.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-50" playOrder="50">
+                    <navLabel>
+                        <text>CONTROL ABSOLUTO</text>
+                    </navLabel>
+                    <content src="Text/Section0039.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-51" playOrder="51">
+                    <navLabel>
+                        <text>LA «MÁQUINA DEL AÑO»</text>
+                    </navLabel>
+                    <content src="Text/Section0039.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-52" playOrder="52">
+                    <navLabel>
+                        <text>¡SEAMOS PIRATAS!</text>
+                    </navLabel>
+                    <content src="Text/Section0039.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-53" playOrder="53">
+                <navLabel>
+                    <text>14 La llegada de Sculley</text>
+                </navLabel>
+                <content src="Text/Section0040.xhtml"/>
+                <navPoint id="navPoint-54" playOrder="54">
+                    <navLabel>
+                        <text>EL CORTEJO</text>
+                    </navLabel>
+                    <content src="Text/Section0041.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-55" playOrder="55">
+                    <navLabel>
+                        <text>LA LUNA DE MIEL</text>
+                    </navLabel>
+                    <content src="Text/Section0041.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-56" playOrder="56">
+                <navLabel>
+                    <text>15 La presentación</text>
+                </navLabel>
+                <content src="Text/Section0042.xhtml"/>
+                <navPoint id="navPoint-57" playOrder="57">
+                    <navLabel>
+                        <text>LOS AUTÉNTICOS ARTISTAS ACABAN SUS PRODUCTOS</text>
+                    </navLabel>
+                    <content src="Text/Section0043.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-58" playOrder="58">
+                    <navLabel>
+                        <text>EL ANUNCIO DE 1984</text>
+                    </navLabel>
+                    <content src="Text/Section0043.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-59" playOrder="59">
+                    <navLabel>
+                        <text>ESTALLIDO PUBLICITARIO</text>
+                    </navLabel>
+                    <content src="Text/Section0043.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-60" playOrder="60">
+                    <navLabel>
+                        <text>24 DE ENERO DE 1984: LA PRESENTACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0043.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-61" playOrder="61">
+                <navLabel>
+                    <text>16 Gates y Jobs</text>
+                </navLabel>
+                <content src="Text/Section0044.xhtml"/>
+                <navPoint id="navPoint-62" playOrder="62">
+                    <navLabel>
+                        <text>LA SOCIEDAD DEL MACINTOSH</text>
+                    </navLabel>
+                    <content src="Text/Section0045.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-63" playOrder="63">
+                    <navLabel>
+                        <text>LA BATALLA DE LAS INTERFACES GRÁFICAS DE USUARIO</text>
+                    </navLabel>
+                    <content src="Text/Section0045.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-64" playOrder="64">
+                <navLabel>
+                    <text>17 Ícaro</text>
+                </navLabel>
+                <content src="Text/Section0046.xhtml"/>
+                <navPoint id="navPoint-65" playOrder="65">
+                    <navLabel>
+                        <text>VOLANDO ALTO</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-66" playOrder="66">
+                    <navLabel>
+                        <text>LA CAÍDA</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-67" playOrder="67">
+                    <navLabel>
+                        <text>TREINTA AÑOS</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-68" playOrder="68">
+                    <navLabel>
+                        <text>ÉXODO</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-69" playOrder="69">
+                    <navLabel>
+                        <text>PRIMAVERA DE 1985: EL ENFRENTAMIENTO</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_6"/>
+                </navPoint>
+                <navPoint id="navPoint-70" playOrder="70">
+                    <navLabel>
+                        <text>TRAMANDO UN GOLPE</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_7"/>
+                </navPoint>
+                <navPoint id="navPoint-71" playOrder="71">
+                    <navLabel>
+                        <text>1985: SIETE DÍAS DE MAYO</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_8"/>
+                </navPoint>
+                <navPoint id="navPoint-72" playOrder="72">
+                    <navLabel>
+                        <text>DEAMBULANDO POR EL MUNDO</text>
+                    </navLabel>
+                    <content src="Text/Section0047.xhtml#heading_id_9"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-73" playOrder="73">
+                <navLabel>
+                    <text>18 NeXT</text>
+                </navLabel>
+                <content src="Text/Section0048.xhtml"/>
+                <navPoint id="navPoint-74" playOrder="74">
+                    <navLabel>
+                        <text>LOS PIRATAS ABANDONAN EL BARCO</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-75" playOrder="75">
+                    <navLabel>
+                        <text>POR SU CUENTA</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-76" playOrder="76">
+                    <navLabel>
+                        <text>EL ORDENADOR</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-77" playOrder="77">
+                    <navLabel>
+                        <text>PEROT AL RESCATE</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-78" playOrder="78">
+                    <navLabel>
+                        <text>GATES Y NEXT</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml#heading_id_6"/>
+                </navPoint>
+                <navPoint id="navPoint-79" playOrder="79">
+                    <navLabel>
+                        <text>IBM</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml#heading_id_7"/>
+                </navPoint>
+                <navPoint id="navPoint-80" playOrder="80">
+                    <navLabel>
+                        <text>OCTUBRE DE 1988: LA PRESENTACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0049.xhtml#heading_id_8"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-81" playOrder="81">
+                <navLabel>
+                    <text>19 Pixar</text>
+                </navLabel>
+                <content src="Text/Section0050.xhtml"/>
+                <navPoint id="navPoint-82" playOrder="82">
+                    <navLabel>
+                        <text>EL DEPARTAMENTO DE INFORMÁTICA DE LUCASFILM</text>
+                    </navLabel>
+                    <content src="Text/Section0051.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-83" playOrder="83">
+                    <navLabel>
+                        <text>ANIMACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0051.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-84" playOrder="84">
+                    <navLabel>
+                        <text>«TIN TOY»</text>
+                    </navLabel>
+                    <content src="Text/Section0051.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-85" playOrder="85">
+                <navLabel>
+                    <text>20 Un tipo corriente</text>
+                </navLabel>
+                <content src="Text/Section0052.xhtml"/>
+                <navPoint id="navPoint-86" playOrder="86">
+                    <navLabel>
+                        <text>JOAN BAEZ</text>
+                    </navLabel>
+                    <content src="Text/Section0053.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-87" playOrder="87">
+                    <navLabel>
+                        <text>EN BUSCA DE JOANNE Y MONA</text>
+                    </navLabel>
+                    <content src="Text/Section0053.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-88" playOrder="88">
+                    <navLabel>
+                        <text>EL PADRE PERDIDO</text>
+                    </navLabel>
+                    <content src="Text/Section0053.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-89" playOrder="89">
+                    <navLabel>
+                        <text>LISA</text>
+                    </navLabel>
+                    <content src="Text/Section0053.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-90" playOrder="90">
+                    <navLabel>
+                        <text>EL ROMÁNTICO</text>
+                    </navLabel>
+                    <content src="Text/Section0053.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-91" playOrder="91">
+                <navLabel>
+                    <text>21 Hombre de familia</text>
+                </navLabel>
+                <content src="Text/Section0054.xhtml"/>
+                <navPoint id="navPoint-92" playOrder="92">
+                    <navLabel>
+                        <text>LAURENE POWELL</text>
+                    </navLabel>
+                    <content src="Text/Section0055.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-93" playOrder="93">
+                    <navLabel>
+                        <text>18 DE MARZO DE 1991: LA BODA</text>
+                    </navLabel>
+                    <content src="Text/Section0055.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-94" playOrder="94">
+                    <navLabel>
+                        <text>UN HOGAR FAMILIAR</text>
+                    </navLabel>
+                    <content src="Text/Section0055.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-95" playOrder="95">
+                    <navLabel>
+                        <text>LISA SE MUDA</text>
+                    </navLabel>
+                    <content src="Text/Section0055.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-96" playOrder="96">
+                    <navLabel>
+                        <text>NIÑOS</text>
+                    </navLabel>
+                    <content src="Text/Section0055.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-97" playOrder="97">
+                <navLabel>
+                    <text>22 Toy Story</text>
+                </navLabel>
+                <content src="Text/Section0056.xhtml"/>
+                <navPoint id="navPoint-98" playOrder="98">
+                    <navLabel>
+                        <text>JEFFREY KATZENBERG</text>
+                    </navLabel>
+                    <content src="Text/Section0057.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-99" playOrder="99">
+                    <navLabel>
+                        <text>¡CORTEN!</text>
+                    </navLabel>
+                    <content src="Text/Section0057.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-100" playOrder="100">
+                    <navLabel>
+                        <text>¡HASTA EL INFINITO!</text>
+                    </navLabel>
+                    <content src="Text/Section0057.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-101" playOrder="101">
+                <navLabel>
+                    <text>23 La segunda venida</text>
+                </navLabel>
+                <content src="Text/Section0058.xhtml"/>
+                <navPoint id="navPoint-102" playOrder="102">
+                    <navLabel>
+                        <text>TODO SE DESMORONA</text>
+                    </navLabel>
+                    <content src="Text/Section0059.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-103" playOrder="103">
+                    <navLabel>
+                        <text>LA CAÍDA DE APPLE</text>
+                    </navLabel>
+                    <content src="Text/Section0059.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-104" playOrder="104">
+                    <navLabel>
+                        <text>ARRASTRÁNDOSE HACIA CUPERTINO</text>
+                    </navLabel>
+                    <content src="Text/Section0059.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-105" playOrder="105">
+                <navLabel>
+                    <text>24 La restauración</text>
+                </navLabel>
+                <content src="Text/Section0060.xhtml"/>
+                <navPoint id="navPoint-106" playOrder="106">
+                    <navLabel>
+                        <text>RONDANDO ENTRE BASTIDORES</text>
+                    </navLabel>
+                    <content src="Text/Section0061.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-107" playOrder="107">
+                    <navLabel>
+                        <text>MUTIS DE AMELIO</text>
+                    </navLabel>
+                    <content src="Text/Section0061.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-108" playOrder="108">
+                    <navLabel>
+                        <text>AGOSTO DE 1997: LA MACWORLD DE BOSTON</text>
+                    </navLabel>
+                    <content src="Text/Section0061.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-109" playOrder="109">
+                    <navLabel>
+                        <text>EL PACTO CON MICROSOFT</text>
+                    </navLabel>
+                    <content src="Text/Section0061.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-110" playOrder="110">
+                <navLabel>
+                    <text>25 Piensa diferente</text>
+                </navLabel>
+                <content src="Text/Section0062.xhtml"/>
+                <navPoint id="navPoint-111" playOrder="111">
+                    <navLabel>
+                        <text>UN HOMENAJE A LOS LOCOS</text>
+                    </navLabel>
+                    <content src="Text/Section0063.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-112" playOrder="112">
+                    <navLabel>
+                        <text>ICEO</text>
+                    </navLabel>
+                    <content src="Text/Section0063.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-113" playOrder="113">
+                    <navLabel>
+                        <text>EL FIN DE LOS CLÓNICOS</text>
+                    </navLabel>
+                    <content src="Text/Section0063.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-114" playOrder="114">
+                    <navLabel>
+                        <text>REVISIÓN DE LA LÍNEA DE PRODUCTOS</text>
+                    </navLabel>
+                    <content src="Text/Section0063.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-115" playOrder="115">
+                <navLabel>
+                    <text>26 Principios de diseño</text>
+                </navLabel>
+                <content src="Text/Section0064.xhtml"/>
+                <navPoint id="navPoint-116" playOrder="116">
+                    <navLabel>
+                        <text>JONY IVE</text>
+                    </navLabel>
+                    <content src="Text/Section0065.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-117" playOrder="117">
+                    <navLabel>
+                        <text>DENTRO DEL ESTUDIO</text>
+                    </navLabel>
+                    <content src="Text/Section0065.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-118" playOrder="118">
+                <navLabel>
+                    <text>27 El iMac</text>
+                </navLabel>
+                <content src="Text/Section0066.xhtml"/>
+                <navPoint id="navPoint-119" playOrder="119">
+                    <navLabel>
+                        <text>REGRESO AL FUTURO</text>
+                    </navLabel>
+                    <content src="Text/Section0067.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-120" playOrder="120">
+                    <navLabel>
+                        <text>6 DE MAYO DE 1998: LA PRESENTACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0067.xhtml#heading_id_3"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-121" playOrder="121">
+                <navLabel>
+                    <text>28 Consejero delegado</text>
+                </navLabel>
+                <content src="Text/Section0068.xhtml"/>
+                <navPoint id="navPoint-122" playOrder="122">
+                    <navLabel>
+                        <text>TIM COOK</text>
+                    </navLabel>
+                    <content src="Text/Section0069.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-123" playOrder="123">
+                    <navLabel>
+                        <text>CUELLOS VUELTOS Y TRABAJO EN EQUIPO</text>
+                    </navLabel>
+                    <content src="Text/Section0069.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-124" playOrder="124">
+                    <navLabel>
+                        <text>EMPRESARIO TEATRAL</text>
+                    </navLabel>
+                    <content src="Text/Section0069.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-125" playOrder="125">
+                    <navLabel>
+                        <text>DE CONSEJERO DELEGADO EN FUNCIONES A DEFINITIVO</text>
+                    </navLabel>
+                    <content src="Text/Section0069.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-126" playOrder="126">
+                <navLabel>
+                    <text>29 Las tiendas</text>
+                </navLabel>
+                <content src="Text/Section0070.xhtml"/>
+                <navPoint id="navPoint-127" playOrder="127">
+                    <navLabel>
+                        <text>LA EXPERIENCIA DEL CLIENTE</text>
+                    </navLabel>
+                    <content src="Text/Section0071.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-128" playOrder="128">
+                    <navLabel>
+                        <text>EL PROTOTIPO</text>
+                    </navLabel>
+                    <content src="Text/Section0071.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-129" playOrder="129">
+                    <navLabel>
+                        <text>MADERA, PIEDRA, ACERO, CRISTAL</text>
+                    </navLabel>
+                    <content src="Text/Section0071.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-130" playOrder="130">
+                <navLabel>
+                    <text>30 El centro digital</text>
+                </navLabel>
+                <content src="Text/Section0072.xhtml"/>
+                <navPoint id="navPoint-131" playOrder="131">
+                    <navLabel>
+                        <text>UNIENDO LOS PUNTOS</text>
+                    </navLabel>
+                    <content src="Text/Section0073.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-132" playOrder="132">
+                    <navLabel>
+                        <text>FIREWIRE</text>
+                    </navLabel>
+                    <content src="Text/Section0073.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-133" playOrder="133">
+                    <navLabel>
+                        <text>ITUNES</text>
+                    </navLabel>
+                    <content src="Text/Section0073.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-134" playOrder="134">
+                    <navLabel>
+                        <text>EL IPOD</text>
+                    </navLabel>
+                    <content src="Text/Section0073.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-135" playOrder="135">
+                    <navLabel>
+                        <text>«¡ESO ES!»</text>
+                    </navLabel>
+                    <content src="Text/Section0073.xhtml#heading_id_6"/>
+                </navPoint>
+                <navPoint id="navPoint-136" playOrder="136">
+                    <navLabel>
+                        <text>LA BLANCURA DE LA BALLENA</text>
+                    </navLabel>
+                    <content src="Text/Section0073.xhtml#heading_id_7"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-137" playOrder="137">
+                <navLabel>
+                    <text>31 La tienda iTunes</text>
+                </navLabel>
+                <content src="Text/Section0074.xhtml"/>
+                <navPoint id="navPoint-138" playOrder="138">
+                    <navLabel>
+                        <text>WARNER MUSIC</text>
+                    </navLabel>
+                    <content src="Text/Section0075.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-139" playOrder="139">
+                    <navLabel>
+                        <text>UNA JAULA DE GRILLOS</text>
+                    </navLabel>
+                    <content src="Text/Section0075.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-140" playOrder="140">
+                    <navLabel>
+                        <text>MICROSOFT</text>
+                    </navLabel>
+                    <content src="Text/Section0075.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-141" playOrder="141">
+                    <navLabel>
+                        <text>MR. TAMBOURINE MAN</text>
+                    </navLabel>
+                    <content src="Text/Section0075.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-142" playOrder="142">
+                <navLabel>
+                    <text>32 El músico</text>
+                </navLabel>
+                <content src="Text/Section0076.xhtml"/>
+                <navPoint id="navPoint-143" playOrder="143">
+                    <navLabel>
+                        <text>¿QUÉ LLEVAS EN EL IPOD?</text>
+                    </navLabel>
+                    <content src="Text/Section0077.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-144" playOrder="144">
+                    <navLabel>
+                        <text>BOB DYLAN</text>
+                    </navLabel>
+                    <content src="Text/Section0077.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-145" playOrder="145">
+                    <navLabel>
+                        <text>LOS BEATLES</text>
+                    </navLabel>
+                    <content src="Text/Section0077.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-146" playOrder="146">
+                    <navLabel>
+                        <text>BONO</text>
+                    </navLabel>
+                    <content src="Text/Section0077.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-147" playOrder="147">
+                    <navLabel>
+                        <text>YO-YO MA</text>
+                    </navLabel>
+                    <content src="Text/Section0077.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-148" playOrder="148">
+                <navLabel>
+                    <text>33 Los amigos de Pixar</text>
+                </navLabel>
+                <content src="Text/Section0078.xhtml"/>
+                <navPoint id="navPoint-149" playOrder="149">
+                    <navLabel>
+                        <text>«BICHOS»</text>
+                    </navLabel>
+                    <content src="Text/Section0079.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-150" playOrder="150">
+                    <navLabel>
+                        <text>LA PELÍCULA DE STEVE</text>
+                    </navLabel>
+                    <content src="Text/Section0079.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-151" playOrder="151">
+                    <navLabel>
+                        <text>EL DIVORCIO</text>
+                    </navLabel>
+                    <content src="Text/Section0079.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-152" playOrder="152">
+                <navLabel>
+                    <text>34 Los Macs del siglo XXI</text>
+                </navLabel>
+                <content src="Text/Section0080.xhtml"/>
+                <navPoint id="navPoint-153" playOrder="153">
+                    <navLabel>
+                        <text>ALMEJAS, CUBITOS DE HIELO Y GIRASOLES</text>
+                    </navLabel>
+                    <content src="Text/Section0081.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-154" playOrder="154">
+                    <navLabel>
+                        <text>INTEL INSIDE</text>
+                    </navLabel>
+                    <content src="Text/Section0081.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-155" playOrder="155">
+                    <navLabel>
+                        <text>OPCIONES SOBRE ACCIONES</text>
+                    </navLabel>
+                    <content src="Text/Section0081.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-156" playOrder="156">
+                <navLabel>
+                    <text>35 Primer asalto</text>
+                </navLabel>
+                <content src="Text/Section0082.xhtml"/>
+                <navPoint id="navPoint-157" playOrder="157">
+                    <navLabel>
+                        <text>CÁNCER</text>
+                    </navLabel>
+                    <content src="Text/Section0083.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-158" playOrder="158">
+                    <navLabel>
+                        <text>LA CEREMONIA DE GRADUACIÓN DE STANFORD</text>
+                    </navLabel>
+                    <content src="Text/Section0083.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-159" playOrder="159">
+                    <navLabel>
+                        <text>UN LEÓN A LOS CINCUENTA</text>
+                    </navLabel>
+                    <content src="Text/Section0083.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-160" playOrder="160">
+                <navLabel>
+                    <text>36 El iPhone</text>
+                </navLabel>
+                <content src="Text/Section0084.xhtml"/>
+                <navPoint id="navPoint-161" playOrder="161">
+                    <navLabel>
+                        <text>UN IPOD QUE REALIZA LLAMADAS</text>
+                    </navLabel>
+                    <content src="Text/Section0085.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-162" playOrder="162">
+                    <navLabel>
+                        <text>MULTITÁCTIL</text>
+                    </navLabel>
+                    <content src="Text/Section0085.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-163" playOrder="163">
+                    <navLabel>
+                        <text>CRISTAL GORILA</text>
+                    </navLabel>
+                    <content src="Text/Section0085.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-164" playOrder="164">
+                    <navLabel>
+                        <text>EL DISEÑO</text>
+                    </navLabel>
+                    <content src="Text/Section0085.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-165" playOrder="165">
+                    <navLabel>
+                        <text>LA PRESENTACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0085.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-166" playOrder="166">
+                <navLabel>
+                    <text>37 Segundo asalto</text>
+                </navLabel>
+                <content src="Text/Section0086.xhtml"/>
+                <navPoint id="navPoint-167" playOrder="167">
+                    <navLabel>
+                        <text>LAS BATALLAS DE 2008</text>
+                    </navLabel>
+                    <content src="Text/Section0087.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-168" playOrder="168">
+                    <navLabel>
+                        <text>MEMPHIS</text>
+                    </navLabel>
+                    <content src="Text/Section0087.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-169" playOrder="169">
+                    <navLabel>
+                        <text>REGRESO</text>
+                    </navLabel>
+                    <content src="Text/Section0087.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-170" playOrder="170">
+                <navLabel>
+                    <text>38 El iPad</text>
+                </navLabel>
+                <content src="Text/Section0088.xhtml"/>
+                <navPoint id="navPoint-171" playOrder="171">
+                    <navLabel>
+                        <text>DICES QUE QUIERES UNA REVOLUCIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0089.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-172" playOrder="172">
+                    <navLabel>
+                        <text>ENERO DE 2010: LA PRESENTACIÓN</text>
+                    </navLabel>
+                    <content src="Text/Section0089.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-173" playOrder="173">
+                    <navLabel>
+                        <text>PUBLICIDAD</text>
+                    </navLabel>
+                    <content src="Text/Section0089.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-174" playOrder="174">
+                    <navLabel>
+                        <text>APLICACIONES</text>
+                    </navLabel>
+                    <content src="Text/Section0089.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-175" playOrder="175">
+                    <navLabel>
+                        <text>EDICIÓN Y PERIODISMO</text>
+                    </navLabel>
+                    <content src="Text/Section0089.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-176" playOrder="176">
+                <navLabel>
+                    <text>39 Nuevas batallas</text>
+                </navLabel>
+                <content src="Text/Section0090.xhtml"/>
+                <navPoint id="navPoint-177" playOrder="177">
+                    <navLabel>
+                        <text>GOOGLE: SISTEMA ABIERTO CONTRA SISTEMA CERRADO</text>
+                    </navLabel>
+                    <content src="Text/Section0091.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-178" playOrder="178">
+                    <navLabel>
+                        <text>FLASH, LA APP STORE Y EL CONTROL</text>
+                    </navLabel>
+                    <content src="Text/Section0091.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-179" playOrder="179">
+                    <navLabel>
+                        <text>«ANTENAGATE»: DISEÑO CONTRA INGENIERÍA</text>
+                    </navLabel>
+                    <content src="Text/Section0091.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-180" playOrder="180">
+                    <navLabel>
+                        <text>AQUÍ VIENE EL SOL</text>
+                    </navLabel>
+                    <content src="Text/Section0091.xhtml#heading_id_5"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-181" playOrder="181">
+                <navLabel>
+                    <text>40 Hasta el infinito</text>
+                </navLabel>
+                <content src="Text/Section0092.xhtml"/>
+                <navPoint id="navPoint-182" playOrder="182">
+                    <navLabel>
+                        <text>EL IPAD 2</text>
+                    </navLabel>
+                    <content src="Text/Section0093.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-183" playOrder="183">
+                    <navLabel>
+                        <text>ICLOUD</text>
+                    </navLabel>
+                    <content src="Text/Section0093.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-184" playOrder="184">
+                    <navLabel>
+                        <text>UN NUEVO CAMPUS</text>
+                    </navLabel>
+                    <content src="Text/Section0093.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-185" playOrder="185">
+                <navLabel>
+                    <text>41 Tercer asalto</text>
+                </navLabel>
+                <content src="Text/Section0094.xhtml"/>
+                <navPoint id="navPoint-186" playOrder="186">
+                    <navLabel>
+                        <text>LAZOS FAMILIARES</text>
+                    </navLabel>
+                    <content src="Text/Section0095.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-187" playOrder="187">
+                    <navLabel>
+                        <text>EL PRESIDENTE OBAMA</text>
+                    </navLabel>
+                    <content src="Text/Section0095.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-188" playOrder="188">
+                    <navLabel>
+                        <text>LA TERCERA BAJA MÉDICA, 2011</text>
+                    </navLabel>
+                    <content src="Text/Section0095.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-189" playOrder="189">
+                    <navLabel>
+                        <text>VISITANTES</text>
+                    </navLabel>
+                    <content src="Text/Section0095.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-190" playOrder="190">
+                    <navLabel>
+                        <text>«ESE DÍA HA LLEGADO»</text>
+                    </navLabel>
+                    <content src="Text/Section0095.xhtml#heading_id_6"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-191" playOrder="191">
+                <navLabel>
+                    <text>42 El legado</text>
+                </navLabel>
+                <content src="Text/Section0096.xhtml"/>
+                <navPoint id="navPoint-192" playOrder="192">
+                    <navLabel>
+                        <text>FIREWIRE</text>
+                    </navLabel>
+                    <content src="Text/Section0097.xhtml"/>
+                </navPoint>
+                <navPoint id="navPoint-193" playOrder="193">
+                    <navLabel>
+                        <text>Y UNA COSA MÁS...</text>
+                    </navLabel>
+                    <content src="Text/Section0097.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-194" playOrder="194">
+                    <navLabel>
+                        <text>CODA</text>
+                    </navLabel>
+                    <content src="Text/Section0097.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-195" playOrder="195">
+                <navLabel>
+                    <text>Un álbum de fotos de Diana Walker</text>
+                </navLabel>
+                <content src="Text/Section0098.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-196" playOrder="196">
+                <navLabel>
+                    <text>Del álbum familiar de Jobs</text>
+                </navLabel>
+                <content src="Text/Section0112.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-197" playOrder="197">
+                <navLabel>
+                    <text>Agradecimientos</text>
+                </navLabel>
+                <content src="Text/Section0123.xhtml"/>
+            </navPoint>
+            <navPoint id="navPoint-198" playOrder="198">
+                <navLabel>
+                    <text>Fuentes</text>
+                </navLabel>
+                <content src="Text/Section0124.xhtml"/>
+                <navPoint id="navPoint-199" playOrder="199">
+                    <navLabel>
+                        <text>ENTREVISTAS (REALIZADAS ENTRE 2009 Y 2011)</text>
+                    </navLabel>
+                    <content src="Text/Section0124.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-200" playOrder="200">
+                    <navLabel>
+                        <text>BIBLIOGRAFÍA</text>
+                    </navLabel>
+                    <content src="Text/Section0124.xhtml#heading_id_4"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-201" playOrder="201">
+                <navLabel>
+                    <text>Notas</text>
+                </navLabel>
+                <content src="Text/Section0125.xhtml"/>
+                <navPoint id="navPoint-202" playOrder="202">
+                    <navLabel>
+                        <text>Capítulo 1: Infancia</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_3"/>
+                </navPoint>
+                <navPoint id="navPoint-203" playOrder="203">
+                    <navLabel>
+                        <text>Capítulo 2: La extraña pareja</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_4"/>
+                </navPoint>
+                <navPoint id="navPoint-204" playOrder="204">
+                    <navLabel>
+                        <text>Capítulo 3: El abandono de los estudios</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_5"/>
+                </navPoint>
+                <navPoint id="navPoint-205" playOrder="205">
+                    <navLabel>
+                        <text>Capítulo 4:Atari y la India</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_6"/>
+                </navPoint>
+                <navPoint id="navPoint-206" playOrder="206">
+                    <navLabel>
+                        <text>Capítulo 5: El Apple I</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_7"/>
+                </navPoint>
+                <navPoint id="navPoint-207" playOrder="207">
+                    <navLabel>
+                        <text>Capítulo 6: El Apple II</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_8"/>
+                </navPoint>
+                <navPoint id="navPoint-208" playOrder="208">
+                    <navLabel>
+                        <text>Capítulo 7: Chrisann y Lisa</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_9"/>
+                </navPoint>
+                <navPoint id="navPoint-209" playOrder="209">
+                    <navLabel>
+                        <text>Capítulo 8: Xerox y Lisa</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_10"/>
+                </navPoint>
+                <navPoint id="navPoint-210" playOrder="210">
+                    <navLabel>
+                        <text>Capítulo 9: La salida a bolsa</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_11"/>
+                </navPoint>
+                <navPoint id="navPoint-211" playOrder="211">
+                    <navLabel>
+                        <text>Capítulo 10: El nacimiento del Mac</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_12"/>
+                </navPoint>
+                <navPoint id="navPoint-212" playOrder="212">
+                    <navLabel>
+                        <text>Capítulo 11: El campo de distorsión de la realidad</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_13"/>
+                </navPoint>
+                <navPoint id="navPoint-213" playOrder="213">
+                    <navLabel>
+                        <text>Capítulo 12: El diseño</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_14"/>
+                </navPoint>
+                <navPoint id="navPoint-214" playOrder="214">
+                    <navLabel>
+                        <text>Capítulo 13: La construcción del Mac</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_15"/>
+                </navPoint>
+                <navPoint id="navPoint-215" playOrder="215">
+                    <navLabel>
+                        <text>Capítulo 14: La llegada de Sculley</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_16"/>
+                </navPoint>
+                <navPoint id="navPoint-216" playOrder="216">
+                    <navLabel>
+                        <text>Capítulo 15: La presentación</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_17"/>
+                </navPoint>
+                <navPoint id="navPoint-217" playOrder="217">
+                    <navLabel>
+                        <text>Capítulo 16: Gates y Jobs</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_18"/>
+                </navPoint>
+                <navPoint id="navPoint-218" playOrder="218">
+                    <navLabel>
+                        <text>Capítulo 17: Ícaro</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_19"/>
+                </navPoint>
+                <navPoint id="navPoint-219" playOrder="219">
+                    <navLabel>
+                        <text>Capítulo 18: NeXT</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_20"/>
+                </navPoint>
+                <navPoint id="navPoint-220" playOrder="220">
+                    <navLabel>
+                        <text>Capítulo 19: Pixar</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_21"/>
+                </navPoint>
+                <navPoint id="navPoint-221" playOrder="221">
+                    <navLabel>
+                        <text>Capítulo 20: Un tipo corriente</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_22"/>
+                </navPoint>
+                <navPoint id="navPoint-222" playOrder="222">
+                    <navLabel>
+                        <text>Capítulo 21: «Toy Story»</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_23"/>
+                </navPoint>
+                <navPoint id="navPoint-223" playOrder="223">
+                    <navLabel>
+                        <text>Capítulo 22: La segunda venida</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_24"/>
+                </navPoint>
+                <navPoint id="navPoint-224" playOrder="224">
+                    <navLabel>
+                        <text>Capítulo 23: La restauración</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_25"/>
+                </navPoint>
+                <navPoint id="navPoint-225" playOrder="225">
+                    <navLabel>
+                        <text>Capítulo 24: Piensa diferente</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_26"/>
+                </navPoint>
+                <navPoint id="navPoint-226" playOrder="226">
+                    <navLabel>
+                        <text>Capítulo 25: Principios de diseño</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_27"/>
+                </navPoint>
+                <navPoint id="navPoint-227" playOrder="227">
+                    <navLabel>
+                        <text>Capítulo 26: El iMac</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_28"/>
+                </navPoint>
+                <navPoint id="navPoint-228" playOrder="228">
+                    <navLabel>
+                        <text>Capítulo 27: Consejero delegado</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_29"/>
+                </navPoint>
+                <navPoint id="navPoint-229" playOrder="229">
+                    <navLabel>
+                        <text>Capítulo 28: Las tiendas Apple</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_30"/>
+                </navPoint>
+                <navPoint id="navPoint-230" playOrder="230">
+                    <navLabel>
+                        <text>Capítulo 29: El centro digital</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_31"/>
+                </navPoint>
+                <navPoint id="navPoint-231" playOrder="231">
+                    <navLabel>
+                        <text>Capítulo 30: La tienda iTunes</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_32"/>
+                </navPoint>
+                <navPoint id="navPoint-232" playOrder="232">
+                    <navLabel>
+                        <text>Capítulo 31: El músico</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_33"/>
+                </navPoint>
+                <navPoint id="navPoint-233" playOrder="233">
+                    <navLabel>
+                        <text>Capítulo 32: Los amigos de Pixar</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_34"/>
+                </navPoint>
+                <navPoint id="navPoint-234" playOrder="234">
+                    <navLabel>
+                        <text>Capítulo 33: Los Macs del siglo XXI</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_35"/>
+                </navPoint>
+                <navPoint id="navPoint-235" playOrder="235">
+                    <navLabel>
+                        <text>Capítulo 34: Primer asalto</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_36"/>
+                </navPoint>
+                <navPoint id="navPoint-236" playOrder="236">
+                    <navLabel>
+                        <text>Capítulo 35: El iPhone</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_37"/>
+                </navPoint>
+                <navPoint id="navPoint-237" playOrder="237">
+                    <navLabel>
+                        <text>Capítulo 36: Segundo asalto</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_38"/>
+                </navPoint>
+                <navPoint id="navPoint-238" playOrder="238">
+                    <navLabel>
+                        <text>Capítulo 37: El iPad</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_39"/>
+                </navPoint>
+                <navPoint id="navPoint-239" playOrder="239">
+                    <navLabel>
+                        <text>Capítulo 38: Nuevas batallas</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_40"/>
+                </navPoint>
+                <navPoint id="navPoint-240" playOrder="240">
+                    <navLabel>
+                        <text>Capítulo 39: Hasta el infinito</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_41"/>
+                </navPoint>
+                <navPoint id="navPoint-241" playOrder="241">
+                    <navLabel>
+                        <text>Capítulo 40: Tercer asalto</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_42"/>
+                </navPoint>
+                <navPoint id="navPoint-242" playOrder="242">
+                    <navLabel>
+                        <text>Capítulo 41: Legado</text>
+                    </navLabel>
+                    <content src="Text/Section0125.xhtml#heading_id_43"/>
+                </navPoint>
+            </navPoint>
+            <navPoint id="navPoint-243" playOrder="243">
+                <navLabel>
+                    <text>Notas del traductor</text>
+                </navLabel>
+                <content src="Text/Section0126.xhtml"/>
+            </navPoint>
+        </navPoint>
+    </navMap>
+</ncx>

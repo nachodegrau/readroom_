@@ -1,0 +1,313 @@
+/* 
+    Document   : base
+    Created on : 15-jul-2013, 20:19:32
+    Author     : nachodegrau
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+/* CLASES GLOBALES*/
+
+.loading-container {
+    text-align: center;
+}
+
+.image-disabled {
+    cursor: auto;
+    opacity: 0;
+}
+
+.centered-info {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.black-text {
+    color: black;
+}
+
+/* ESTRUCTURA */
+
+#main-header {
+    margin: 0;
+}
+
+.file::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.file:before {
+  content: 'file';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  padding: 10px 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  margin-top: 10px;
+  height: 43px;
+  width: 100%;
+}
+.file:hover:before {
+  border-color: black;
+}
+.file:active:before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+#left-bar {
+    display: none;
+    width:230px; 
+    left:-230px; 
+    position: fixed;
+    background: #F0F0F0;
+    /*box-shadow: 2px 0 2px #c3c4c3;*/
+    border-right: 1px solid #CCCCCC;
+    z-index: 99;
+    overflow-y: auto;
+    color: #A8A7A7;
+    padding-bottom: 50px;
+}
+
+#close-leftbar {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 25;
+    cursor: pointer;
+}
+
+.section-container {
+    border: none;
+}
+
+#openCloseLeftMenu {
+    left: 200px;
+    width: 10px; 
+    height:10px;
+}
+
+#user-info {
+    margin-top: 10px;
+    background: #F0F0F0;
+    padding-bottom: 10px;
+}
+
+#user-name {
+	vertical-align: middle;
+}
+
+#user-input-form {
+	margin-top: 10px;
+}
+
+#user-input-form textarea {
+	border: none;
+	height: 150px;
+	background: #DBDBDB;
+}
+
+#publish-options {
+	margin-top: 10px;
+}
+
+#publish-options .button {
+	float: right;
+}
+
+#left-bar-chapters ul li {
+    list-style: none;
+    cursor: pointer;
+}
+
+.chapter.current {
+    color: blue;
+}
+
+/* HOME */
+
+#books-catalog {
+    margin-top: 20px;
+}
+
+.book-image {
+    position: relative;
+    cursor: pointer;
+}
+
+#book-image-description, .book-image {
+    text-align: center;
+}
+
+.book-read-button{
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid gray;
+    background: #E0DEDF;
+    opacity: 0.8;
+    display: none;
+}
+
+#book-read-button-description {
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    border: 1px solid gray;
+    background: #E0DEDF;
+    text-align: center;
+    cursor: pointer;
+}
+
+.book-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.book-info div {
+    padding-bottom: 2px;
+    cursor: pointer;
+}
+
+.book-author, #book-author-description {
+    color: gray;
+}
+
+#book-name-description {
+    margin-bottom: 0;
+}
+
+#book-social-description {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+#book-social-description ul{
+    margin-bottom: 0;
+}
+
+#book-social-description ul li{
+    display: inline;
+}
+
+/* READER */
+
+#reader-content {
+    postion: relative;
+}
+
+#reader-header {
+    border-bottom: 1px solid #DBDBDB;
+    margin-top: 10px;
+}
+
+#reader-book-title {
+    text-align: right;
+    color: #DBDBDB;
+    font-size: 16px;
+    margin-bottom: 1px;
+}
+
+#prev-page {
+    cursor: pointer;
+    position: absolute;
+    left: 0px;
+    z-index: 95;
+}
+
+#next-page {
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+    z-index: 95;
+}
+
+#reader {
+    margin-top: 10px;
+}
+
+/* INPUTS POPUP */
+
+#prev-input, #next-input {
+    position: absolute;
+    cursor: pointer;
+    top: 240px;
+    z-index: 10;
+}
+
+#prev-input{
+    left: 8px;
+}
+
+#next-input {
+    right: 8px; 
+}
+
+#inputs-popup {
+    min-height: 500px;
+}
+
+.input-comment {
+    margin-top: 20px;
+}
+
+.input-item {
+    display: none;
+}
+
+.input-quote{
+    text-align: center;
+}
+
+.input-user {
+    background: #E8E6E7;
+    font-weight: bold;
+}
+
+.input-comment {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    
+}
+
+.input-replies {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.input-reply {
+    margin-top: 10px;
+}
+
+.reader-name {
+    font-weight: bold;
+}
+
+.new-reply-form {
+    margin-top: 10px;
+}
+
+.new-reply-form button {
+    margin-top: 5px;
+}
+
+/* LOGIN PAGE */
+#login-page {
+    text-align: center;
+}
+
+#login-with-facebook {
+    width: 100%;
+    margin-bottom: 10px;
+}

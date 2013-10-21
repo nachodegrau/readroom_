@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<package xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="id">
+  <metadata>
+    <dc:rights>Public domain in the USA.</dc:rights>
+    <dc:identifier id="id" opf:scheme="URI">http://www.gutenberg.org/ebooks/27827</dc:identifier>
+    <dc:creator opf:file-as="Vatsyayana">Vatsyayana</dc:creator>
+    <dc:contributor opf:file-as="Bhide, Shivaram Parashuram" opf:role="trl">Shivaram Parashuram Bhide</dc:contributor>
+    <dc:contributor opf:file-as="Burton, Richard Francis, Sir" opf:role="trl">Sir Richard Francis Burton</dc:contributor>
+    <dc:contributor opf:file-as="Indrajit, Bhagavanlal" opf:role="trl">Bhagavanlal Indrajit</dc:contributor>
+    <dc:title>The Kama Sutra of Vatsyayana / Translated From the Sanscrit in Seven Parts With Preface, Introduction and Concluding Remarks</dc:title>
+    <dc:language xsi:type="dcterms:RFC4646">en</dc:language>
+    <dc:subject>Love</dc:subject>
+    <dc:subject>Sex</dc:subject>
+    <dc:date opf:event="publication">2009-01-18</dc:date>
+    <dc:date opf:event="conversion">2012-11-05T16:34:10.011171+00:00</dc:date>
+    <dc:source>http://www.gutenberg.org/files/27827/27827-h/27827-h.htm</dc:source>
+  </metadata>
+  <manifest>
+    <!--Image: 200 x 30 size=1125 -->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@images@illus-001.png" id="item1" media-type="image/png"/>
+    <!--Image: 103 x 36 size=935 -->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@images@illus-003.png" id="item2" media-type="image/png"/>
+    <!--Image: 100 x 29 size=933 -->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@images@illus-008.png" id="item3" media-type="image/png"/>
+    <item href="pgepub.css" id="item4" media-type="text/css"/>
+    <item href="0.css" id="item5" media-type="text/css"/>
+    <item href="1.css" id="item6" media-type="text/css"/>
+    <!--Chunk: size=74370 Split on h2-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-0.htm.html" id="item7" media-type="application/xhtml+xml"/>
+    <!--Chunk: size=75518 Split on h2-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-1.htm.html" id="item8" media-type="application/xhtml+xml"/>
+    <!--Chunk: size=78566 Split on h2-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-2.htm.html" id="item9" media-type="application/xhtml+xml"/>
+    <!--Chunk: size=75866 Split on h2-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-3.htm.html" id="item10" media-type="application/xhtml+xml"/>
+    <!--Chunk: size=82200 Split on p-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-4.htm.html" id="item11" media-type="application/xhtml+xml"/>
+    <!--Chunk: size=62531 Split on div-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-5.htm.html" id="item12" media-type="application/xhtml+xml"/>
+    <!--Chunk: size=34946-->
+    <item href="@public@vhost@g@gutenberg@html@files@27827@27827-h@27827-h-6.htm.html" id="item13" media-type="application/xhtml+xml"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="item7" linear="yes"/>
+    <itemref idref="item8" linear="yes"/>
+    <itemref idref="item9" linear="yes"/>
+    <itemref idref="item10" linear="yes"/>
+    <itemref idref="item11" linear="yes"/>
+    <itemref idref="item12" linear="yes"/>
+    <itemref idref="item13" linear="yes"/>
+  </spine>
+</package>

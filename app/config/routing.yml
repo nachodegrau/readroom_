@@ -1,0 +1,24 @@
+readroom_categories:
+    resource: "@ReadroomCategoriesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+readroom_user:
+    resource: "@ReadroomUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+readroom_input:
+    resource: "@ReadroomInputBundle/Resources/config/routing.yml"
+    prefix:   /
+
+readroom_db:
+    resource: "@ReadroomDBBundle/Resources/config/routing.yml"
+    prefix:   /
+
+readroom_books:
+    resource: "@ReadroomBooksBundle/Resources/config/routing.yml"
+    prefix:   /
+
+readroom_home:
+    resource: "@ReadroomHomeBundle/Resources/config/routing.yml"
+    prefix:   /
+

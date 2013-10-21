@@ -1,0 +1,132 @@
+@charset "utf-8";
+/*  XML blockout */
+body {
+    margin-left: 10%;
+    margin-right: 10%
+    }
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    /* all headings centered */
+    clear: both
+    }
+p {
+    margin-top: 0.75em;
+    text-align: justify;
+    margin-bottom: 0.75em
+    }
+hr {
+    width: 33%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both
+    }
+.fm2 {
+    font-size: 125%;
+    text-align: center;
+    font-weight: bold
+    }
+.fm3 {
+    font-size: 100%;
+    text-align: center;
+    font-weight: bold
+    }
+.author {
+    text-align: right;
+    margin-right: 15%
+    }
+.lowercase {
+    text-transform: lowercase
+    }
+table {
+    margin: auto;
+    text-align: center;
+    width: 35em
+    }
+td.tdl {
+    text-align: left;
+    padding-right: 0.5em
+    }
+td.tdr {
+    text-align: right;
+    padding-left: 0.5em
+    }
+td.tdc {
+    text-align: center
+    }
+td.page {
+    font-size: 90%
+    }
+.tlbrl9 {
+    text-align: left;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    vertical-align: top;
+    padding-left: 0.5em
+    }
+/* left align, left-right borders, top vertical align, .5em left padding */
+.tcb6 {
+    text-align: center;
+    border: 1px solid black;
+    font-variant: small-caps;
+    font-size: 95%;
+    padding-left: 0.75em
+    }
+/* all borders, center align, with 95%-sized small caps */
+.pagenum {
+    /* uncomment the next line for invisible page numbers */
+    /*  visibility: hidden;  */
+    font-size: smaller;
+    text-align: right
+    }
+/* page numbers */
+.blockquot {
+    margin-left: 5%;
+    margin-right: 10%
+    }
+.center {
+    text-align: center
+    }
+.smcap {
+    font-variant: small-caps
+    }
+/* Images */
+.figcenter {
+    margin: auto;
+    text-align: center
+    }
+.transnote {
+    background-color: #ADD8E6;
+    color: inherit;
+    margin: 2em 10% 1em 10%;
+    font-size: 80%;
+    padding: 0.5em 1em 0.5em 1em
+    }
+.transnote p {
+    text-align: left
+    }
+a.correction {
+    text-decoration: none;
+    border-bottom: thin dotted red;
+    color: inherit;
+    background-color: inherit
+    }
+a.correction:hover {
+    text-decoration: none
+    }
+/* Footnotes */
+.footnote {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 0.9em
+    }
+.footnote .label {
+    text-align: right
+    }
+.fnanchor {
+    vertical-align: super;
+    font-size: 0.8em;
+    text-decoration: none
+    }
+/* XML end  */

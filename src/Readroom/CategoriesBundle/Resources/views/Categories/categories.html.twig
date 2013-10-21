@@ -1,0 +1,45 @@
+
+
+<script type="text/html" id="template-categories">
+    
+    
+    <a href="#"> <span>Categorías </span></a>
+
+    <ul class="dropdown">
+        <%  _.each(models, function(category) { %>
+            <% if (category.attributes.parent_id == 0) { %>
+                <% if (category.attributes.children.length == 0) { %>
+                   <li> <a class="category" data-categoryid="<%= category.attributes.id %>"> <%= category.attributes.category_name %> </a> </li>
+                <% } else { %>
+                    <li class="has-dropdown" > <a class="category parent" data-categoryid="<%= category.attributes.id %>" > <%= category.attributes.category_name %> </a>
+                        <ul class="dropdown">
+                        <% _.each(category.attributes.children, function(children) { %>
+                            <li ><a class="category" data-categoryid="<%= children.id %>"><%= children.category_name %></a></li>
+                            <li class="divider"></li>
+
+                        <% }); %>
+                        </ul>
+                    </li>
+                <% } %>
+                <li class="divider"></li>
+            <% } %>
+            
+        <% }); %>
+   </ul>
+        
+        
+ </script>
+{#
+        <li class="has-dropdown">
+
+            <a href="#"> <span>Usuario </span></a>
+
+            <ul class="dropdown">
+                <li><a href="#">Dropdown Option</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Cerrar sesión</a></li>
+            </ul>
+        </li>
+        <li class="divider"></li>
+        <li><a href="#">Cerrar sesión</a></li>#}
+    

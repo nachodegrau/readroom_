@@ -1,0 +1,77 @@
+  body { font-family: "Times New Roman", Times, serif;margin:1em; }
+        h1, h2, h3, h4, h5, h6 { text-align:center; margin-top:35%; -webkit-hyphens:none; }
+                h1 { font-size:2em; }
+                h2 { font-size:1.8em; }
+                h3 { font-size:1.6em; }
+                h4 { font-size:1.4em; }
+                h5 { font-size:1.3em; }
+                h6 { font-size:1.2em; }
+        p { text-align:justify; margin:0; text-indent:1.5em; line-height:1.3em; }
+        a { text-decoration:none; }
+
+        .sans { font-family:"Helvetica Neue", Helvetica, Verdana, Arial, Trebuchet MS, Trebuchet, sans-serif; }
+        .courier { font-family: "Courier", courier; font-weight:bold; }
+        .comic { font-family:"Marker Felt", "Comic sans MS", "Helvetica Neue", Helvetica, Verdana, Arial, Trebuchet MS, Trebuchet, sans-serif; }
+
+        .derecha { text-align:right; }
+        .izquierda { text-align:left; }
+        .centrado { text-align:center; text-indent:0 }
+        .asangre { text-indent:0 }
+        
+        .salto { padding-bottom:2.5em; }
+        .cita { margin:1.5em; }
+        .banner { width:75%; text-align:center; text-indent:0; margin:1.5em auto; padding:0.5em 1em; border:2px solid black; border-left:none; border-right:none; }
+        .bloque { page-break-inside:avoid }
+        .sinmargen { margin:0; }
+        .mayusculas {font-size:0.9em;text-transform:uppercase;}
+        .capital { font-variant:small-caps; }
+        
+        .cubierta { margin:2% auto;max-width:95%;height:95%; }
+                .cubierta img { height:100%; }
+        .sinopsis, .sinopsis p { font-family:"Helvetica Neue", Helvetica, Verdana, Arial, Trebuchet MS, Trebuchet, sans-serif; text-indent:0; }
+        .legal { width:90%; font-size:0.8em; margin:5em 1.5em 0; text-indent:0; }
+                .legal p { text-indent:0; text-align:left; }
+        .intro { margin:5em 0 1.5em; text-indent:0; text-align:right; }
+                .intro p { text-align:right;text-indent:0; }
+        
+        .ePUBmarca, .ePUBtitulo, .ePUBsubtitulo, .ePUBautor, .ePUBv, .ePUBfirma, .ePUBgratis { text-align:center; font-weight:normal; text-indent:0; }
+                .ePUBmarca { text-align:center; }
+                        .ePUBmarca span { display:inline-block;width:10em; margin:3em auto; }
+                        .ePUBmarca img { width:100%; }
+                .ePUBautor { margin-bottom:0.5em; }
+                        .ePUBautor code { font-size:1.2em;color:#999; }
+                .ePUBtitulo { margin:0;font-size:1em;text-align:center; }
+                        .ePUBtitulo code { font-weight:bold;font-size:1.8em; }
+                .ePUBsubtitulo { margin:0.3em 0 0; }
+                        .ePUBsubtitulo code { font-weight:bold;font-size:1em; }
+                .ePUBv, .ePUBv code { color:#5084b8;font-size:0.9em;font-weight:bold;margin:0;margin:3em 0 0; }
+                .ePUBfirma, .ePUBfirma b, .ePUBfirma code { font-size:0.8em;margin:0; }
+                .ePUBfecha { color:#999; }
+                .ePUBgratis { text-align:center; }
+                        .ePUBgratis span { display:inline-block;width:14em;margin:3em auto 0; }
+                        .ePUBgratis img { width:100%; }
+
+        .imagen p, .imagenApoyo p { text-align:center; text-indent:0; }
+        .imagen img, .imagenApoyo img { max-width:100%; max-height:85%; margin-bottom:1.5em; }
+                .imagenApoyo img { max-height:14em; }
+                .imagen .txt { margin:0 4em; }
+
+        .capitulo { margin-top:35%; }
+        
+        h3 { margin:4em 0 0.7em 0; font-size:1.4em; font-weight:normal; line-height:2.2em; text-indent:0; }
+            .subtitulo { text-align:center; text-indent:0; font-size:1.2em; margin-bottom:2.5em; }
+        h4 { margin:2.5em 0 1em 0; font-size:1.2em; text-indent:0; font-weight:normal; text-align:left; border-bottom:1px solid #999; padding-bottom:0.3em; }
+        
+        blockquote { margin:2.5em 1.5em; font-size:0.94em; line-height:1.4em; text-align:justify; text-indent:1.4em; }
+        
+        #personajes { margin-left:1.5em; }
+                #personajes p { text-indent:-1.5em; margin-bottom:1.5em; }
+                #personajes .personaje { font-variant:small-caps; }
+                
+            ol { list-style:lower-alpha; margin-left:1em; }
+            ul { margin:1.5em 0; }
+                    ol li { text-indent:0em; }
+                .smallcaps { font-size:75%; }
+                sup, sub { font-size:0.875em; line-height:0em; margin:0em; padding:0em; }
+
+  .frenchindent { margin-left:1em; text-indent:-1em; }

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('default/css/lib/foundation.min.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('default/css/lib/normalize.css') }}" />
+            <link rel="stylesheet" type="text/css" href="{{ asset('default/css/base.css') }}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+            {% block main_menu %}
+            <div >
+                <nav id="main-header" class="top-bar no-home-structure">
+                    <ul class="title-area" >
+                        <li class="name" >
+                            <h1>
+                                <a href="#">
+                                    Readroom
+                                </a>
+                            </h1>
+                        </li>
+                        <li class="toggle-topbar menu-icon"><a href="#" id="menu-expand"><span>menu</span></a></li>
+                    </ul>
+
+                    <section class="top-bar-section" >
+                        <ul class="left" >
+                            <li class="has-form">
+                                <form >
+                                    <div class="row collapse" >
+
+                                        <div class="large-centered columns">
+                                            <input type="text">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <section class="top-bar-section">
+                        <!-- Right Nav Section -->
+                        <ul class="left">
+                            <li id="categories-menu" class="has-dropdown">
+
+                                
+                            </li>
+
+                        </ul>
+                        
+                    </section>
+                    
+                    <section class="top-bar-section">
+                        <ul class="right">
+                            <li class="divider"></li>
+                            <li id="user-menu" class="has-dropdown">
+
+                            </li>
+                        </ul>
+                    </section>
+                </nav>
+            </div>
+            {% endblock %}
+         {# Barra de la izquierda #}
+         {% block left_menu %}{% endblock %}
+            
+         {# Contenido de la home - Donde irá el listado de libros #}
+         <div id="main-content">
+            {% block home %}{% endblock %}
+         </div> 
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('default/js/lib/custom.modernizr.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/underscore.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/json2.js') }}" ></script>
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script> 
+            <!-- <script type="text/javascript" src="{{ asset('default/js/lib/jquery-1.9.1.js') }}" ></script> -->
+            <script type="text/javascript" src="{{ asset('default/js/lib/modernizr-2.5.3.min.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/backbone.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/foundation.min.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/jquery.validate.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/additional-methods.min.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/URI-1.10.0.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/lib/SimpleReadium.js') }}" ></script>
+            
+            <script type="text/javascript">
+
+                // inicializo la variable javascript princpial desde la que colgará todo el resto de objetos
+                var _readroom = _readroom || {};
+
+                $(document).foundation();
+
+                var currentUser;
+                var currentBook;
+                var userFacebookFunctions;
+                var leftBarWith = 230;
+                var reader;
+                var inputs;
+                var rootUrl = '{{ asset('default/') }}';
+                var rootBooks = '{{ asset('books/') }}';
+                var rootUsers = '{{ asset('readers/') }}';
+                var absoluteUrl = '{{url('readroom_home_homepage')}}';
+                var currentBookJSON = {{currentBook|json_encode|raw}};
+                var currentUserJSON = {{currentUser|json_encode|raw}};
+                var categoriesJSON = {{categories|json_encode|raw}}; 
+     
+            </script>
+            
+            <script type="text/javascript" src="{{ asset('default/js/routers/router.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/models/userModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/models/userHasBooksModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/loginView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/saveUserView.js') }}" ></script>
+            
+            <script type="text/javascript" src="{{ asset('default/js/models/categoryModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/collections/categoriesCollection.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/categoriesView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/userMenuView.js') }}" ></script>
+
+            <script type="text/javascript" src="{{ asset('default/js/models/leftBarModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/leftBarView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/models/bookModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/collections/booksCollection.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/booksCatalogView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/bookDescriptionView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/models/readerModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/readerView.js') }}" ></script>
+            
+            <script type="text/javascript" src="{{ asset('default/js/models/inputModel.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/collections/inputsCollection.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/inputsView.js') }}" ></script>
+            
+            <script type="text/javascript" src="{{ asset('default/js/views/socialView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/chaptersView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/configView.js') }}" ></script>
+            
+            <script type="text/javascript" src="{{ asset('default/js/init.js') }}" ></script>
+            
+        {% endblock %}
+    </body>
+</html>

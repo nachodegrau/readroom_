@@ -1,0 +1,24 @@
+book_show:
+   path: /book
+   defaults: { _controller: ReadroomBooksBundle:Books:showBook }
+   methods: [GET]
+   
+book_save:
+   path: /book
+   defaults: { _controller: ReadroomBooksBundle:Books:addBook }
+   methods: [POST]
+   
+book_update:
+   path: /book
+   defaults: { _controller: ReadroomBooksBundle:Books:updateBook }
+   methods: [PUT]
+   
+book_delete:
+   path: /book
+   defaults: { _controller: ReadroomBooksBundle:Books:deleteBook }
+   methods: [DELETE]
+   
+books_show:
+   path: /books
+   defaults: { _controller: ReadroomBooksBundle:Books:showBooks }
+   methods: [GET]

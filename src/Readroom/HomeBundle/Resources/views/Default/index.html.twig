@@ -1,0 +1,11 @@
+{% extends '::base.html.twig' %}
+{% block left_menu %}
+    {% include 'ReadroomHomeBundle:Leftbar:leftbar.html.twig' %}
+{% endblock %}
+{% block home %}
+    {% include 'ReadroomBooksBundle:Books:books.html.twig' %}
+    {% include 'ReadroomHomeBundle:Reader:reader.html.twig' %}
+    {% include 'ReadroomInputBundle:Input:input.html.twig' %}
+    {% include 'ReadroomUserBundle:User:user.html.twig' %}
+    {% include 'ReadroomCategoriesBundle:Categories:categories.html.twig' %}
+{% endblock %}

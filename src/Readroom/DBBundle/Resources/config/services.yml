@@ -1,0 +1,7 @@
+parameters:
+#    readroom_db.example.class: Readroom\DBBundle\Example
+
+services:
+#    readroom_db.example:
+#        class: %readroom_db.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
