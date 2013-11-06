@@ -112,11 +112,11 @@ _readroom.router = Backbone.Router.extend({
         $("#main-header").show();
         //var topbar = new _readroom.topBarView();
         //topbar.render();
-        if(typeof currentUser.get("id") == "undefined") {
-            var notUserMenuView = new _readroom.notUserMenuView();
+        if(typeof currentUser.get("id") == "undefined" || currentUser.get("id") == null) {
+            var notUserMenuView = new _readroom.notUserMenuView({el: $("#user-menu")});
             notUserMenuView.render();
         } else {
-            var userMenuView = new _readroom.userMenuView({model: currentUser});
+            var userMenuView = new _readroom.userMenuView({model: currentUser, el: $("#user-menu")});
             userMenuView.render();
         }
         

@@ -297,4 +297,24 @@ class Controller extends ContainerAware
 
         return $book;
     }
+    
+    public function inputToArray($input) {
+        
+        $returnInput = array(
+            "id" => $input->getId(),
+            "book_id" => $input->getBook()->getId(),
+            "reader_id" => $input->getReader()->getId(),
+            "reader_name" => $input->getReader()->getReaderName() . " " . $input->getReader()->getReaderSecondName(),
+            "reader_image" => $input->getReader()->getReaderImage(),
+            "input_quote" => $input->getInputQuote(),
+            "input_quote_mini" => substr($input->getInputQuote(),0,100),
+            "comment" => $input->getComment(),
+            "book_spine" => $input->getBookSpine(),
+            "input_date" => $input->getInputDate(),
+            "source" => $input->getSource(),
+            "type" => $input->getType()
+        );
+        
+        return $returnInput;
+    }
 }

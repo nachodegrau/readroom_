@@ -32,7 +32,7 @@ _readroom.inputsCollection = Backbone.Collection.extend({
         this.fetch({
             data: data,
             success: function(data) {
-                those = that;
+                var those = that;
                 $(reader.get("context")).on("click", ".openInputPopup", function() {
                     those.viewInputs(this); 
                 });

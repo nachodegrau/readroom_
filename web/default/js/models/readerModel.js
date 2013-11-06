@@ -129,20 +129,47 @@ _readroom.readerModel = Backbone.Model.extend({
     },
             
     nextPage: function(callback) {
-        this.get("readium").nextPage(function() {});
-        //_readroom.social.setContext();
+        var that = this;
+        this.get("readium").nextPage(function() {
+            // sumo el spine para que sume el spine correcto
+            that.set({currentSpine: that.get("currentSpine") + 1});
+            that.initSocial();
+        });
     },
     
     previousPage: function(callback) {
-        this.get("readium").previousPage(function() {});
-        //_readroom.social.setContext();
+        var that = this;
+        this.get("readium").previousPage(function() {
+            // resto el spine para que busque el iframe correcto
+            that.set({currentSpine: that.get("currentSpine") - 1});
+            that.initSocial();
+        });
     },
     
     initSocial: function(that) {
-        var iframe = $("iframe")[this.get("currentSpine")];
+        var that = this;
+        
+        // Guardo el contexto del iframe en cuestión a partir del spine
+        var iframe = $("iframe.readium-flowing-content")[this.get("currentSpine")];
         var context = $(iframe).contents();
         this.set({context: context});
+        
+        // Añado a la cabecera del iframe el css de los inputs
         this.get("context").find("head").append("<link rel='stylesheet' type='text/css' href='" + rootUrl + "css/social.css' />");
+        
+        // Busco todos los inputs que hay en ese iframe
+        inputs.searchAllInputsByBook(currentBook.get("id"), reader.get("currentSpine"));
+        
+        // Añado el evento de click al icono azul
+        $(this.get("context")).on("click", ".openInputPopup", function() {
+            inputs.viewInputs(this); 
+        });
+        
+        console.log($(this.get("context").find("#heading_id_2")));
+        /*
+        $(this.get("context")).hammer({ prevent_default: true }).on("swipe", "#heading_id_2", function() {
+            alert("swipe");
+        });*/
         
     },
     
@@ -171,7 +198,7 @@ _readroom.readerModel = Backbone.Model.extend({
     },
     
     getSelectedText: function() {
-        var iframe = $("iframe")[this.get("currentSpine")];
+        var iframe = $("iframe.readium-flowing-content")[this.get("currentSpine")];
         var iframeWindow = iframe.contentWindow;
         var iframeDocument = iframe.contentDocument;
         
