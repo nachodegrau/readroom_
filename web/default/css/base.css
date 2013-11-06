@@ -256,29 +256,32 @@ root {
     min-height: 500px;
 }
 
-.input-comment {
-    margin-top: 20px;
-}
-
 .input-item {
     display: none;
 }
 
 .input-quote{
-    text-align: center;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .input-user {
-    background: #E8E6E7;
     font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.input-date {
+    margin-top: 10px;
+    font-size: 12px;
+    color: gray;
 }
 
 .input-comment {
-    margin-top: 10px;
     margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid gray;
-    
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .input-replies {

@@ -9,31 +9,41 @@
         <img width="30px" height="30px" src="{{ asset('default/images/previous_page.png') }}">
     </div>    
     <div class="row">
-        <div class="large-12 columns"> 
-            <a id="close-reveal-input" class="right"> X </a>
-        </div>
-    </div>
-
-    <div class="row">
         <% _.each(models, function(input) { %>
 
             <div id="input-<%= input.attributes.id %>" class="input-item large-12 columns">
                 <div class="row"> 
-                    <div class="input-quote large-12 columns"> 
-                        <h3>" <%= input.attributes.input_quote_mini %> "</h3>
+                    <div class="input-quote large-11 columns"> 
+                        " <%= input.attributes.input_quote_mini %> "
+                    </div>
+            
+                    <div class="large-1 columns"> 
+                        <a id="close-reveal-input" class="right"> X </a>
                     </div>
                 </div>
                 <div class="row">
                     <% if(input.attributes.type == 0) { %>
                     <div class="input-right-column large-12 columns">
-                        <div class="row collapse">
-                            <div class="input-user large-12 columns">
-                                <img width="30" height="30" src="{{ asset('readers/images/') }}<%= input.attributes.reader_image %>"> <%= input.attributes.reader_name %>
+                        <div class="row">
+                            <div class="large-1 columns">
+                                <img width="100%" src="{{ asset('readers/images/') }}<%= input.attributes.reader_image %>">
+                            </div>
+                            <div class="large-11 columns">
+                                <div class="row">
+                                    <div class="input-user  large-12 columns">
+                                        <%= input.attributes.reader_name %>
+                                    </div>
+                                </div>
+                                <div class="input-date row">
+                                    <div class="large-12 columns">
+                                        <%= input.attributes.input_date.date %>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row collapse">
-                            <div class="input-comment large-12 columns">
-                                <p> <%= input.attributes.comment %> </p>
+                            <div class="input-comment large-11 push-1 columns">
+                                <%= input.attributes.comment %>
                             </div>
                         </div>
                     </div>
