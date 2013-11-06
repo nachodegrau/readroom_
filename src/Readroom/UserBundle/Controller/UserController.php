@@ -226,4 +226,15 @@ class UserController extends Controller
         $session->set("userId", $user->getId());
     }
     
+    public function destroySessionAction(Request $request) {
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            $session = $this->getRequest()->getSession();
+            $session->invalidate();
+            $return = json_encode(array("message" => "destroySession"));
+            return new Response($return,200);
+        } else {
+            return new Response("",404);
+        }
+    }
+    
 }

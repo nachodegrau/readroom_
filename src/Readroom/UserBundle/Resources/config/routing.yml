@@ -23,9 +23,9 @@ image_update:
    defaults: { _controller: ReadroomUserBundle:User:chageUserImage }
    methods: [POST]
    
-user_delete:
+session_delete:
    path: /user
-   defaults: { _controller: ReadroomUserBundle:User:deleteUser }
+   defaults: { _controller: ReadroomUserBundle:User:destroySession }
    methods: [DELETE]
    
 users_show:

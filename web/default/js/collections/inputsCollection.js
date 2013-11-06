@@ -26,9 +26,11 @@ _readroom.inputsCollection = Backbone.Collection.extend({
         this.setElement(this.at(this.indexOf(this.getElement()) - 1));
         return this;
     },
+    
+    // Busco todos los inputs de un spine en concreto
     searchAllInputsByBook: function(idBook,spine) {
         var that = this;
-        var data = {idBook: idBook, spine: spine};
+        var data = { idBook: idBook, spine: spine };
         this.fetch({
             data: data,
             success: function(data) {
@@ -43,12 +45,15 @@ _readroom.inputsCollection = Backbone.Collection.extend({
             }
         });
     },
+    
+    // Pongo todos los inputs en el párrafo correspondiente
     setInputsInBook: function() {
-        //console.log(this.length);
         this.each(function(input) {
            input.setInputInBook();
         });
     },
+            
+    // preparo el popup de inputs y lo muestro
     viewInputs: function(ev) {
         // recojo el campo inputs del párrafo comentado que es un string con los id's de los inputs separados por ","
         var inputsData = $(ev).prev().data("inputs");
@@ -60,7 +65,9 @@ _readroom.inputsCollection = Backbone.Collection.extend({
             inputsToView.add(this.get(inputsArray[i]));
         }
         
-        var inputsView = new _readroom.inputsView({el:$("#inputs-popup"), collection:inputsToView, inputs: inputsArray, index: 1});
+        //var inputsView = new _readroom.inputsView({el:$("#inputs-popup"), collection:inputsToView, inputs: inputsArray, index: 1});
+        inputsView.collection = inputsToView;
+        inputsView.setReplies();
         inputsView.render();
         
         $("#input-" + inputsArray[1]).show();

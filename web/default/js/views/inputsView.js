@@ -8,9 +8,10 @@ _readroom.inputsView = Backbone.View.extend({
     events: {
         "click #prev-input": "previousInput",
         "click #next-input": "nextInput",
-        "click .reply-send-button": "saveReply"
+        "click .reply-send-button": "saveReply",
+        "click #close-reveal-input": "closeReveal"
     },
-    initialize: function() {
+    setReplies: function() {
         // Adelanto una posición en array de modelos para que el índice se situe en el primer input
         var nextElement = this.collection.next().getElement();
         
@@ -89,7 +90,10 @@ _readroom.inputsView = Backbone.View.extend({
         var comment = $("#input-" + $(ev.currentTarget).data("idinput") + "-reply-form").find("textarea").val();
         var reply = new _readroom.replyModel({input_id: $(ev.currentTarget).data("idinput"), comment: comment});
         reply.saveInputReply();
-    }
+    },
+   closeReveal: function() {
+       $("#inputs-popup").foundation("reveal", "close");
+   }
 
 });
 
@@ -116,7 +120,7 @@ _readroom.repliesView = Backbone.View.extend({
     template: _.template($("#template-input-replies").html()),
     el: $(".input-replies"),
     initialize: function() {
-        // Adelanto una posición en array de modelos para que el índice se situe en el primer input
+        
     },
     render: function() {
         $(this.el).html(this.template(this.collection));

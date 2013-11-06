@@ -12,10 +12,12 @@ $(function() {
     
     Backbone.emulateJSON = true;
     // creo una instancia del router
-    var router = new _readroom.router;
+    router = new _readroom.router;
 
     // inicializo la entidad history de Backbone para poder uilizar las rutas
     Backbone.history.start();
+    
+    router.initFacebook();
        
 });
 

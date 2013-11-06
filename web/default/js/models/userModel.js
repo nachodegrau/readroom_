@@ -86,6 +86,23 @@ _readroom.userModel = Backbone.Model.extend({
               $("#preview-image-account").attr("src", rootUsers + "images/" + data.image);
               $("#user-image-menu").attr("src", rootUsers + "images/" + data.image);
         });
+    },
+    
+    destroySession: function() {
+        if(currentUser.get("isFacebook") == true) {
+            console.log("Facebook logout");
+            FB.logout();
+        }
+        this.destroy({
+            success: function() {
+                currentUser.set({id: null});
+                router.initUserMenu();
+                location.href = absoluteUrl +"#"; 
+            }, 
+            fail: function() {
+                Console.log("Error al cerrar sesión");
+            }
+        });
     }
 });
 

@@ -4,20 +4,19 @@
     </div>
 </div>
 
-
-        
-
-
 <script type="text/html" id="template-inputs-view">
-    
-<div class="row">
     <div id="prev-input"> 
         <img width="30px" height="30px" src="{{ asset('default/images/previous_page.png') }}">
+    </div>    
+    <div class="row">
+        <div class="large-12 columns"> 
+            <a id="close-reveal-input" class="right"> X </a>
+        </div>
     </div>
-    <div class="input-view large-12 columns">
-        <div class="row">
-            <% _.each(models, function(input){ %>
-            
+
+    <div class="row">
+        <% _.each(models, function(input) { %>
+
             <div id="input-<%= input.attributes.id %>" class="input-item large-12 columns">
                 <div class="row"> 
                     <div class="input-quote large-12 columns"> 
@@ -26,48 +25,46 @@
                 </div>
                 <div class="row">
                     <% if(input.attributes.type == 0) { %>
-                        <div class="input-right-column large-12 columns">
-                            <div class="row collapse">
-                                <div class="input-user large-12 columns">
-                                    <img width="30" height="30" src="{{ asset('readers/images/') }}<%= input.attributes.reader_image %>"> <%= input.attributes.reader_name %>
-
-                                </div>
-                            </div>
-                            <div class="row collapse">
-                                <div class="input-comment large-12 columns">
-                                    <p> <%= input.attributes.comment %> </p>
-                                </div>
+                    <div class="input-right-column large-12 columns">
+                        <div class="row collapse">
+                            <div class="input-user large-12 columns">
+                                <img width="30" height="30" src="{{ asset('readers/images/') }}<%= input.attributes.reader_image %>"> <%= input.attributes.reader_name %>
                             </div>
                         </div>
+                        <div class="row collapse">
+                            <div class="input-comment large-12 columns">
+                                <p> <%= input.attributes.comment %> </p>
+                            </div>
+                        </div>
+                    </div>
                     <% } else { %>
-                        <div class="input-media large-6 columns"> 
-                            <% if(input.attributes.type == 1) { %> 
-                            <img src="{{ asset('inputs/files/') }}<%= input.attributes.source %>" />
-                            <% } else if (input.attributes.type == 2) { %>
-                            <video width="475" controls>
-                                <source src="{{ asset('inputs/files/') }}<%= input.attributes.source %>" type="video/mp4">
-                            </video>
-                            <% } %>
-                        </div>
-                        <div class="input-right-column large-6 columns">
-                            <div class="input-comment row collapse">
-                                <div class="large-1 columns">
-                                    <img width="30" height="30" src="{{ asset('readers/images/') }}<%= input.attributes.reader_image %>"> 
+                    <div class="input-media large-6 columns"> 
+                        <% if(input.attributes.type == 1) { %> 
+                        <img src="{{ asset('inputs/files/') }}<%= input.attributes.source %>" />
+                        <% } else if (input.attributes.type == 2) { %>
+                        <video width="475" controls>
+                            <source src="{{ asset('inputs/files/') }}<%= input.attributes.source %>" type="video/mp4">
+                        </video>
+                        <% } %>
+                    </div>
+                    <div class="input-right-column large-6 columns">
+                        <div class="input-comment row collapse">
+                            <div class="large-1 columns">
+                                <img width="30" height="30" src="{{ asset('readers/images/') }}<%= input.attributes.reader_image %>"> 
+                            </div>
 
-                                </div>
-                           
-                                <div class=" large-11 columns">
-                                    <span class="reader-name"> <%= input.attributes.reader_name %> </span> <%= input.attributes.comment %> 
-                                </div>
+                            <div class=" large-11 columns">
+                                <span class="reader-name"> <%= input.attributes.reader_name %> </span> <%= input.attributes.comment %> 
                             </div>
-                            
-                            <div class="row collapse">
-                                <div id="input-<%= input.attributes.id %>-replies" class="input-replies large-12 columns">
-                                    
-                                </div>
+                        </div>
+
+                        <div class="row collapse">
+                            <div id="input-<%= input.attributes.id %>-replies" class="input-replies large-12 columns">
+
                             </div>
-                            <div class="new-reply-form">
-                                <form id="input-<%= input.attributes.id %>-reply-form" action="javascript:null">
+                        </div>
+                        <div class="new-reply-form">
+                            <form id="input-<%= input.attributes.id %>-reply-form" action="javascript:null">
                                 <div class="row collapse">
 
                                     <div class="input-replies large-12 columns">
@@ -79,20 +76,18 @@
                                         <button class="reply-send-button small right" data-idinput="<%= input.attributes.id %>" > Enviar </button>
                                     </div>
                                 </div>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-                    
-                   <% }  %> 
+                    </div>
+
+                    <% }  %> 
                 </div>
             </div>
             <% }); %>
-        </div>
     </div>
     <div id="next-input">
         <img width="30px" height="30px" src="{{ asset('default/images/next_page.png') }}">
     </div>
-</div>
 
 </script>
 

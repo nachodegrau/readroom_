@@ -77,8 +77,8 @@ _readroom.inputModel = Backbone.Model.extend({
             }
         });
         
-            var afterEl = $elements.next();
-            if(afterEl.attr("class") != "openInputPopup") {
+        var afterEl = $elements.next();
+        if(afterEl.attr("class") != "openInputPopup") {
             $elements.after("<div class='openInputPopup'> <div>inputs</div></div>");
         }
     },
