@@ -292,7 +292,8 @@ class Controller extends ContainerAware
             "reader_id" => $reply->getReader()->getId(),
             "reader_name" => $reply->getReader()->getReaderName(),
             "reader_image" => $reply->getReader()->getReaderImage(),
-            "comment" => $reply->getComent()
+            "comment" => $reply->getComent(),
+            "reply_date" => $reply->getDate()
         );
 
         return $book;

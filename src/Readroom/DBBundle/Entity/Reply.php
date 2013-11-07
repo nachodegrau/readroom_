@@ -23,6 +23,11 @@ class Reply
 	 * @ORM\Column(type="text", nullable=true)
 	 */
 	protected $coment;
+        
+        /**
+	 * @ORM\Column(type="datetime", nullable=true)
+	 */
+	protected $date;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity="Reader", inversedBy="replies")
@@ -84,6 +89,29 @@ class Reply
 	public function getComent()
 	{
 		return $this->coment;
+	}
+        
+        /**
+	 * Set the value of date.
+	 *
+	 * @param string $date
+	 * @return \Readroom\DBBundle\Entity\Reply
+	 */
+	public function setDate($date)
+	{
+		$this->date = $date;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of date.
+	 *
+	 * @return string
+	 */
+	public function getDate()
+	{
+		return $this->date;
 	}
 
 	/**

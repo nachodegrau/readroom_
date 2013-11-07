@@ -8,7 +8,7 @@ _readroom.inputsView = Backbone.View.extend({
     events: {
         "click #prev-input": "previousInput",
         "click #next-input": "nextInput",
-        "keyup .input-replies textarea": "enableSubmit",
+        "keyup .new-reply-form textarea": "enableSubmit",
         "click .reply-send-button": "saveReply",
         "click #close-reveal-input": "closeReveal"
     },

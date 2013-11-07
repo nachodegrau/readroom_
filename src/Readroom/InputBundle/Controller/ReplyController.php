@@ -31,14 +31,14 @@ class ReplyController extends Controller
             $reply->setInput($input);
             $reply->setReader($reader);
             $reply->setComent($request_array->{"comment"});
-          
+            $reply->setDate(new \DateTime('now'));
             // Guardo en la BBDD 
             $em->persist($reply);
             $em->flush();
             
             //$returnInput = $this->inputToArray($input);
-            
-            $return = json_encode(array("id" => $reply->getId(), "reader_image" => $reply->getReader()->getReaderImage(), "reader_name" => $reply->getReader()->getReaderName()));
+            $replyArray = $this->setRepliesArray($reply);
+            $return = json_encode($replyArray);
             return new Response($return,200, array('Content-Type' => 'application/json'));
         } else {
             return new Response("",404);

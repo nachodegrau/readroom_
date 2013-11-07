@@ -59,7 +59,16 @@
                             </div>
 
                             <div class=" large-11 columns">
-                                <span class="reader-name"> <%= input.attributes.reader_name %> </span> <%= input.attributes.comment %> 
+                                <div class="row collapse">
+                                    <div class="large-12 columns">
+                                        <span class="reader-name"> <%= input.attributes.reader_name %> </span> <%= input.attributes.comment %> 
+                                    </div>
+                                </div>
+                                <div class="input-date row collapse">
+                                    <div class="large-12 columns">
+                                        <%= input.attributes.input_date.date %>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -71,13 +80,14 @@
                         <div class="new-reply-form">
                             <form id="input-<%= input.attributes.id %>-reply-form" action="javascript:null">
                                 <div class="row collapse">
-
-                                    <div class="input-replies large-12 columns">
-                                        <textarea> </textarea>
+                                    <div class="large-1 columns">
+                                        <img width="30" height="30" src="{{ asset('readers/images/') }}<%= currentUser.get('image') %>"> 
                                     </div>
-                                </div>
-                                <div class="row collapse">
-                                    <div class="input-replies large-12 columns">
+                                    <div class="large-9 columns">
+                                        <textarea id="new-reply-text"> </textarea>
+                                    </div>
+                                
+                                    <div class="large-2 columns">
                                         <button class="reply-send-button small right disabled" data-idinput="<%= input.attributes.id %>" DISABLED> Enviar </button>
                                     </div>
                                 </div>
@@ -103,7 +113,18 @@
                     <img width= "75%" src="{{ asset('readers/images/') }}<%= reader_image %>"> 
                     
                 </div>
-                <div class="large-11 columns"> <span class="reader-name"><%= reader_name %> </span> <%= comment %>  </div>
+                <div class="large-11 columns"> 
+                    <div class="row collapse">
+                        <div class="large-12 columns">
+                            <span class="reader-name"><%= reader_name %> </span> <%= comment %>
+                        </div>
+                    </div>
+                    <div class="input-date row collapse">
+                        <div class="large-12 columns">
+                            <%= reply_date.date %>
+                        </div>
+                    </div>
+                </div>
             </div>
        </div>
 </script>
@@ -116,7 +137,17 @@
                     <img width= "30px" src="{{ asset('readers/images/') }}<%= reply.attributes.reader_image %>"> 
                     
                 </div>
-                <div class="large-11 columns"> <span class="reader-name"><%= reply.attributes.reader_name %> </span> <%= reply.attributes.comment %>  </div>
+                <div class="large-11 columns"> 
+                    <div class="row collapse">
+                        <div class="large-12 columns">
+                            <span class="reader-name"><%= reply.attributes.reader_name %> </span> <%= reply.attributes.comment %>
+                        </div>
+                    </div>
+                    <div class="input-date row collapse">
+                        <div class="large-12 columns">
+                            <%= reply.attributes.reply_date.date %>
+                        </div>
+                    </div>
             </div>
        </div>
    <% }); %>
