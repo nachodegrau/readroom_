@@ -110,12 +110,24 @@ _readroom.replyModel = Backbone.Model.extend({
         var that = this;
         this.save({},{
             success: function() {
+                // activo el botón y vacío el textarea
+                $(".reply-send-button").removeClass("disabled");
+                $(".reply-send-button").removeAttr("disabled");
                 $(".new-reply-form").find("textarea").val(" ");
+                $(".reply-loader").hide();
+                
+                // añado la replica a la lista
                 var replyView = new _readroom.replyView({model: that });
                 replyView.render();
             },
             fail: function() {
-        
+                // activo el botón y vacío el textarea
+                $(".reply-send-button").removeClass("disabled");
+                $(".reply-send-button").removeAttr("disabled");
+                $(".new-reply-form").find("textarea").val(" ");
+                $(".reply-loader").hide();
+                
+                // Añado un mensaje de error en el sistema de alerta
             }
         });
     }

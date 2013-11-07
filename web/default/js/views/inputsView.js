@@ -96,10 +96,15 @@ _readroom.inputsView = Backbone.View.extend({
             $(".reply-send-button").attr("disabled", "disabled");
         } else {
             $(".reply-send-button").removeClass("disabled");
-             $(".reply-send-button").removeAttr("disabled");
+            $(".reply-send-button").removeAttr("disabled");
         }
     },
     saveReply: function(ev) {
+        // desactivo el botón para que no se haga la llamada dos veces
+        $(".reply-send-button").addClass("disabled");
+        $(".reply-send-button").attr("disabled", "disabled");
+        $(".reply-loader").show();
+        
         var comment = $("#input-" + $(ev.currentTarget).data("idinput") + "-reply-form").find("textarea").val();
         var reply = new _readroom.replyModel({input_id: $(ev.currentTarget).data("idinput"), comment: comment});
         reply.saveInputReply();
