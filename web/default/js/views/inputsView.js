@@ -8,15 +8,16 @@ _readroom.inputsView = Backbone.View.extend({
     events: {
         "click #prev-input": "previousInput",
         "click #next-input": "nextInput",
+        "keyup .input-replies textarea": "enableSubmit",
         "click .reply-send-button": "saveReply",
         "click #close-reveal-input": "closeReveal"
     },
     setReplies: function() {
         // Adelanto una posición en array de modelos para que el índice se situe en el primer input
-        //var nextElement = this.collection.next().getElement();
+        var nextElement = this.collection.next().getElement();
         
         // Busco las replicas a este input
-        //nextElement.showInputReplies(nextElement.get("id"));
+        nextElement.showInputReplies(nextElement.get("id"));
     },
     render: function() {
         $(this.el).html(this.template(this.collection));
@@ -84,6 +85,18 @@ _readroom.inputsView = Backbone.View.extend({
             // muestro el input anterior
             $("#input-" + nextElement.get("id")).show();
             
+        }
+    },
+    /*
+     * Activa y desactiva el botón en función de si no hay nada escrito en el textarea
+     */
+    enableSubmit: function(ev) {
+        if ($(ev.currentTarget).val().length == 0) {
+            $(".reply-send-button").addClass("disabled");
+            $(".reply-send-button").attr("disabled", "disabled");
+        } else {
+            $(".reply-send-button").removeClass("disabled");
+             $(".reply-send-button").removeAttr("disabled");
         }
     },
     saveReply: function(ev) {
