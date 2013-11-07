@@ -2,7 +2,7 @@
 {% block left_menu %}
     {% include 'ReadroomHomeBundle:Leftbar:leftbar.html.twig' %}
 {% endblock %}
-{% block home %}
+{% block content %}
     {% include 'ReadroomBooksBundle:Books:books.html.twig' %}
     {% include 'ReadroomHomeBundle:Reader:reader.html.twig' %}
     {% include 'ReadroomInputBundle:Input:input.html.twig' %}
@@ -12,4 +12,62 @@
 
 {% block popups %}
     <div id="inputs-popup" class="reveal-modal"></div>
+{% endblock %}
+    
+{% block top_bar %}
+    <div id="top-bar"> </div>
+    
+    <script type="text/html" id="template-top-bar">
+
+        <nav id="main-header" class="top-bar no-home-structure">
+            <ul class="title-area" >
+                <li class="name" >
+                    <h1>
+                        <a href="#">
+                            Readroom
+                        </a>
+                    </h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#" id="menu-expand"><span>menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section" >
+                <ul class="left" >
+                    <li class="has-form">
+                        <form >
+                            <div class="row collapse" >
+
+                                <div class="large-centered columns">
+                                    <input type="text">
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="left">
+                    <li id="categories-menu" class="has-dropdown">
+
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                    <li class="divider"></li>
+                    <li id="user-menu" class="has-dropdown">
+
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </script>
+    
 {% endblock %}

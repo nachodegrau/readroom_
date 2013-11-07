@@ -75,9 +75,11 @@ _readroom.inputsCollection = Backbone.Collection.extend({
         inputsView.render();
         
         $("#input-" + inputsArray[1]).show();
-        
-        console.log("AAAAA");
-        $("#inputs-popup").foundation("reveal", "open");
+
+        $("#inputs-popup").foundation("reveal", "open", {
+            animation: "fade",
+            animationSpeed: 200
+        });
         
     }
 });

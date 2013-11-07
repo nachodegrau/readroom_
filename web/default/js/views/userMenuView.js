@@ -3,6 +3,20 @@
  * and open the template in the editor.
  */
 
+_readroom.topBarView = Backbone.View.extend({
+    template: _.template($("#template-top-bar").html()),
+    events: {
+        "click .category": "searchCategoryBooks",
+        "click #close-session": "destroySession"
+    },
+    initialize: function() {
+    },
+    render: function() {
+        $(this.el).html(this.template());
+        return this;
+    }
+});
+
 _readroom.userMenuView = Backbone.View.extend({
     template: _.template($("#template-user-menu").html()),
     events: {

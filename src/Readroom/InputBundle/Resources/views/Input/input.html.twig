@@ -74,7 +74,9 @@
 
                         <div class="row collapse">
                             <div id="input-<%= input.attributes.id %>-replies" class="input-replies large-12 columns">
-
+                                
+                                    <img src="{{asset('default/images/ajax-loader.gif')}}" /> Cargando comentarios...
+                     
                             </div>
                         </div>
                         <div class="new-reply-form">
@@ -93,7 +95,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="reply-loader loader large-11 push-1 columns"> 
-                                        <img src="{{asset('default/images/ajax-loader.gif')}}" /> Cargando ...
+                                        <img src="{{asset('default/images/ajax-loader.gif')}}" /> Enviando comentario...
                                     </div>
                                 </div>
                             </form>
@@ -153,6 +155,7 @@
                             <%= reply.attributes.reply_date.date %>
                         </div>
                     </div>
+                </div>
             </div>
        </div>
    <% }); %>

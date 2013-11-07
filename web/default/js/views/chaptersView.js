@@ -23,4 +23,21 @@ _readroom.chaptersView = Backbone.View.extend({
     }
 });
 
+_readroom.configurationView = Backbone.View.extend({
+    template: _.template($("#template-left-menu-config").html()),
+    events: {
+        "change #font-size-selector": "changeFontSize"
+    },
+    initialize: function() {
+        console.log("configurationView");
+    },
+    render: function() {
+        console.log("configurationView render");
+        $(this.el).html(this.template());
+        return this;
+    },
+    changeFontSize: function(ev) {
+        reader.setFontSize($(ev.currentTarget).val());
+    }
+});
 

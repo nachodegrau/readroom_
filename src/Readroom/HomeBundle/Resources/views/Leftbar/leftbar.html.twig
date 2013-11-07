@@ -83,8 +83,8 @@
             </section>
             <section id="config-section">
               <p class="title" data-section-title><a href="#"><img width="30px" height="30px" src="{{ asset('default/images/config_icon.png') }}"> Configuración</a></p>
-              <div class="content" data-section-content>
-                <p>Content of section 2.</p>
+              <div id="left-bar-config" class="content" data-section-content>
+    
               </div>
             </section>
         </div>
@@ -125,4 +125,16 @@
            <li class="chapter" data-spine="<%= chapter.spine %>" data-elementid="<%= chapter.elementId %>"> <%= chapter.name %></li>
         <% }); %>
         </ul>
+    </script>
+    
+      <script type="text/html" id="template-left-menu-config">
+        <label>Tamaño de la fuente: </label>
+        <select id="font-size-selector"> 
+            <option value = "10">10</option>
+            <option value = "12">12</option>
+            <option value = "14">14</option>
+            <option value = "16">16</option>
+            <option value = "18">18</option>
+        <select>
+        
     </script>

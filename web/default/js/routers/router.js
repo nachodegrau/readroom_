@@ -30,11 +30,12 @@ _readroom.router = Backbone.Router.extend({
             
     room: function () {
         this.checkUser();
+        $("#top-bar").empty();
         $("#books-catalog").empty();
         $("#books-catalog").hide();
         $("#login-page").hide();
         $("#account-page").hide();
-        this.initUserMenu();
+        //this.initUserMenu();
         this.initLeftBar();
         var readerView = new _readroom.readerView({el: $("#reader-content")});
         readerView.render(); 
@@ -54,6 +55,9 @@ _readroom.router = Backbone.Router.extend({
         // inicializo la lista de capítulos
         var chaptersView = new _readroom.chaptersView({el:$("#left-bar-chapters"), model: reader });
         chaptersView.render();
+        
+        var configView = new _readroom.configurationView({el: $("#left-bar-config")});
+        configView.render();
         
         //listener del evento "resize"
         $(window).on("resize", function() {
@@ -112,8 +116,8 @@ _readroom.router = Backbone.Router.extend({
             
     initUserMenu: function() {
         $("#main-header").show();
-        //var topbar = new _readroom.topBarView();
-        //topbar.render();
+        var topbar = new _readroom.topBarView({el: $("#top-bar")});
+        topbar.render();
         if(typeof currentUser.get("id") == "undefined" || currentUser.get("id") == null) {
             var notUserMenuView = new _readroom.notUserMenuView({el: $("#user-menu")});
             notUserMenuView.render();

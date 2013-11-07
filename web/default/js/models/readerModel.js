@@ -131,10 +131,13 @@ _readroom.readerModel = Backbone.Model.extend({
     nextPage: function(callback) {
         var that = this;
         this.get("readium").nextPage(function() {
+            console.log("SALTO");
             // sumo el spine para que sume el spine correcto
             that.set({currentSpine: that.get("currentSpine") + 1});
             that.initSocial();
         });
+        console.log("actual: " + this.get("readium").getCurrentPage() + " total: " + this.get("readium").getNumberOfPages());
+        $(".meter").css({width: (this.get("readium").getCurrentPage()/this.get("readium").getNumberOfPages())*100 + "%"});
     },
     
     previousPage: function(callback) {
@@ -144,10 +147,13 @@ _readroom.readerModel = Backbone.Model.extend({
             that.set({currentSpine: that.get("currentSpine") - 1});
             that.initSocial();
         });
+        $(".meter").css({width: (this.get("readium").getCurrentPage()/this.get("readium").getNumberOfPages())*100 + "%"});
     },
     
     initSocial: function(that) {
         var that = this;
+        
+        console.log("num iframes: " + $("iframe.readium-flowing-content").length);
         
         // Guardo el contexto del iframe en cuestión a partir del spine
         var iframe = $("iframe.readium-flowing-content")[this.get("currentSpine")];
@@ -216,7 +222,11 @@ _readroom.readerModel = Backbone.Model.extend({
     
     setCurrentChapter: function(spine, elementId) {
         this.set({currentSpine: spine, currentElementId: elementId});
-    }        
+    },
+    
+    setFontSize: function(fontSize) {
+        this.get("readium").setFontSize(fontSize);
+    }
     
 });
 

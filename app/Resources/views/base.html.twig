@@ -12,65 +12,16 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-            {% block main_menu %}
-            <div >
-                <nav id="main-header" class="top-bar no-home-structure">
-                    <ul class="title-area" >
-                        <li class="name" >
-                            <h1>
-                                <a href="#">
-                                    Readroom
-                                </a>
-                            </h1>
-                        </li>
-                        <li class="toggle-topbar menu-icon"><a href="#" id="menu-expand"><span>menu</span></a></li>
-                    </ul>
-
-                    <section class="top-bar-section" >
-                        <ul class="left" >
-                            <li class="has-form">
-                                <form >
-                                    <div class="row collapse" >
-
-                                        <div class="large-centered columns">
-                                            <input type="text">
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </section>
-                    
-                    <section class="top-bar-section">
-                        <!-- Right Nav Section -->
-                        <ul class="left">
-                            <li id="categories-menu" class="has-dropdown">
-
-                                
-                            </li>
-
-                        </ul>
-                        
-                    </section>
-                    
-                    <section class="top-bar-section">
-                        <ul class="right">
-                            <li class="divider"></li>
-                            <li id="user-menu" class="has-dropdown">
-
-                            </li>
-                        </ul>
-                    </section>
-                </nav>
-            </div>
-            {% endblock %}
+         
+        {# Menú superior #}
+         {% block top_bar %}{% endblock %}
+            
          {# Barra de la izquierda #}
          {% block left_menu %}{% endblock %}
             
-         {# Contenido de la home - Donde irá el listado de libros #}
+         {# Contenido de la página #}
          <div id="main-content">
-            {% block home %}{% endblock %}
+            {% block content %}{% endblock %}
          </div> 
          
         {% block javascripts %}

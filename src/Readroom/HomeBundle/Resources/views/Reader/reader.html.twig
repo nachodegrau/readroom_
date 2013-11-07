@@ -7,12 +7,13 @@
     <div class="row"> 
         <div id="reader-header" class="large-12 columns"> 
             <div class="row">
-                <div class="large-2 columns"> 
+                <div class="large-5 columns"> 
                     <a id="open-inputs-bar"> <img width="30px" height="30px" src="{{ asset('default/images/input_icon.png') }}"> </a> 
                     <a id="open-chapters-bar"> <img width="30px" height="30px" src="{{ asset('default/images/chapters_icon.png') }}"> </a>
                     <a id="open-config-bar"> <img width="30px" height="30px" src="{{ asset('default/images/config_icon.png') }}"> </a> 
+                    <a id="returns-home" href="{{url('readroom_home_homepage')}}"> Volver al catálogo </a>
                 </div>
-                <div class="large-10 columns">
+                <div class="large-7 columns">
                     <h4 id="reader-book-title" > </h4>
                 </div>
                 
@@ -28,6 +29,11 @@
         </div>
         <div id="next-page">
             <img id="next-page-image" width="16px" height="30px" src="{{ asset('default/images/next_page.png') }}">
+        </div>
+   </div>
+   <div class="row">
+        <div class="large-11 large-centered columns">
+            <div class="progress large-12 success"><span class="meter" style="width: 0%"></span></div>
         </div>
    </div>
 

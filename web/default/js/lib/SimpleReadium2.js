@@ -47,7 +47,8 @@ navigator.epubReadingSystem = {
 	}
 }
 
-var SimpleReadiumJS = function (elementToBindReaderTo, viewerPreferences, packageDocumentURL, packageDocumentXML, renderStrategy) {
+var SimpleReadiumJs = function (elementToBindReaderTo, viewerPreferences, packageDocumentURL, packageDocumentXML, renderStrategy) {
+    
     // Epub modules
     var EpubCFI = {};
     var EpubReflowable = {};
@@ -59,6 +60,7 @@ var SimpleReadiumJS = function (elementToBindReaderTo, viewerPreferences, packag
 
     // Rationale: The order of these matters
     var EpubCFIModule = function () {
+
     var EPUBcfi = {};
 
     EPUBcfi.Parser = (function(){
@@ -1926,6 +1928,7 @@ EPUBcfi.Interpreter = {
     //   pointed to by a CFI. If this is not a separate step, the processing of the CFI must be tightly coupled with 
     //   the reading system, as it stands now. 
     getContentDocHref : function (CFI, packageDocument, classBlacklist, elementBlacklist, idBlacklist) {
+
         var $packageDocument = $(packageDocument);
         var decodedCFI = decodeURI(CFI);
         var CFIAST = EPUBcfi.Parser.parse(decodedCFI);
@@ -3732,7 +3735,7 @@ EpubReflowable.ReflowableElementInfo = Backbone.Model.extend({
 
     // returns all the elements in the set that are inside the box
     filterElementsByPosition: function(flowingWrapper, $elements, documentTop, documentBottom, documentLeft, documentRight) {
-
+        
         var $visibleElms = $elements.filter(function(idx) {
             var elm_top = $(flowingWrapper).offset().top;
             var elm_left = $(flowingWrapper).offset().left;
@@ -3748,11 +3751,10 @@ EpubReflowable.ReflowableElementInfo = Backbone.Model.extend({
         return $visibleElms;
     }
 });
-    // REFACTORING CANDIDATE: Need a better name for this
-EpubReflowable.ReflowableLayout = Backbone.Model.extend({
+    EpubReflowable.ReflowableLayout = Backbone.Model.extend({
 
     initialize: function (options) {
-        // make sure we have proper vendor prefixed props for when we need them
+
 		this.epubCFI = new EpubCFIModule();
     },
 
@@ -3760,7 +3762,7 @@ EpubReflowable.ReflowableLayout = Backbone.Model.extend({
     //  "PUBLIC" METHODS (THE API)                                                          //
     // ------------------------------------------------------------------------------------ //
 
-    initializeContentDocument : function (epubContentDocument, epubCFIs, currSpinePosition, readiumFlowingContent, linkClickHandler, handlerContext, currentTheme, flowingWrapper, readiumFlowingContent, keydownHandler, bindings) {
+    initializeContentDocument : function (epubContentDocument, epubCFIs, currSpinePosition, readiumFlowingContent, linkClickHandler, handlerContext, keydownHandler, bindings) {
 
         var triggers;
         var lastPageElementId = this.injectCFIElements(
@@ -3777,12 +3779,6 @@ EpubReflowable.ReflowableLayout = Backbone.Model.extend({
         this.applyTriggers(epubContentDocument, triggers);
         $(epubContentDocument).attr('title');//, Acc.page + ' - ' + Acc.title);
 
-        this.injectTheme(
-            currentTheme, 
-            epubContentDocument, 
-            flowingWrapper
-        );
-
         this.injectKeydownHandler(
             readiumFlowingContent, 
             keydownHandler, 
@@ -3792,69 +3788,9 @@ EpubReflowable.ReflowableLayout = Backbone.Model.extend({
         return lastPageElementId;
     },
 
-    injectTheme : function (currentTheme, epubContentDocument, flowingWrapper) {
-
-        var theme = currentTheme;
-        if (theme === "default") {
-            theme = "default-theme";
-        }
-
-        $(epubContentDocument).css({
-            "color": "#000000",//"this.themes[theme]["color"]",
-            "background-color": "#FFFFFF"//this.themes[theme]["background-color"]
-        });
-        
-        // stop flicker due to application for alternate style sheets
-        // just set content to be invisible
-        $(flowingWrapper).css("visibility", "hidden");
-        this.activateEPubStyle(epubContentDocument, currentTheme);
-
-        // wait for new stylesheets to parse before setting back to visible
-        setTimeout(function() {
-            $(flowingWrapper).css("visibility", "visible"); 
-        }, 100);
-    },
-
-    resetEl : function (epubContentDocument, flowingWrapper, spineDivider, zoomer) {
-
-        $("body", epubContentDocument).removeClass("apple-fixed-layout");
-        $(flowingWrapper).attr("style", "");
-        $(flowingWrapper).toggleClass("two-up", false);
-        $(spineDivider).toggle(false);
-        // zoomer.reset();
-
-        $(flowingWrapper).css({
-            "position": "relative",
-            "right": "0px", 
-            "top": "0px",
-            "-webkit-transform": "scale(1.0) translate(0px, 0px)"
-        });
-    },
-
     // ------------------------------------------------------------------------------------ //
     //  PRIVATE HELPERS                                                                     //
     // ------------------------------------------------------------------------------------ //
-
-    // Description: Activates a style set for the ePub, based on the currently selected theme. At present, 
-    //   only the day-night alternate tags are available as an option.  
-    activateEPubStyle : function (bookDom, currentTheme) {
-
-        var selector;
-        
-        // Apply night theme for the book; nothing will be applied if the ePub's style sheets do not contain a style
-        // set with the 'night' tag
-        if (currentTheme === "night-theme") {
-
-            selector = new EpubReflowable.AlternateStyleTagSelector;
-            bookDom = selector.activateAlternateStyleSet(["night"], bookDom);
-
-        }
-        else {
-
-            selector = new EpubReflowable.AlternateStyleTagSelector;
-            bookDom = selector.activateAlternateStyleSet([""], bookDom);
-        }
-    },
 
     injectCFIElements : function (epubContentDocument, epubCFIs, currSpinePosition) {
 
@@ -4036,41 +3972,6 @@ EpubReflowable.ReflowableLayout = Backbone.Model.extend({
         $(readiumFlowingContent).contents().keydown(function (e) {
             keydownHandler.call(handlerContext, e);
         });
-    },
-
-    // Rationale: sadly this is just a reprint of what is already in the
-    //   themes stylesheet. It isn't very DRY but the implementation is
-    //   cleaner this way
-    themes: {
-        "default-theme": {
-            "background-color": "white",
-            "color": "black",
-            "mo-color": "#777"
-        },
-
-        "vancouver-theme": {
-            "background-color": "#DDD",
-            "color": "#576b96",
-            "mo-color": "#777"
-        },
-
-        "ballard-theme": {
-            "background-color": "#576b96",
-            "color": "#DDD",
-            "mo-color": "#888"
-        },
-
-        "parchment-theme": {
-            "background-color": "#f7f1cf",
-            "color": "#774c27",
-            "mo-color": "#eebb22"
-        },
-
-        "night-theme": {
-            "background-color": "#141414",
-            "color": "white",
-            "mo-color": "#666"
-        }
     }
 });
     // Description: This model is responsible determining page numbers to display for reflowable EPUBs.
@@ -4344,13 +4245,7 @@ EpubReflowable.ReflowablePaginator = Backbone.Model.extend({
     //  "PUBLIC" METHODS (THE API)                                                          //
     // ------------------------------------------------------------------------------------ //
 
-    paginateContentDocument : function (spineDivider, isTwoUp, offsetDir, epubContentDocument, readiumFlowingContent, flowingWrapper, firstPageOffset, currentPages, ppd, currentMargin, fontSize) {
-
-        this.toggleSyntheticLayout(
-            flowingWrapper, 
-            spineDivider, 
-            isTwoUp
-            );
+    paginateContentDocument : function (isTwoUp, offsetDir, epubContentDocument, readiumFlowingContent, flowingWrapper, firstPageOffset, currentPages, ppd, currentMargin, fontSize) {
 
         var page = this.adjustIframeColumns(
             offsetDir, 
@@ -4403,13 +4298,6 @@ EpubReflowable.ReflowablePaginator = Backbone.Model.extend({
     //  PRIVATE METHODS
     // ------------------------------------------------------------------------------------ //
 
-    // Description: Changes the html to make either 1 or 2 pages visible in their iframes
-    toggleSyntheticLayout : function (flowingWrapper, spineDivider, isTwoUp) {
-
-        $(flowingWrapper).toggleClass("two-up", isTwoUp);
-        $(spineDivider).toggle(isTwoUp);
-    },
-
     // Description: calculate the number of pages in the current section,
     //   based on section length : page size ratio
     calcNumPages : function (epubContentDocument, isTwoUp, offsetDir) {
@@ -4444,8 +4332,6 @@ EpubReflowable.ReflowablePaginator = Backbone.Model.extend({
     },
 
     getFrameWidth : function (flowingWrapperWidth, currentMargin, isTwoUp) {
-
-        //console.log("getFrameWidth", currentMargin, flowingWrapperWidth);
 
         var width;
         var margin = currentMargin;
@@ -4491,8 +4377,6 @@ EpubReflowable.ReflowablePaginator = Backbone.Model.extend({
         css[this.getColumnAxisCssName()] = "horizontal";
         css[this.getColumnGapCssName()] = this.gap_width.toString() + "px";
         css[this.getColumnWidthCssName()] = this.page_width.toString() + "px";
-        css["padding"] = "0px";
-        css["margin"] = "0px";
         css["position"] = "absolute";
         css["width"] = this.page_width.toString() + "px";
         css["height"] = this.frame_height.toString() + "px";
@@ -4548,27 +4432,33 @@ EpubReflowable.ReflowablePaginator = Backbone.Model.extend({
     },
 
     adjustIframeColumns : function (offsetDir, epubContentDocument, readiumFlowingContent, flowingWrapper, isTwoUp, firstPageOffset, currentPages, ppd, currentMargin ) {
+
         var prop_dir = offsetDir;
         var $frame = $(readiumFlowingContent);
         var page;
-        
+
         // Rationale: Get width and height of the flowing wrapper parent, as the (application-specific) parent element dimensions are what the epub
         //   content should be sized to fit into.
         this.setFrameSize($(flowingWrapper).parent().width(), $(flowingWrapper).parent().height(), readiumFlowingContent, currentMargin, isTwoUp);
 
         this.frame_width = parseInt($frame.width(), 10);
         this.frame_height = parseInt($frame.height(), 10);
-        this.gap_width = Math.floor(this.frame_width / 7);
+        this.gap_width = Math.floor(this.frame_width / 10);
+        this.padding_width = Math.floor(this.gap_width / 2);
+
         if (isTwoUp) {
-            this.page_width = Math.floor((this.frame_width - this.gap_width) / 2);
+            this.page_width = Math.floor((this.frame_width - this.gap_width - (this.padding_width * 2)) / 2);
         }
         else {
-            this.page_width = this.frame_width;
+            this.page_width = Math.floor(this.frame_width - (this.padding_width * 2));
         }
 
         // it is important for us to make sure there is no padding or
         // margin on the <html> elem, or it will mess with our column code
         $(epubContentDocument).css( this.getBodyColumnCss() );
+        $(readiumFlowingContent).css("width", this.frame_width - this.padding_width - this.padding_width);
+        $(readiumFlowingContent).css("padding-left", this.padding_width);
+        $(readiumFlowingContent).css("padding-right", this.padding_width);
 
         page = this.accountForOffset(readiumFlowingContent, isTwoUp, firstPageOffset, currentPages, ppd);
         return page;
@@ -4633,13 +4523,12 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 };
     EpubReflowable.ReflowablePaginationView = Backbone.View.extend({
 
-    el : "<div class='flowing-wrapper clearfix' style='display:block;margin-left:auto;margin-right:auto'> \
+    el : "<div class='flowing-wrapper clearfix' style='display:block;margin-left:auto;margin-right:auto;position:relative'> \
             <iframe scrolling='no' \
                     frameborder='0' \
                     height='100%' \
                     class='readium-flowing-content'> \
             </iframe> \
-            <div class='reflowing-spine-divider'></div> \
           </div>",
 
 	initialize : function (options) {
@@ -4659,9 +4548,17 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 		this.reflowableElementsInfo = new EpubReflowable.ReflowableElementInfo();
 		this.pages = new EpubReflowable.ReflowablePagination();
 
-        // So this can be any callback, doesn't have to be the epub controller
-		this.annotations;
+        // Initialize custom style views
+        this.spineDivider = new EpubReflowable.ReflowableSpineDividerView();
+        this.$el.append(this.spineDivider.render());
 
+        this.customizer = new EpubReflowable.ReflowableCustomizer({
+            parentElement : this.getFlowingWrapper(),
+            readiumFlowingContent : this.getReadiumFlowingContent(),
+            spineDividerStyleView : this.spineDivider
+        });
+
+		this.annotations;
         this.cfi = new EpubCFIModule();
 
         // this.mediaOverlayController = this.model.get("media_overlay_controller");
@@ -4678,10 +4575,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 		// Remove all handlers so they don't hang around in memory	
 		// this.mediaOverlayController.off("change:mo_text_id", this.highlightText, this);
   		// this.mediaOverlayController.off("change:active_mo", this.indicateMoIsPlaying, this);
-        this.reflowableLayout.resetEl(
-        	this.getEpubContentDocument(), 
-        	this.el, 
-        	this.getSpineDivider());
 	},
 
 	// ------------------------------------------------------------------------------------ //
@@ -4723,6 +4616,7 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
                iFrameWindow.navigator.epubReadingSystem = ers;
             }
 
+            var borderElement;
 			var lastPageElementId = that.initializeContentDocument();
 
 			// Rationale: The content document must be paginated in order for the subsequent "go to page" methods
@@ -4735,18 +4629,19 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 			//   to follow a link should supersede restoring the last-page position, as this should only be done for the 
 			//   case where Readium is re-opening the book, from the library view. 
 			if (hashFragmentId) {
-                that.goToHashFragment(hashFragmentId);
+                that.showPageByElementId(hashFragmentId);
             }
             else if (lastPageElementId) {
-                that.goToHashFragment(lastPageElementId);
+                that.showPageByElementId(lastPageElementId);
             }
             else {
 
                 if (goToLastPage) {
-                    that.pages.goToLastPage(that.viewerModel.get("syntheticLayout"), that.spineItemModel.get("firstPageIsOffset"));
+                    // that.pages.goToLastPage(that.viewerModel.get("syntheticLayout"), that.spineItemModel.get("firstPageIsOffset"));
                 }
                 else {
-                    that.pages.goToPage(1, that.viewerModel.get("syntheticLayout"), that.spineItemModel.get("firstPageIsOffset"));
+                    that.showPageByNumber(1);
+                    // that.pages.goToPage(1, that.viewerModel.get("syntheticLayout"), that.spineItemModel.get("firstPageIsOffset"));
                 }
             }
 
@@ -4812,14 +4707,13 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
     },
 
     showPageByElementId : function (elementId) {
-        
+
         var targetElement = $("#" + elementId, this.getEpubContentDocument())[0];
         if (!targetElement) {
-            // couldn't find the el. just give up
             return;
         }
 
-        // we get more precise results if we look at the first children
+        // Rationale: We get more precise results if we look at the first children
         while (targetElement.children.length > 0) {
             targetElement = targetElement.children[0];
         }
@@ -4838,29 +4732,36 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
         this.$el.hide();
     },
 
+    // REFACTORING CANDIDATE: This method is delegating to setFontSize and setMargin. These could both be added 
+    //   as customizable style objects - essentially treated the same way
+    customizeStyles : function (customElement, styleNameOrCSSObject) {
+
+        if (customElement === "margin") {
+            this.setMargin(parseInt(styleNameOrCSSObject));
+        }
+        else if (customElement === "fontSize") {
+            this.setFontSize(parseInt(styleNameOrCSSObject));
+        }
+        else {
+            this.customizer.setCustomStyle(customElement, styleNameOrCSSObject);
+        }
+        this.paginateContentDocument();
+    },
+
     setFontSize : function (fontSize) {
 
-        this.viewerModel.set("fontSize", fontSize);
-        this.paginateContentDocument();
+        if (fontSize !== this.viewerModel.get("fontSize")) {
+            this.viewerModel.set("fontSize", fontSize);
+            this.paginateContentDocument();    
+        }
     },
 
     setMargin : function (margin) {
 
-        this.viewerModel.set("currentMargin", margin);
-        this.paginateContentDocument();
-    },
-
-    setTheme : function (theme) {
-
-        this.viewerModel.set("currentTheme", theme);
-        this.reflowableLayout.injectTheme(
-            this.viewerModel.get("currentTheme"), 
-            this.getEpubContentDocument(), 
-            this.getFlowingWrapper()
-        );
-        this.redrawAnnotations();
-
-        this.trigger("displayedContentChanged");
+        if (margin !== this.viewerModel.get("currentMargin")) {
+            this.viewerModel.set("currentMargin", margin);
+            this.paginateContentDocument();
+        }
     },
 
     setSyntheticLayout : function (isSynthetic) {
@@ -4871,6 +4772,7 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
             this.viewerModel.set("syntheticLayout", isSynthetic);
             this.pages.toggleTwoUp(isSynthetic, this.spineItemModel.get("firstPageIsOffset"));
             this.paginateContentDocument();
+            this.viewerModel.get("syntheticLayout") ? this.spineDivider.show() : this.spineDivider.hide();
             this.trigger("layoutChanged", isSynthetic);
         }
     },
@@ -4926,10 +4828,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 		return $($($(this.el).children()[0]).contents()[0]).children()[0];
 	},
 
-	getSpineDivider : function () {
-		return $(".reflowing-spine-divider")[0];
-	},
-
 	// ------------------------------------------------------------------------------------ //
 	//  PRIVATE EVENT HANDLERS                               								//
 	// ------------------------------------------------------------------------------------ //
@@ -4947,7 +4845,7 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 
     linkClickHandler : function (e) {
 
-        this.trigger("internalLinkClicked", e);
+        this.trigger("epubLinkClicked", e);
     },
 
 	// ------------------------------------------------------------------------------------ //
@@ -4955,7 +4853,7 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 	// ------------------------------------------------------------------------------------ //
 
     // Rationale: The "paginator" model uses the scrollWidth of the paginated xhtml content document in order
-    //   to calculate it's number of pages (given the current screen size etc.). It appears that 
+    //   to calculate the number of pages (given the current screen size etc.). It appears that 
     //   the scroll width property is either buggy, unreliable, or changes by small amounts between the time the content
     //   document is paginated and when it is used. Regardless of the cause, the scroll width is understated, which causes
     //   the number of pages to be understated. As a result, the last page of a content document is often not shown when 
@@ -4980,7 +4878,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 	paginateContentDocument : function () {
 
 		var pageInfo = this.reflowablePaginator.paginateContentDocument(
-			this.getSpineDivider(),
 			this.viewerModel.get("syntheticLayout"),
 			this.offsetDirection(),
 			this.getEpubContentDocument(),
@@ -4994,6 +4891,7 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 			);
 
 		this.pages.set("numberOfPages", pageInfo[0]);
+        this.viewerModel.get("syntheticLayout") ? this.spineDivider.show() : this.spineDivider.hide();
         this.redrawAnnotations();
         this.pages.resetCurrentPages();
 		this.showCurrentPages();
@@ -5008,9 +4906,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 			this.getReadiumFlowingContent(), 
 			this.linkClickHandler, 
 			this, 
-			this.viewerModel.get("currentTheme"), 
-			this.getFlowingWrapper(), 
-			this.getReadiumFlowingContent(), 
 			this.keydownHandler,
             this.bindings
 			);
@@ -5089,6 +4984,318 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
 		}
 	}
 });
+    EpubReflowable.ReflowableCustomizer = Backbone.Model.extend({
+
+    initialize : function (attributes, options) {
+
+        this.$parentEl = $(this.get("parentElement"));
+        this.set("customBorder", new EpubReflowable.ReflowableCustomBorder({ targetElement : this.get("readiumFlowingContent") }));
+        this.set("customTheme", new EpubReflowable.ReflowableCustomTheme({ iframeElement : this.get("readiumFlowingContent") }));
+    },
+
+    // ----- PUBLIC INTERFACE -------------------------------------------------------------------
+
+    setCustomStyle : function (customProperty, styleNameOrCSS) {
+
+        if (customProperty === "reflowable-epub-border" || customProperty === "epub-border") {
+            this.get("customBorder").setCurrentStyle(styleNameOrCSS);
+        }
+        else if (customProperty === "reflowable-spine-divider" || customProperty === "spine-divider") {
+            this.get("spineDividerStyleView").setCurrentStyle(styleNameOrCSS);
+        }
+        else if (customProperty === "reflowable-page-border" || customProperty === "page-border") {
+            this.get("customBorder").setCurrentStyle(styleNameOrCSS);
+            this.get("spineDividerStyleView").setCurrentStyle(styleNameOrCSS);
+        }
+        else if (customProperty === "reflowable-page-theme") {
+            this.get("customTheme").setCurrentStyle(styleNameOrCSS);
+        }
+    }
+
+    // ----- PRIVATE HELPERS -------------------------------------------------------------------
+});
+    EpubReflowable.ReflowableCustomBorder = Backbone.Model.extend({
+
+    // ------ PUBLIC INTERFACE --------------------------------------------------------------
+
+    initialize : function (attributes, options) {
+
+        this.$element = $(this.get("targetElement"));
+        this.currentStyle = {};
+
+        if (this.get("customStyle")) {
+            this.setCurrentStyle(this.get("customStyle"));
+        }
+        else {
+            this.setCurrentStyle("none");
+        }
+    },
+
+    setCurrentStyle : function (styleNameOrCSSObject) {
+
+        var borderStyle;
+        // Rationale: If it's a string, we assume that the user specified one of the default names
+        if (typeof styleNameOrCSSObject === "string") {
+
+            borderStyle = this.getDefaultBorderStyle(styleNameOrCSSObject);
+
+            if (borderStyle !== undefined) {
+                this.currentStyle = borderStyle;
+                this.renderCurrentStyle();
+            }
+        }
+        // Rationale: At this point, we're just assuming that the CSS provided is correct. Validation of some sort might be desirable 
+        //   at some point; hard to say. 
+        else if (typeof styleNameOrCSSObject === "object") {
+
+            borderStyle = this.addRequiredPositionCSS(styleNameOrCSSObject);
+            this.currentStyle = borderStyle;
+            this.renderCurrentStyle();
+        }
+    },
+
+    // ------ PRIVATE HELPERS --------------------------------------------------------------
+
+    renderCurrentStyle : function () {
+
+        this.$element.attr("style", "");
+        this.$element.css(this.currentStyle);
+    },
+
+    getDefaultBorderStyle : function (defaultName) {
+
+        var defaultCSS;
+        if (defaultName === "box-shadow") {
+            return this.addRequiredPositionCSS({ "box-shadow" : "0 0 5px 5px rgba(80, 80, 80, 0.5)" });
+        }
+        else if (defaultName == "none") {
+            return this.addRequiredPositionCSS({});
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    addRequiredPositionCSS : function (customCSS) {
+
+        var positionCSS = {
+            "position" : "relative",
+            "z-index" : "0",
+            "top" : "0px",
+            "left" : "0px",
+            "width" : "100%",
+            "height" : "100%"
+        };
+
+        // Rationale: The underscore.js extend method will combine two (or more) objects. However, any properties in the second
+        //   object will overwrite the same properties in the first object. This is desired, as the position properties must be 
+        //   specified as defined in this view. 
+        var customCSSWithPositionCSS = _.extend(customCSS, positionCSS);
+        return customCSSWithPositionCSS;
+    }
+});
+    EpubReflowable.ReflowableSpineDividerView = Backbone.View.extend({
+
+    el : "<div class='reflowing-spine-divider'></div>",
+
+    // ------ PUBLIC INTERFACE --------------------------------------------------------------
+
+    initialize : function (options) {
+
+        this.currentStyle = {};
+
+        if (options && options.customStyle) {
+            this.setCurrentStyle(options.customStyle);
+        }
+        else {
+            this.setCurrentStyle("none");
+        }
+    },  
+
+    render : function () {
+
+        this.renderCurrentStyle();
+        return this.el;
+    },
+
+    setCurrentStyle : function (styleNameOrCSSObject) {
+
+        var spineStyle;
+        // Rationale: If it's a string, we assume that the user specified one of the default names
+        if (typeof styleNameOrCSSObject === "string") {
+
+            spineStyle = this.getDefaultSpineStyle(styleNameOrCSSObject);
+
+            if (spineStyle !== undefined) {
+                this.currentStyle = spineStyle;
+                this.renderCurrentStyle();
+            }
+        }
+        // Rationale: At this point, we're just assuming that the CSS provided is correct. Validation of some sort might be desirable 
+        //   at some point; hard to say. 
+        else if (typeof styleNameOrCSSObject === "object") {
+
+            spineStyle = this.addRequiredPositionCSS(styleNameOrCSSObject);
+            this.currentStyle = spineStyle;
+            this.renderCurrentStyle();
+        }
+    },
+
+    hide : function () {
+        this.$el.hide();
+    },
+
+    show : function () {
+        this.$el.show();
+    },
+
+    // ------ PRIVATE HELPERS --------------------------------------------------------------
+
+    renderCurrentStyle : function () {
+
+        this.$el.attr("style", "");
+        this.$el.css(this.currentStyle);
+    },
+
+    getDefaultSpineStyle : function (defaultName) {
+
+        var defaultCSS;
+        if (defaultName === "box-shadow") {
+            return this.addRequiredPositionCSS({
+                "width" : "1px",
+                "height" : "93%",
+                "top" : "3%",
+                "box-shadow" : "0 0 5px 5px rgba(80, 80, 80, 0.5)" 
+            });
+        }
+        else if (defaultName === "none") {
+            return this.addRequiredPositionCSS({});
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    addRequiredPositionCSS : function (customCSS) {
+
+        var top = customCSS.top ? customCSS.top : "0px";
+        var positionCSS = {
+            "position" : "absolute",
+            "z-index" : "2",
+            "left" : "50%",
+            "top" : top
+        };
+
+        // Rationale: The underscore.js extend method will combine two (or more) objects. However, any properties in the second
+        //   object will overwrite the same properties in the first object. This is desired, as the position properties must be 
+        //   specified as defined in this view. 
+        var customCSSWithPositionCSS = _.extend(customCSS, positionCSS);
+        return customCSSWithPositionCSS;
+    }
+});
+    
+// TODO: Need to check that if alternate styles are defined for night, they are respected
+EpubReflowable.ReflowableCustomTheme = Backbone.Model.extend({
+
+    // ------ PUBLIC INTERFACE --------------------------------------------------------------
+
+    initialize : function (attributes, options) {
+
+        this.currentStyle = {};
+    },
+
+    setCurrentStyle : function (styleNameOrCSSObject) {
+
+        var themeStyle;
+        // Rationale: If it's a string, we assume that the user specified one of the default names
+        if (typeof styleNameOrCSSObject === "string") {
+
+            themeStyle = this.getDefaultThemeStyle(styleNameOrCSSObject);
+
+            if (themeStyle !== undefined) {
+
+                this.currentStyle = themeStyle;
+                this.renderCurrentStyle();
+            }
+        }
+        // Rationale: At this point, we're just assuming that the CSS provided is correct. Validation of some sort might be desirable 
+        //   at some point; hard to say. 
+        else if (typeof styleNameOrCSSObject === "object") {
+
+            themeStyle = styleNameOrCSSObject;
+            this.currentStyle = themeStyle;
+            this.renderCurrentStyle();
+        }
+    },
+
+    // ------ PRIVATE HELPERS --------------------------------------------------------------
+
+    renderCurrentStyle : function () {
+
+        $(this.getContentDocumentHTML()).attr("style", "");
+        $(this.getContentDocumentHTML()).css(this.currentStyle);
+    },
+
+    getDefaultThemeStyle : function (defaultName) {
+
+        if (defaultName === "none") {
+            return {
+                "background-color": "white",
+                "color": "black",
+                "mo-color": "#777"
+            };
+        }
+        else if (defaultName === "vancouver") {
+            return {
+                "background-color": "#DDD",
+                "color": "#576b96",
+                "mo-color": "#777"
+            };   
+        }
+        else if (defaultName === "night") {
+            return {
+                "background-color": "#141414",
+                "color": "white",
+                "mo-color": "#666"
+            };
+        }
+        else if (defaultName === "ballard") {
+            return {
+                "background-color": "#576b96",
+                "color": "#DDD",
+                "mo-color": "#888"
+            };
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    getContentDocumentHTML : function () {
+
+        return $("body", this.get("iframeElement").contentDocument)[0];
+    }
+
+    // Description: Activates a style set for the ePub, based on the currently selected theme. At present, 
+    //   only the day-night alternate tags are available as an option.  
+    // activateEPubStyle : function (bookDom, currentTheme) {
+
+    //     var selector;
+        
+    //     // Apply night theme for the book; nothing will be applied if the ePub's style sheets do not contain a style
+    //     // set with the 'night' tag
+    //     if (currentTheme === "night-theme") {
+
+    //         selector = new EpubReflowable.AlternateStyleTagSelector;
+    //         bookDom = selector.activateAlternateStyleSet(["night"], bookDom);
+    //     }
+    //     else {
+
+    //         selector = new EpubReflowable.AlternateStyleTagSelector;
+    //         bookDom = selector.activateAlternateStyleSet([""], bookDom);
+    //     }
+    // }
+});
 
     var reflowableView = new EpubReflowable.ReflowablePaginationView({
         spineItem : spineObject,
@@ -5136,15 +5343,6 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
         currentPage : function () {
             return reflowableView.pages.get("currentPages");
         },
-        setFontSize : function (fontSize) {
-            return reflowableView.setFontSize(fontSize);
-        },
-        setMargin : function (margin) {
-            return reflowableView.setMargin(margin);
-        },
-        setTheme : function (theme) {
-            return reflowableView.setTheme(theme);
-        },
         setSyntheticLayout : function (isSynthetic) {
             return reflowableView.setSyntheticLayout(isSynthetic);
         },
@@ -5156,6 +5354,10 @@ EpubReflowable.Trigger.prototype.execute = function(dom) {
         },
         resizeContent : function () {
             return reflowableView.paginateContentDocument();
+        },
+        customize : function (customElement, styleNameOrCSSObject) {
+            reflowableView.customizeStyles(customElement, styleNameOrCSSObject);
+            return this;
         }
     };
 };
@@ -5501,7 +5703,7 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         this.set("pageProgressionDirection", this.get("spineObjects")[0].pageProgressionDirection);
     },
 
-    loadFixedPages : function (bindingElement, viewerSettings) {
+    renderFixedPages : function (bindingElement, viewerSettings, linkClickHandler, handlerContext) {
 
         // Reset the default for a synthetic layout
         if (viewerSettings.syntheticLayout) {
@@ -5509,29 +5711,43 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         }
 
         this.loadPageViews(viewerSettings);
-        this.renderAll(bindingElement);
+        this.renderAll(bindingElement, linkClickHandler, handlerContext);
     },
 
-    nextPage : function (twoUp) {
+    nextPage : function (twoUp, pageSetEventContext) {
 
         var newPageNums;
-        if (this.onLastPage()) {
-            return;
-        }
+        if (!this.onLastPage()) {
 
-        newPageNums = this.fixedPagination.getNextPageNumbers(this.get("currentPages"), twoUp, this.get("pageProgressionDirection"));
-        this.resetCurrentPages(newPageNums);
+            newPageNums = this.fixedPagination.getNextPageNumbers(this.get("currentPages"), twoUp, this.get("pageProgressionDirection"));
+            this.resetCurrentPages(newPageNums);
+
+            // Trigger events
+            pageSetEventContext.trigger("atNextPage");
+            pageSetEventContext.trigger("displayedContentChanged");
+            this.onLastPage() ? pageSetEventContext.trigger("atLastPage") : undefined;
+        }
+        else {
+            pageSetEventContext.trigger("atLastPage");
+        }
     },
 
-    previousPage : function (twoUp) {
+    previousPage : function (twoUp, pageSetEventContext) {
 
         var newPageNums;
-        if (this.onFirstPage()) {
-            return;
-        }
+        if (!this.onFirstPage()) {
 
-        newPageNums = this.fixedPagination.getPreviousPageNumbers(this.get("currentPages"), twoUp, this.get("pageProgressionDirection"));
-        this.resetCurrentPages(newPageNums);
+            newPageNums = this.fixedPagination.getPreviousPageNumbers(this.get("currentPages"), twoUp, this.get("pageProgressionDirection"));
+            this.resetCurrentPages(newPageNums);
+            
+            // Trigger events
+            pageSetEventContext.trigger("atPreviousPage");
+            pageSetEventContext.trigger("displayedContentChanged");
+            this.onFirstPage() ? pageSetEventContext.trigger("atFirstPage") : undefined;
+        }
+        else {
+            pageSetEventContext.trigger("atFirstPage");
+        }
     },
 
     onFirstPage : function () {
@@ -5589,6 +5805,12 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         this.resetCurrentPages(newPageNumbers);
     },
 
+    getPageViewInfo : function (pageNumber) {
+
+        var pageIndex = pageNumber - 1;
+        return this.get("fixedPages")[pageIndex];
+    },
+
     // -------------------------------------------- PRIVATE HELPERS ---------------------------------
 
     hidePageViews : function () {
@@ -5623,14 +5845,17 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
                 fixedPageView : fixedPageView,
                 pageType : spineObject.fixedLayoutType,
                 isRendered : false,
-                spineIndex : spineObject.spineIndex
+                spineIndex : spineObject.spineIndex,
+                pageSpread : spineObject.pageSpread
             };
 
             that.get("fixedPages").push(fixedPageViewInfo);
         });
     },
 
-    renderAll : function (bindingElement) {
+    // REFACTORING CANDIDATE: the pageSetEventContext can be used to trigger the epubLoaded event; also, epubLoaded 
+    //   should be renamed to something like pageSetLoaded.
+    renderAll : function (bindingElement, linkClickHandler, handlerContext) {
 
         var that = this;
         var numFixedPages = this.get("fixedPages").length;
@@ -5648,7 +5873,7 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
                 }
             });
             
-            that.addPageViewToDom(bindingElement, fixedPageViewInfo.fixedPageView.render(false, undefined));
+            that.addPageViewToDom(bindingElement, fixedPageViewInfo.fixedPageView.render(false, undefined, linkClickHandler, handlerContext));
         });
 
         setTimeout(function () { 
@@ -5679,12 +5904,6 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         }
     },
 
-    getPageViewInfo : function (pageNumber) {
-
-        var pageIndex = pageNumber - 1;
-        return this.get("fixedPages")[pageIndex];
-    },
-
     initializeImagePage : function (pageSpread, imageSrc, viewerSettings) {
 
         return new EpubFixed.ImagePageView({
@@ -5712,12 +5931,11 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 });
     EpubFixed.FixedSizing = Backbone.Model.extend({
 
-    metaSize : {
-        width : undefined,
-        height : undefined
-    },
+    initialize : function (attributes) {
 
-    initialize : function (attributes) {},
+        this.metaSize = { width : undefined, height : undefined };
+        this.transformedPageSize = {};
+    },
 
     // ------------------ PUBLIC INTERFACE ---------------------------------
 
@@ -5772,6 +5990,9 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         var scale = Math.min(horScale, verScale);
 
         var css = this.generateTransformCSS(scale);
+
+        this.transformedPageSize.width = Math.ceil(scale * bookSize.width);
+        this.transformedPageSize.height = Math.ceil(scale * bookSize.height);
         css["width"] = bookSize.width;
         css["height"] = bookSize.height;
 
@@ -5816,7 +6037,6 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         return undefined;
     },
 
-    // Have to modernizer this
     generateTransformCSS : function (scale) {
 
         var transformString = "scale(" + scale + ")";
@@ -5828,6 +6048,7 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
     },
 
     modernizrCssPrefix : function (attr) {
+        
         var str = Modernizr.prefixed(attr);
         return str.replace(/([A-Z])/g, function(str, m1){ 
             return '-' + m1.toLowerCase(); 
@@ -5840,7 +6061,6 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 
     getSinglePageSpreadCSS : function () {
 
-        // @include box-shadow(0 0 5px 5px rgba(80,80,80,0.5));
         return {
             "position" : "absolute",
             "overflow" : "hidden",
@@ -5850,7 +6070,8 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
             "-moz-transform-origin" : "top left",
             "-o-transform-origin" : "top left",
             "-ms-transform-origin" : "top left",
-            "left" : "25%"
+            "left" : "0%" // Expects that the parent element is resized to wrap it perfectly; this is done with
+            //   javascript in the fixed pagination view
         };
     },
 
@@ -5926,7 +6147,8 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         }
     },
 
-    render : function () {
+    // REFACTORING CANDIDATE: Use page set event context to trigger the content document loaded event
+    render : function (goToLast, elementIdToShow, linkClickHandler, handlerContext) {
 
         var that = this;
         this.get$iframe().attr("src", this.iframeSrc);
@@ -5957,7 +6179,7 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
             }
 
             that.sizing = new EpubFixed.FixedSizing({ contentDocument : that.get$iframe()[0].contentDocument });
-            // this.injectLinkHandler(e.srcElement);
+            that.injectLinkHandler(that.get$iframe(), linkClickHandler, handlerContext);
             // that.applyKeydownHandler($(view.iframe()));
             that.setPageSize();
             that.trigger("contentDocumentLoaded");
@@ -5976,6 +6198,14 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 
     showPage : function () {
         this.$el.show();
+    },
+
+    getTransformedWidth : function () {
+        return this.sizing.transformedPageSize.width;
+    },
+
+    getTransformedHeight : function () {
+        return this.sizing.transformedPageSize.height;
     },
 
     setSinglePageSpreadStyle : function () {
@@ -6011,6 +6241,14 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
             transformCss = this.sizing.fitToScreen($readerElement.width(), $readerElement.height());
             this.$el.css(transformCss);
         }
+    },
+
+    injectLinkHandler : function ($iframe, linkClickHandler, handlerContext) {
+
+        var that = this;
+        $('a', $iframe).on("click", function (e) {
+            linkClickHandler.call(handlerContext, e);
+        });
     }
 });
     EpubFixed.ImagePageView = Backbone.View.extend({
@@ -6033,14 +6271,14 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         }
     },
 
-    render : function () {
+    // REFACTORING CANDIDATE: Use page set event context to trigger the contentDocumentLoaded event
+    render : function (goToLast, elementIdToShow, linkClickHandler, handlerContext) {
 
         var that = this;
         $("img", this.$el).attr("src", this.imageSrc);
         this.$("img").on("load", function() { 
 
             that.sizing = new EpubFixed.FixedSizing({ contentDocument : $("img", this.el)[0] });
-            // that.injectLinkHandler();
             // that.applyKeydownHandler($(view.iframe()));
             // that.mediaOverlayController.pagesLoaded();
             that.setPageSize();
@@ -6056,6 +6294,14 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 
     showPage : function () {
         this.$el.show();
+    },
+
+    getTransformedWidth : function () {
+        return this.sizing.transformedPageSize.width;
+    },
+
+    getTransformedHeight : function () {
+        return this.sizing.transformedPageSize.height;
     },
 
     setSinglePageSpreadStyle : function () {
@@ -6095,8 +6341,8 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 });
     EpubFixed.FixedPaginationView = Backbone.View.extend({
 
-	el : "<div class='fixed-pages-view' style='position:relative;'> \
-            <div class='fixed-spine-divider'></div> \
+	el : "<div class='fixed-pages-view' style='position:relative; height:100%'> \
+            <div class='fixed-spine-divider' style='position:absolute;z-index:2;width:1px;left:50%;top:3%;height:93%;'></div> \
           </div>",
 
 	// ------------------------------------------------------------------------------------ //
@@ -6112,8 +6358,11 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 		// Rationale: Propagate the loaded event after all the content documents are loaded
         this.fixedPageViews.on("epubLoaded", function () {
             that.trigger("contentDocumentLoaded");
+            that.createEpubBorder();
             that.$el.css("opacity", "1");
         }, this);
+
+        this.customizer = new EpubFixed.FixedCustomizer();
 
 		// this.mediaOverlayController = this.model.get("media_overlay_controller");
         // this.mediaOverlayController.setPages(this.pages);
@@ -6125,20 +6374,22 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 
 	render : function (goToLastPage, hashFragmentId) {
 
-		var that = this;
-		this.fixedPageViews.loadFixedPages(this.$el[0], this.viewerSettings);
+		this.fixedPageViews.renderFixedPages(this.$el[0], this.viewerSettings, this.linkClickHandler, this);
 		return this.el;
 	},
 
-    // REFACTORING CANDIDATE: Might want these methods to be the goLeft and goRight methods
+    // REFACTORING CANDIDATE: Might want these methods to be the goLeft and goRight methods, 
+    //   Also, at the moment, the page-turn events are triggered from the delegate, as well as 
+    //   checking of page boundry conditions. Not sure if this makes sense, or if it would be clearer
+    //   if that stuff was in these two methods instead. 
 	nextPage : function () {
 
-		this.fixedPageViews.nextPage(this.viewerSettings.syntheticLayout);
+		this.fixedPageViews.nextPage(this.viewerSettings.syntheticLayout, this);
 	},
 
 	previousPage : function () {
 
-		this.fixedPageViews.previousPage(this.viewerSettings.syntheticLayout);
+		this.fixedPageViews.previousPage(this.viewerSettings.syntheticLayout, this);
 	},
 
     setSyntheticLayout : function (isSynthetic) {
@@ -6146,16 +6397,27 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         if (isSynthetic && this.viewerSettings.syntheticLayout === false) {
             this.viewerSettings.syntheticLayout = true;
             this.fixedPageViews.setSyntheticLayout(true);
+            $(".fixed-spine-divider", this.$el).show();
+            this.createEpubBorder();
+            this.trigger("layoutChanged", true);
         }
         else if (!isSynthetic && this.viewerSettings.syntheticLayout === true) {
             this.viewerSettings.syntheticLayout = false;
             this.fixedPageViews.setSyntheticLayout(false);
+            $(".fixed-spine-divider", this.$el).hide();
+            this.createEpubBorder();
+            this.trigger("layoutChanged", false);
         }
     },
 
     showPageNumber : function (pageNumber) {
 
+        var startPageNumbers = this.fixedPageViews.get("currentPages");
         this.fixedPageViews.showPageNumber(pageNumber, this.viewerSettings.syntheticLayout);
+
+        if (startPageNumbers != this.fixedPageViews.get("currentPages")) {
+            this.trigger("displayedContentChanged");    
+        }
     },
 
     showPagesView : function () {
@@ -6169,6 +6431,27 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 
         this.$el.hide();
         this.fixedPageViews.hidePageViews();
+    },
+
+    resizePageViews : function () {
+
+        this.fixedPageViews.resizePageViews();
+        this.createEpubBorder();
+        this.trigger("displayedContentChanged");
+    },
+
+    customize : function (customProperty, styleNameOrCSS) {
+
+        // Font size, margin and theme are not included
+
+        this.customizer.setCustomStyle(
+            customProperty, 
+            styleNameOrCSS, 
+            this.fixedPageViews.get("fixedPages"),
+            this.el,
+            $(".fixed-spine-divider", this.$el)[0],
+            this.viewerSettings.syntheticLayout
+        );
     },
     
  //    // override
@@ -6205,10 +6488,102 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 
 	destruct : function () {
 
+        this.off("epubLoaded");
         // this.mediaOverlayController.off("change:mo_text_id", this.highlightText);
         // this.mediaOverlayController.off("change:active_mo", this.indicateMoIsPlaying);
-		// this.resetEl();
 	},
+
+    linkClickHandler : function (e) {
+
+        this.trigger("epubLinkClicked", e);
+    },
+
+    // Rationale: Wraps a border around the absolutely position pages on the screen. This is used for both layout (in the case
+    //   of a single page spread, and for having a border around the pages that can be styled. 
+    createEpubBorder : function () {
+
+        var currentPages = this.fixedPageViews.get("currentPages");
+        var currPageViewInfo;
+        var epubBorderSize;
+        var originalWidth;
+        var originalHeight;
+
+        if (this.viewerSettings.syntheticLayout) {
+            epubBorderSize = this.getSyntheticBorderSize();   
+        }
+        else {
+            epubBorderSize = this.getSinglePageBorderSize();
+        }
+
+        originalWidth = this.$el.outerWidth(true);
+        originalHeight = this.$el.outerHeight(true);
+
+        if (epubBorderSize.width < originalWidth) {
+            this.setHorizontalMarginsForBorder(epubBorderSize.width, originalWidth);
+        }
+        else if (epubBorderSize.height < originalHeight) {
+            this.setVerticalMarginsForBorder(epubBorderSize.height, originalHeight);
+        }
+    },
+
+    setHorizontalMarginsForBorder : function (epubBorderWidth, currentWidth) {
+
+        var HEURISTIC_ADJUSTMENT = 5;
+        var difference = currentWidth - epubBorderWidth;
+        var margin = Math.ceil(difference / 2) - HEURISTIC_ADJUSTMENT;
+        this.$el.css({ "margin-left" : margin , "margin-right" : margin });
+    },
+
+    setVerticalMarginsForBorder : function (epubBorderHeight, currentHeight) {
+
+        var HEURISTIC_ADJUSTMENT = 5;
+        var difference = currentHeight - epubBorderHeight;
+        var margin = Math.ceil(difference / 2) - HEURISTIC_ADJUSTMENT;
+        this.$el.css({ "margin-top" : margin , "margin-bottom" : margin });
+    },
+
+    getSinglePageBorderSize : function () {
+
+        var page;
+        var currentPageNumber = this.fixedPageViews.get("currentPages")[0];
+
+        currentPage = this.fixedPageViews.getPageViewInfo(currentPageNumber).fixedPageView;
+
+        return {
+            height : currentPage.getTransformedHeight(),
+            width : currentPage.getTransformedWidth(),
+        };
+    },
+
+    getSyntheticBorderSize : function () {
+
+        var firstPage; 
+        var secondPage;
+        var maxHeight;
+        var maxWidth;
+        var firstPageNumber = this.fixedPageViews.get("currentPages")[0];
+        var secondPageNumber = this.fixedPageViews.get("currentPages")[1];
+        var NUMBER_OF_PAGES_SHOWN = 2;
+
+        firstPage = this.fixedPageViews.getPageViewInfo(firstPageNumber).fixedPageView;
+
+        // Rationale: Might only be showing one page in synthetic mode
+        if (secondPageNumber !== undefined) { 
+            secondPage = this.fixedPageViews.getPageViewInfo(secondPageNumber).fixedPageView;
+
+            maxHeight = Math.max(firstPage.getTransformedHeight(), secondPage.getTransformedHeight());
+            maxWidth = Math.max(firstPage.getTransformedWidth(), secondPage.getTransformedWidth()) * NUMBER_OF_PAGES_SHOWN;
+        }
+        else {
+            maxHeight = firstPage.getTransformedHeight();
+            maxWidth = firstPage.getTransformedWidth() * NUMBER_OF_PAGES_SHOWN;
+        }
+        
+        return {
+            height : maxHeight,
+            width : maxWidth,
+        };
+    }
 
 	// setFontSize: function() {
 	// 	var size = this.model.get("font_size") / 10;
@@ -6216,27 +6591,377 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 	// 	this.showCurrentPages();
 	// },
 
-	applyKeydownHandler : function ($pageViewContainer) {
+	// applyKeydownHandler : function ($pageViewContainer) {
 
-		var that = this;
-		$pageViewContainer.contents().keydown(function (e) {
+	// 	var that = this;
+	// 	$pageViewContainer.contents().keydown(function (e) {
 
-			if (e.which == 39) {
-				that.pages.goRight(); // Have to get ppd and two up
-			}
+	// 		if (e.which == 39) {
+	// 			that.pages.goRight(); // Have to get ppd and two up
+	// 		}
 							
-			if (e.which == 37) {
-				that.pages.goLeft(); // Have to get ppd and two up
-			}
-		});
-	},
+	// 		if (e.which == 37) {
+	// 			that.pages.goLeft(); // Have to get ppd and two up
+	// 		}
+	// 	});
+	// }
+});
+    EpubFixed.FixedCustomizer = Backbone.Model.extend({
 
-	injectLinkHandler : function (iframe) {
+    initialize : function (attributes, options) {
 
-    	var that = this;
-    	$('a', iframe.contentDocument).click(function(e) {
-    		that.linkClickHandler(e)
-    	});
+        // The list of page views
+        this.set("customPageBorder", new EpubFixed.FixedCustomPageBorder());
+        this.set("customEpubBorder", new EpubFixed.FixedCustomEpubBorder());  
+        this.set("customSpineDivider", new EpubFixed.FixedCustomSpineDivider());
+    },
+
+    // ----- PUBLIC INTERFACE -------------------------------------------------------------------
+
+    setCustomStyle : function (customProperty, styleNameOrCSS, pageViews, epubBorderElement, spineElement, isSynthetic) {
+
+        var that = this;
+        if (customProperty === "fixed-epub-border" || customProperty === "epub-border") {
+            that.get("customEpubBorder").setCurrentStyle(styleNameOrCSS, epubBorderElement);
+        }
+        else if (customProperty === "fixed-spine-divider" || customProperty === "spine-divider") {
+            this.get("customSpineDivider").setCurrentStyle(styleNameOrCSS, spineElement);
+        }
+        else if (customProperty === "fixed-page-border" || customProperty === "page-border") {
+            that.get("customPageBorder").setCurrentStyle(styleNameOrCSS, pageViews);
+        }
+        else if (customProperty === "fixed-page-border-left") {
+            that.get("customPageBorder").setCurrentStyle(styleNameOrCSS, pageViews, "left");
+        }
+        else if (customProperty === "fixed-page-border-right") {
+            that.get("customPageBorder").setCurrentStyle(styleNameOrCSS, pageViews, "right");
+        }
+    }
+
+    // ----- PRIVATE HELPERS -------------------------------------------------------------------
+
+    // 
+
+});
+    EpubFixed.FixedCustomPageBorder = Backbone.Model.extend({
+
+    initialize : function (attributes, options) {
+
+        this.lastSetStyle = {};
+    },
+
+    setCurrentStyle : function (styleNameOrCSSObject, pageViews, pageSpread) {
+
+        var that = this;
+        var borderStyle;
+
+        // Rationale: If it's a string, we assume that the user specified one of the default names
+        if (typeof styleNameOrCSSObject === "string") {
+
+            // Iterate through each page view and set it's style
+            _.each(pageViews, function (pageViewInfo) {
+
+                if (pageSpread && pageViewInfo.pageSpread !== pageSpread) {
+                    return;
+                }
+
+                var $element = pageViewInfo.fixedPageView.$el;
+                if (pageSpread === "left") {
+                    borderStyle = that.getPageSpreadDefaultBorderStyle(styleNameOrCSSObject, "left");
+                }
+                else if (pageSpread === "right") {
+                    borderStyle = that.getPageSpreadDefaultBorderStyle(styleNameOrCSSObject, "right");
+                }
+                else {
+                    borderStyle = that.getDefaultBorderStyle(styleNameOrCSSObject);
+                }
+                
+                borderStyle = that.keepRequiredCSS(borderStyle);
+
+                if (borderStyle !== undefined) {
+                    that.removeLastSetStyle($element);
+                    that.renderCurrentStyle($element, borderStyle);
+                }
+            }); 
+            this.setAllCurrentStyles(borderStyle);
+        }
+        // Rationale: At this point, we're just assuming that the CSS provided is correct. Validation of some sort might be desirable 
+        //   at some point; hard to say. 
+        else if (typeof styleNameOrCSSObject === "object") {
+
+            borderStyle = that.keepRequiredCSS(styleNameOrCSSObject);
+            _.each(pageViews, function (pageViewInfo) {
+                that.removeLastSetStyle($element);
+                that.renderCurrentStyle($element, borderStyle);
+            });
+            this.setAllCurrentStyles(borderStyle);
+        }
+    },
+
+    // ------ PRIVATE HELPERS --------------------------------------------------------------
+
+    renderCurrentStyle : function ($element, currentStyle) {
+
+        $element.css(currentStyle);
+    },
+
+    getPageSpreadDefaultBorderStyle : function (defaultName, pageSpread) {
+
+        var defaultCSS;
+        if (defaultName === "box-shadow") {
+
+            if (pageSpread === "left") {
+                return { "box-shadow" : "0px 0px 5px 5px rgba(80, 80, 80, 0.5)" };
+            }
+            else if (pageSpread === "right") {
+                return { "box-shadow" : "0px 0px 5px 5px rgba(80, 80, 80, 0.5)" };
+            }
+            else {
+                return undefined;
+            }
+        }
+        else if (defaultName == "none") {
+            return {};
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    getDefaultBorderStyle : function (defaultName) {
+
+        var defaultCSS;
+        if (defaultName === "box-shadow") {
+            return { "box-shadow" : "0 0 5px 5px rgba(80, 80, 80, 0.5)" };
+        }
+        else if (defaultName == "none") {
+            return {};
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    setAllCurrentStyles : function (styles) {
+        this.lastSetStyle = _.extend(this.lastSetStyle, styles);
+    },
+
+    keepRequiredCSS : function (customCSS) {
+
+        var requiredCSS = [
+            "position",
+            "z-index",
+            "top",
+            "left",
+            "width",
+            "height"
+        ];
+
+        // Remove properties that can't be changed
+        _.each(requiredCSS, function (propertyName) {
+            if (!customCSS.hasOwnProperty(propertyName)) {
+                delete customCSS[propertyName];
+            }
+        });
+
+        // Rationale: The underscore.js extend method will combine two (or more) objects. However, any properties in the second
+        //   object will overwrite the same properties in the first object. This is desired, as the position properties must be 
+        //   specified as defined in this view. 
+        return customCSS;
+    },
+
+    // REFACTORING CANDIDATE: Get modernizr in here
+    removeLastSetStyle : function ($element) {
+
+        _.each(this.lastSetStyle, function (styleValue, style) {
+            $element.css(style, "");
+        });
+    }
+});
+    EpubFixed.FixedCustomEpubBorder = Backbone.Model.extend({
+
+    initialize : function (attributes, options) {
+
+        this.lastSetStyle = {};
+    },
+
+    setCurrentStyle : function (styleNameOrCSSObject, epubBorderElement) {
+
+        var that = this;
+        var borderStyle;
+        var $element = $(epubBorderElement);
+
+        // Rationale: If it's a string, we assume that the user specified one of the default names
+        if (typeof styleNameOrCSSObject === "string") {
+
+            borderStyle = that.getDefaultBorderStyle(styleNameOrCSSObject);
+            borderStyle = that.keepRequiredCSS(borderStyle);
+
+            if (borderStyle !== undefined) {
+                that.removeLastSetStyle($element);
+                that.renderCurrentStyle($element, borderStyle);
+            }
+            this.setAllCurrentStyles(borderStyle);
+        }
+        // Rationale: At this point, we're just assuming that the CSS provided is correct. Validation of some sort might be desirable 
+        //   at some point; hard to say. 
+        else if (typeof styleNameOrCSSObject === "object") {
+
+            borderStyle = that.keepRequiredCSS(styleNameOrCSSObject);
+            that.removeLastSetStyle($element);
+            that.renderCurrentStyle($element, borderStyle);
+            this.setAllCurrentStyles(borderStyle);
+        }
+    },
+
+    // ------ PRIVATE HELPERS --------------------------------------------------------------
+
+    renderCurrentStyle : function ($element, currentStyle) {
+
+        $element.css(currentStyle);
+    },
+
+    getDefaultBorderStyle : function (defaultName) {
+
+        var defaultCSS;
+        if (defaultName === "box-shadow") {
+            return { "box-shadow" : "0 0 5px 5px rgba(80, 80, 80, 0.5)" };
+        }
+        else if (defaultName == "none") {
+            return {};
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    setAllCurrentStyles : function (styles) {
+        this.lastSetStyle = _.extend(this.lastSetStyle, styles);
+    },
+
+    keepRequiredCSS : function (customCSS) {
+
+        var requiredCSS = [
+            "position",
+            "z-index",
+            "top",
+            "left",
+            "width",
+            "height"
+        ];
+
+        // Remove properties that can't be changed
+        _.each(requiredCSS, function (propertyName) {
+            if (!customCSS.hasOwnProperty(propertyName)) {
+                delete customCSS[propertyName];
+            }
+        });
+
+        // Rationale: The underscore.js extend method will combine two (or more) objects. However, any properties in the second
+        //   object will overwrite the same properties in the first object. This is desired, as the position properties must be 
+        //   specified as defined in this view. 
+        return customCSS;
+    },
+
+    // REFACTORING CANDIDATE: Get modernizr in here
+    removeLastSetStyle : function ($element) {
+
+        _.each(this.lastSetStyle, function (styleValue, style) {
+            $element.css(style, "");
+        });
+    }
+});
+    EpubFixed.FixedCustomSpineDivider = Backbone.Model.extend({
+
+    initialize : function (attributes, options) {
+
+        this.lastSetStyle = {};
+    },
+
+    setCurrentStyle : function (styleNameOrCSSObject, spineElement) {
+
+        var that = this;
+        var spineStyle;
+        var $element = $(spineElement);
+
+        // Rationale: If it's a string, we assume that the user specified one of the default names
+        if (typeof styleNameOrCSSObject === "string") {
+
+            spineStyle = that.getDefaultSpineStyle(styleNameOrCSSObject);
+            spineStyle = that.keepRequiredCSS(spineStyle);
+
+            if (spineStyle !== undefined) {
+                that.removeLastSetStyle($element);
+                that.renderCurrentStyle($element, spineStyle);
+            }
+            this.setAllCurrentStyles(spineStyle);
+        }
+        // Rationale: At this point, we're just assuming that the CSS provided is correct. Validation of some sort might be desirable 
+        //   at some point; hard to say. 
+        else if (typeof styleNameOrCSSObject === "object") {
+
+            spineStyle = that.keepRequiredCSS(styleNameOrCSSObject);
+            that.removeLastSetStyle($element);
+            that.renderCurrentStyle($element, spineStyle);
+            this.setAllCurrentStyles(spineStyle);
+        }
+    },
+
+    // ------ PRIVATE HELPERS --------------------------------------------------------------
+
+    renderCurrentStyle : function ($element, currentStyle) {
+
+        $element.css(currentStyle);
+    },
+
+    getDefaultSpineStyle : function (defaultName) {
+
+        var defaultCSS;
+        if (defaultName === "box-shadow") {
+            return { "box-shadow" : "0 0 5px 5px rgba(80, 80, 80, 0.5)" };
+        }
+        else if (defaultName == "none") {
+            return {};
+        }
+        else {
+            return undefined;
+        }
+    },
+
+    setAllCurrentStyles : function (styles) {
+        this.lastSetStyle = _.extend(this.lastSetStyle, styles);
+    },
+
+    keepRequiredCSS : function (customCSS) {
+
+        var requiredCSS = [
+            "position",
+            "z-index",
+            "top",
+            "left",
+            "width",
+            "height"
+        ];
+
+        // Remove properties that can't be changed
+        _.each(requiredCSS, function (propertyName) {
+            if (!customCSS.hasOwnProperty(propertyName)) {
+                delete customCSS[propertyName];
+            }
+        });
+
+        // Rationale: The underscore.js extend method will combine two (or more) objects. However, any properties in the second
+        //   object will overwrite the same properties in the first object. This is desired, as the position properties must be 
+        //   specified as defined in this view. 
+        return customCSS;
+    },
+
+    // REFACTORING CANDIDATE: Get modernizr in here
+    removeLastSetStyle : function ($element) {
+
+        _.each(this.lastSetStyle, function (styleValue, style) {
+            $element.css(style, "");
+        });
     }
 });
 
@@ -6284,15 +7009,15 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
         currentPage : function () {
             return fixedView.fixedPageViews.get("currentPages");
         },
-        setFontSize : function (fontSize) {
-            return;
-        },
-        setMargin : function (margin) {
-            return;
-        },
-        setTheme : function (theme) {
-            return;
-        },
+        // setFontSize : function (fontSize) {
+        //     return;
+        // },
+        // setMargin : function (margin) {
+        //     return;
+        // },
+        // setTheme : function (theme) {
+        //     return;
+        // },
         setSyntheticLayout : function (isSynthetic) {
             return fixedView.setSyntheticLayout(isSynthetic);
         },
@@ -6303,7 +7028,11 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
             return fixedView.off(eventName, callback);
         },
         resizeContent : function () {
-            return fixedView.fixedPageViews.resizePageViews();
+            return fixedView.resizePageViews();
+        },
+        customize : function (customProperty, styleNameOrCSS) {
+            fixedView.customize(customProperty, styleNameOrCSS);
+            return this;
         }
     };
 };
@@ -6317,11 +7046,11 @@ EpubFixed.PageNumberDisplayLogic = Backbone.Model.extend({
 EpubParser.PackageDocumentParser = Backbone.Model.extend({
 
     initialize : function (attributes, options) {
+
         this.packageDocumentURI = new URI(this.get("packageDocumentURI"));
         var xml = this.get("packageDocumentXML");
         if (typeof(xml) === "string" ) {
             var parser = new window.DOMParser;
-
             xmlDom = parser.parseFromString(xml, 'text/xml');
             this.set({ xmlDom : xmlDom });
         }
@@ -6558,7 +7287,7 @@ EpubParser.PackageDocumentParser = Backbone.Model.extend({
     },
 
     resolveURI : function (epubResourceURI) {
-        
+
         // Make absolute to the package document path
         var epubResourceRelURI = new URI(epubResourceURI);
         var epubResourceAbsURI = epubResourceRelURI.absoluteTo(this.packageDocumentURI);
@@ -6582,161 +7311,162 @@ EpubParser.PackageDocumentParser = Backbone.Model.extend({
 
     var EpubModule = function(packageDocumentObject, packageDocumentXML) {
 
-      var Epub = {};
+    var Epub = {};
 
-      // Rationale: The order of these matters
-      Epub.ManifestItem = Backbone.Model.extend({
+    // Rationale: The order of these matters
+    Epub.ManifestItem = Backbone.Model.extend({
 
-      	isSvg : function () {	
-      		return this.get("media_type") === "image/svg+xml";
-      	},
+	isSvg : function () {
+		
+		return this.get("media_type") === "image/svg+xml";
+	},
 
-  	    isImage : function () {
-    		    var media_type = this.get("media_type");
-    		    if (media_type && media_type.indexOf("image/") > -1) {
-    			   // we want to treat svg as a special case, so they
-    			   // are not images
-    			   return media_type !== "image/svg+xml";
-    		    }
-  		    return false;
-  	     }   	
-      });
+	isImage : function () {
+		
+		var media_type = this.get("media_type");
+		if (media_type && media_type.indexOf("image/") > -1) {
+			// we want to treat svg as a special case, so they
+			// are not images
+			return media_type !== "image/svg+xml";
+		}
+		return false;
+	}	
+});
+    Epub.Manifest = Backbone.Collection.extend({
 
-        Epub.Manifest = Backbone.Collection.extend({
-          model : Epub.ManifestItem
-        });
+    model : Epub.ManifestItem
+});
+    Epub.Metadata = Backbone.Model.extend({});
+    // Description: This is a delegate that provides information about the appropriate page-spread property for fixed layout spine items
+Epub.PageSpreadProperty = Backbone.Model.extend({
 
-        Epub.Metadata = Backbone.Model.extend({});
-        // Description: This is a delegate that provides information about the appropriate page-spread property for fixed layout spine items
-        Epub.PageSpreadProperty = Backbone.Model.extend({
+    initialize : function () {
 
-        initialize : function () {
+        // "Constants" for page spread class
+        this.CENTER_PAGE = "center_page";
+        this.LEFT_PAGE = "left_page";
+        this.RIGHT_PAGE = "right_page";
+    },
 
-            // "Constants" for page spread class
-            this.CENTER_PAGE = "center_page";
-            this.LEFT_PAGE = "left_page";
-            this.RIGHT_PAGE = "right_page";
-        },
+    inferiBooksPageSpread : function (spineIndex, numSpineItems) {
 
-      inferiBooksPageSpread : function (spineIndex, numSpineItems) {
+        var pageNum = spineIndex + 1;
 
-          var pageNum = spineIndex + 1;
+        // Rationale: For ibooks, odd pages go on the right. This means
+        // the first page will always be on the right
+        // without a left counterpart, so center it
+        if (pageNum === 1) {
+            
+            return this.CENTER_PAGE;
+        }
+        // Rationale: If the last spine item in the book would be on the left, then
+        //   it would have no left counterpart, so center it
+        else if (pageNum % 2 === 0 && pageNum === numSpineItems) { 
+            
+            return this.CENTER_PAGE;
+        }
+        // Rationale: Otherwise first page goes on the right, and then alternate
+        // left - right - left - right etc
+        else {
 
-          // Rationale: For ibooks, odd pages go on the right. This means
-          // the first page will always be on the right
-          // without a left counterpart, so center it
-          if (pageNum === 1) {
-              
-              return this.CENTER_PAGE;
-          }
-          // Rationale: If the last spine item in the book would be on the left, then
-          //   it would have no left counterpart, so center it
-          else if (pageNum % 2 === 0 && pageNum === numSpineItems) { 
-              
-              return this.CENTER_PAGE;
-          }
-          // Rationale: Otherwise first page goes on the right, and then alternate
-          // left - right - left - right etc
-          else {
+            if (pageNum % 2 === 1) {
+                return this.RIGHT_PAGE;
+            }
+            else {
+                return this.LEFT_PAGE;
+            }
+        }
+    },
 
-              if (pageNum % 2 === 1) {
-                  return this.RIGHT_PAGE;
-              }
-              else {
-                  return this.LEFT_PAGE;
-              }
-          }
-      },
+    getPageSpreadFromProperties : function (pageSpreadProperty) {
 
-      getPageSpreadFromProperties : function (pageSpreadProperty) {
+        if (pageSpreadProperty === "left") {
 
-          if (pageSpreadProperty === "left") {
+            return this.LEFT_PAGE;
+        }
+        else if (pageSpreadProperty === "right") {
 
-              return this.LEFT_PAGE;
-          }
-          else if (pageSpreadProperty === "right") {
+            return this.RIGHT_PAGE;
+        }
+        else if (pageSpreadProperty === "center") {
 
-              return this.RIGHT_PAGE;
-          }
-          else if (pageSpreadProperty === "center") {
+            return this.CENTER_PAGE;
+        }
+        else {
 
-              return this.CENTER_PAGE;
-          }
-          else {
+            return "";
+        }
+    },
 
-              return "";
-          }
-      },
+    // NOTE: This method still cannot infer the page spread value when center pages are sporadically specified
+    // REFACTORING CANDIDATE: Could still use some refactoring to enhance the clarity of the algorithm
+    
+    // Rationale: If the page spread property is not set, we must iterate back through the EPUB's spine items to find 
+    //   the last spine item with a page-spread value set. We can use that value, whether there are an even or odd
+    //   number of pages between this spine item and the "last" one, and the page progression direction of the EPUB
+    //   to determine the appropriate page spread value for this spine item. 
+    inferUnassignedPageSpread : function (spineIndex, spine, pageProgDirection) {
 
-      // NOTE: This method still cannot infer the page spread value when center pages are sporadically specified
-      // REFACTORING CANDIDATE: Could still use some refactoring to enhance the clarity of the algorithm
-      
-      // Rationale: If the page spread property is not set, we must iterate back through the EPUB's spine items to find 
-      //   the last spine item with a page-spread value set. We can use that value, whether there are an even or odd
-      //   number of pages between this spine item and the "last" one, and the page progression direction of the EPUB
-      //   to determine the appropriate page spread value for this spine item. 
-      inferUnassignedPageSpread : function (spineIndex, spine, pageProgDirection) {
+        var lastSpecifiedPageSpread;
+        var numPagesBetween;
 
-          var lastSpecifiedPageSpread;
-          var numPagesBetween;
+        if (spine.at(spineIndex).get("page_spread") === "left" ||
+            spine.at(spineIndex).get("page_spread") === "right" ||
+            spine.at(spineIndex).get("page_spread") === "center") {
 
-          if (spine.at(spineIndex).get("page_spread") === "left" ||
-              spine.at(spineIndex).get("page_spread") === "right" ||
-              spine.at(spineIndex).get("page_spread") === "center") {
+            return this.getPageSpreadFromProperties(spine.at(spineIndex).get("page_spread"));
+        }
+        // If this is the first spine item, assign left or right based on page progression direction
+        else if (spineIndex === 0) {
 
-              return this.getPageSpreadFromProperties(spine.at(spineIndex).get("page_spread"));
-          }
-          // If this is the first spine item, assign left or right based on page progression direction
-          else if (spineIndex === 0) {
+            return pageProgDirection === "rtl" ? this.RIGHT_PAGE : this.LEFT_PAGE;
+        }
+        else {
 
-              return pageProgDirection === "rtl" ? this.RIGHT_PAGE : this.LEFT_PAGE;
-          }
-          else {
+            // Find last spine item with page-spread value and use it to determine the appropriate value for 
+            //   this spine item. This loop iterates, in reverse order, from the current spine index to the
+            //   spine item that had a specified page spread specified. 
+            for (var currSpineIndex = spineIndex - 1; currSpineIndex >= 0; currSpineIndex--) {
 
-              // Find last spine item with page-spread value and use it to determine the appropriate value for 
-              //   this spine item. This loop iterates, in reverse order, from the current spine index to the
-              //   spine item that had a specified page spread specified. 
-              for (var currSpineIndex = spineIndex - 1; currSpineIndex >= 0; currSpineIndex--) {
+                // REFACTORING CANDIDATE: This would be clearer if the currSpineIndex === 0 case was 
+                //   handled seperately. 
+                if (currSpineIndex === 0 || spine.at(currSpineIndex).get("page_spread")) {
 
-                  // REFACTORING CANDIDATE: This would be clearer if the currSpineIndex === 0 case was 
-                  //   handled seperately. 
-                  if (currSpineIndex === 0 || spine.at(currSpineIndex).get("page_spread")) {
+                    lastSpecifiedPageSpread = this.lastSpecifiedPageSpread(
+                        spine.at(currSpineIndex).get("page_spread"), 
+                        pageProgDirection
+                        );
+                    numPagesBetween = spineIndex - currSpineIndex;
 
-                      lastSpecifiedPageSpread = this.lastSpecifiedPageSpread(
-                          spine.at(currSpineIndex).get("page_spread"), 
-                          pageProgDirection
-                          );
-                      numPagesBetween = spineIndex - currSpineIndex;
+                    // Even number of pages between current and last spine item
+                    if (numPagesBetween % 2 === 0) {
 
-                      // Even number of pages between current and last spine item
-                      if (numPagesBetween % 2 === 0) {
+                        return lastSpecifiedPageSpread === "left" ? this.LEFT_PAGE : 
+                            lastSpecifiedPageSpread === "right" ? this.RIGHT_PAGE :
+                            pageProgDirection === "rtl" ? this.LEFT_PAGE : this.RIGHT_PAGE;
+                    }
+                    // Odd number of pages between current and last spine item with a specified page-spread value
+                    else {
 
-                          return lastSpecifiedPageSpread === "left" ? this.LEFT_PAGE : 
-                              lastSpecifiedPageSpread === "right" ? this.RIGHT_PAGE :
-                              pageProgDirection === "rtl" ? this.LEFT_PAGE : this.RIGHT_PAGE;
-                      }
-                      // Odd number of pages between current and last spine item with a specified page-spread value
-                      else {
+                        return lastSpecifiedPageSpread === "left" ? this.RIGHT_PAGE :
+                            lastSpecifiedPageSpread === "right" ? this.LEFT_PAGE :
+                            pageProgDirection === "rtl" ? this.RIGHT_PAGE : this.LEFT_PAGE;
+                    }
+                }
+            }
+        }
+    },
 
-                          return lastSpecifiedPageSpread === "left" ? this.RIGHT_PAGE :
-                              lastSpecifiedPageSpread === "right" ? this.LEFT_PAGE :
-                              pageProgDirection === "rtl" ? this.RIGHT_PAGE : this.LEFT_PAGE;
-                      }
-                  }
-              }
-          }
-      },
+    lastSpecifiedPageSpread : function (pageSpreadValue, pageProgDirection) {
 
-      lastSpecifiedPageSpread : function (pageSpreadValue, pageProgDirection) {
-
-          // Handles the case where currSpineIndex === 0 and a page-spread value has not been specified
-          if (pageSpreadValue && pageSpreadValue !== "") {
-              return pageSpreadValue;
-          }
-          else {
-              return pageProgDirection === "rtl" ? "right" : "left";
-          }
-      }
+        // Handles the case where currSpineIndex === 0 and a page-spread value has not been specified
+        if (pageSpreadValue && pageSpreadValue !== "") {
+            return pageSpreadValue;
+        }
+        else {
+            return pageProgDirection === "rtl" ? "right" : "left";
+        }
+    }
 });
     Epub.SpineItem = Epub.ManifestItem.extend({
 
@@ -6833,6 +7563,7 @@ EpubParser.PackageDocumentParser = Backbone.Model.extend({
 Epub.PackageDocument = Backbone.Model.extend({
 
     initialize : function (attributes, options) {
+
         var packageDocument = this.get("packageDocumentObject");
         this.manifest = new Epub.Manifest(packageDocument.manifest);
         this.spine = new Epub.Spine(packageDocument.spine);
@@ -7084,8 +7815,8 @@ Epub.PackageDocument = Backbone.Model.extend({
     },
 
     getToc : function () {
+
         var item = this.getTocItem();
-        console.log("item", item);
         if (item) {
             var href = item.get("contentDocumentURI");
             return href;
@@ -7194,8 +7925,7 @@ Epub.PackageDocument = Backbone.Model.extend({
         var manifest = this.manifest;
         var metadata = this.metadata;
         var spine_id = this.metadata.get("ncx");
-        //console.log("spine_id", spine_id);
-        
+
         var item = manifest.find(function(item){
 
             if (item.get("properties").indexOf("nav") !== -1) {
@@ -7300,6 +8030,7 @@ Epub.PackageDocument = Backbone.Model.extend({
     // Description: This method chooses the appropriate page view to load for individual 
     //   spine items, and sections of the spine. 
     loadSpineItems : function (viewerSettings, annotations, bindings) {
+
         var spineIndex;
         var currSpineItem;
         var currFixedSpineItems = [];
@@ -7413,11 +8144,10 @@ Epub.PackageDocument = Backbone.Model.extend({
         this.set("spine", spineInfo.spine);
         this.set("bindings", spineInfo.bindings);
         this.set("annotations", spineInfo.annotations);
+        this.get("viewerSettings").customStyles = [];
 
         this.loadStrategy = new EpubReader.LoadStrategy({ spineInfo : this.get("spine")});
-
         this.cfi = new EpubCFIModule();
-
     },
 
     // ------------------------------------------------------------------------------------ //  
@@ -7459,7 +8189,7 @@ Epub.PackageDocument = Backbone.Model.extend({
         return this.get("loadedPagesViews")[this.get("currentPagesViewIndex")].pagesView;
     },
 
-    renderPagesView : function (pagesViewIndex, renderLast, hashFragmentId, callback, callbackContext) {
+    renderPagesView : function (pagesViewIndex, callback, callbackContext) {
 
         var pagesViewInfo;
         var pagesView;
@@ -7473,24 +8203,19 @@ Epub.PackageDocument = Backbone.Model.extend({
             pagesView = pagesViewInfo.pagesView;
 
             if (pagesViewInfo.isRendered) {
+
                 pagesView.showPagesView();
                 this.applyPreferences(pagesView);
                 this.fitCurrentPagesView();
-                if (renderLast) {
-                    pagesView.showPageByNumber(pagesView.numberOfPages());
-                }
                 callback.call(callbackContext, pagesView);
             }
             else {
-                //console.log("else pagesViewInfo", pagesViewInfo);
+                
                 // Invoke callback when the content document loads
                 pagesView.on("contentDocumentLoaded", function (result) {
 
                     pagesView.showPagesView();
                     that.applyPreferences(pagesView);
-                    if (renderLast) {
-                        pagesView.showPageByNumber(pagesView.numberOfPages());
-                    }
 
                     _.each(that.get("pagesViewEventList"), function (eventInfo) {
                         pagesView.on(eventInfo.eventName, eventInfo.callback, eventInfo.callbackContext);
@@ -7508,26 +8233,22 @@ Epub.PackageDocument = Backbone.Model.extend({
 
     renderNextPagesView : function (callback, callbackContext) {
 
-        var nextPagesViewIndex;
-        if (this.hasNextPagesView()) {
-            nextPagesViewIndex = this.get("currentPagesViewIndex") + 1;
-            this.renderPagesView(nextPagesViewIndex, false, undefined, callback, callbackContext);
-        }
-        else {
+        var nextPagesViewIndex = this.get("currentPagesViewIndex") + 1;
+        this.renderPagesView(nextPagesViewIndex, function (pagesView) {
+
+            pagesView.showPageByNumber(1);
             callback.call(callbackContext);
-        }
+        }, callbackContext);
     },
 
     renderPreviousPagesView : function (callback, callbackContext) {
 
-        var previousPagesViewIndex;
-        if (this.hasPreviousPagesView()) {
-            previousPagesViewIndex = this.get("currentPagesViewIndex") - 1;
-            this.renderPagesView(previousPagesViewIndex, true, undefined, callback, callbackContext);
-        }
-        else {
+        var previousPagesViewIndex = this.get("currentPagesViewIndex") - 1;
+        this.renderPagesView(previousPagesViewIndex, function (pagesView) {
+
+            pagesView.showPageByNumber(pagesView.numberOfPages());
             callback.call(callbackContext);
-        }
+        }, callbackContext);
     },
 
     attachEventHandler : function (eventName, callback, callbackContext) {
@@ -7569,8 +8290,11 @@ Epub.PackageDocument = Backbone.Model.extend({
         }, this);
     },
 
+    // REFACTORING CANDIDATE: For consistency, it might make more sense if each of the page sets kept track
+    //   of their own last size and made the decision as to whether to resize or not. Or maybe that doesn't make
+    //   sense.... something to think about. 
     fitCurrentPagesView : function () {
-        //console.log("parentElement: ",$(this.get("parentElement")).height());
+
         var readerElementHeight = $(this.get("parentElement")).height();
         var readerElementWidth = $(this.get("parentElement")).width();
 
@@ -7626,6 +8350,7 @@ Epub.PackageDocument = Backbone.Model.extend({
     },
 
     getCurrentPagesViewInfo : function () {
+
         return this.get("loadedPagesViews")[this.get("currentPagesViewIndex")];
     },
 
@@ -7707,6 +8432,7 @@ Epub.PackageDocument = Backbone.Model.extend({
 
         var foundPagesViewIndex;
         _.find(this.get("loadedPagesViews"), function (currPagesViewInfo, index) {
+
             var foundSpineIndex = _.find(currPagesViewInfo.spineIndexes, function (currSpineIndex) {
                 if (currSpineIndex === spineIndex) {
                     return true;
@@ -7719,6 +8445,7 @@ Epub.PackageDocument = Backbone.Model.extend({
                 return true;
             }
         });
+
         return foundPagesViewIndex;
     },
 
@@ -7726,9 +8453,13 @@ Epub.PackageDocument = Backbone.Model.extend({
 
         var preferences = this.get("viewerSettings");
         pagesView.setSyntheticLayout(preferences.syntheticLayout);
-        pagesView.setMargin(preferences.currentMargin);
-        pagesView.setTheme(preferences.currentTheme);
-        pagesView.setFontSize(preferences.fontSize);
+
+        // Apply all current preferences to the next page set
+        pagesView.customize("margin", preferences.currentMargin + "");
+        pagesView.customize("fontSize", preferences.fontSize + "")
+        _.each(preferences.customStyles, function (customStyle) {
+            pagesView.customize(customStyle.customProperty, customStyle.styleNameOrCSSObject);
+        });
     },
 
     setLastRenderSize : function (pagesViewInfo, height, width) {
@@ -7739,7 +8470,19 @@ Epub.PackageDocument = Backbone.Model.extend({
 });
     EpubReader.EpubReaderView = Backbone.View.extend({
 
+    pageSetEvents : {
+        "contentDocumentLoaded" : false,
+        "epubLinkClicked" : true,
+        "atNextPage" : false,
+        "atPreviousPage" : false,
+        "atFirstPage" : false,
+        "atLastPage" : false,
+        "layoutChanged" : false,
+        "displayedContentChanged" : false
+    },
+
     initialize : function (options) {
+
         var that = this;
         this.packageDocumentDOM = options.packageDocumentDOM;
         this.reader = new EpubReader.EpubReader({
@@ -7753,6 +8496,7 @@ Epub.PackageDocument = Backbone.Model.extend({
             that.trigger("epubLoaded");
             // that.$el.css("opacity", "1");
         }, this);
+        this.startPropogatingEvents();
 
         this.readerBoundElement = options.readerElement;
         this.cfi = new EpubCFIModule();
@@ -7770,14 +8514,18 @@ Epub.PackageDocument = Backbone.Model.extend({
     // ------------------------ Public interface ------------------------------------------------------------------------
 
     showSpineItem : function (spineIndex, callback, callbackContext) {
+
         var that = this;
         var pagesViewIndex = this.reader.getPagesViewIndex(spineIndex);
         this.$el.css("opacity", "0");
-        this.reader.renderPagesView(pagesViewIndex, false, undefined, function () {
+        this.reader.renderPagesView(pagesViewIndex, function () {
 
             var pagesViewInfo = this.reader.getCurrentPagesViewInfo();
 
             // If the pages view is fixed
+            // REFACTORING CANDIDATE: This will cause a displayedContentChanged event to be triggered twice when another show
+            //   method calls this to first load the spine item; Part of this method could be extracted and turned into a 
+            //   helper to prevent this.
             if (pagesViewInfo.type === "fixed") {
                 pageNumber = that.getPageNumber(pagesViewInfo, spineIndex);
                 pagesViewInfo.pagesView.showPageByNumber(pageNumber);
@@ -7815,6 +8563,7 @@ Epub.PackageDocument = Backbone.Model.extend({
     },
 
     showPageByElementId : function (spineIndex, elementId, callback, callbackContext) { 
+
         // Rationale: Try to locate the element before switching to a new page view try/catch
         this.showSpineItem(spineIndex, function () {
             this.reader.getCurrentPagesView().showPageByHashFragment(elementId);
@@ -7829,14 +8578,26 @@ Epub.PackageDocument = Backbone.Model.extend({
 
         if (currentPagesView.onLastPage()) {
 
-            this.$el.css("opacity", "0");
-            this.reader.renderNextPagesView(function () {
-                that.$el.css("opacity", "1");
+            if (this.reader.hasNextPagesView()) {
+
+                this.$el.css("opacity", "0");
+                this.reader.renderNextPagesView(function () {
+
+                    that.$el.css("opacity", "1");
+                    that.trigger("atNextPage");
+                    callback.call(callbackContext);
+                }, this);
+            }
+            else {
+                this.trigger("atLastPage");
                 callback.call(callbackContext);
-            }, this);
+            }
         }
         else {
             currentPagesView.nextPage();
+            if (currentPagesView.onLastPage() && !this.reader.hasNextPagesView()) {
+                that.trigger("atLastPage");
+            }
         }
     },
 
@@ -7847,14 +8608,49 @@ Epub.PackageDocument = Backbone.Model.extend({
 
         if (currentPagesView.onFirstPage()) {
 
-            this.$el.css("opacity", "0");
-            this.reader.renderPreviousPagesView(function () {
-                that.$el.css("opacity", "1");
+            if (this.reader.hasPreviousPagesView()) {
+                
+                this.$el.css("opacity", "0");
+                this.reader.renderPreviousPagesView(function () {
+
+                    that.$el.css("opacity", "1");
+                    that.trigger("atPreviousPage");
+                    callback.call(callbackContext);
+                }, this);
+            }
+            else {
+                this.trigger("atFirstPage");
                 callback.call(callbackContext);
-            }, this);
+            }
         }
         else {
             currentPagesView.previousPage();
+            if (currentPagesView.onFirstPage() && !this.reader.hasPreviousPagesView()) {
+                that.trigger("atFirstPage");
+            }
+        }
+    },
+
+    // REFACTORING CANDIDATE: setFontSize and setMargin can be rolled into the custom
+    //   proprety infrastructure at some point
+    customize : function (customProperty, styleNameOrCSSObject) {
+
+        var currentView;
+
+        // delegate to font size, margin and theme
+        if (customProperty === "fontSize") {
+            this.setFontSize(parseInt(styleNameOrCSSObject));
+        }
+        else if (customProperty === "margin") {
+            this.setMargin(parseInt(styleNameOrCSSObject));
+        }
+        else {
+            currentView = this.reader.getCurrentPagesView();
+            currentView.customize(customProperty, styleNameOrCSSObject);
+            this.reader.get("viewerSettings")["customStyles"].push({ 
+                "customProperty" : customProperty,
+                "styleNameOrCSSObject" : styleNameOrCSSObject
+            });
         }
     },
 
@@ -7870,12 +8666,6 @@ Epub.PackageDocument = Backbone.Model.extend({
         var currentView = this.reader.getCurrentPagesView();
         currentView.setMargin(margin);
         this.reader.get("viewerSettings").currentMargin = margin;
-    },
-
-    setTheme : function (theme) {
-        var currentView = this.reader.getCurrentPagesView();
-        currentView.setTheme(theme);
-        this.reader.get("viewerSettings").currentTheme = theme;
     },
 
     setSyntheticLayout : function (isSynthetic) {
@@ -7900,28 +8690,25 @@ Epub.PackageDocument = Backbone.Model.extend({
         return this.reader.get("viewerSettings");
     },
 
-    assignEventHandler : function (eventName, callback, callbackContext) {
+    attachEventHandler : function (eventName, callback, callbackContext) {
 
-        if (eventName === "keydown-left") {
+        // Page set events
+        if (this.canHandlePageSetEvent(eventName)) {
             this.reader.attachEventHandler(eventName, callback, callbackContext);
         }
-        else if (eventName === "keydown-right") {
-            this.reader.attachEventHandler(eventName, callback, callbackContext);
-        } 
+        // Reader events
         else {
-            console.log("this", this);
             this.on(eventName, callback, callbackContext);
         }
     },
 
     removeEventHandler : function (eventName) {
 
-        if (eventName === "keydown-left") {
-            this.reader.removeEventHandler(eventName);
+        // Page set events
+        if (this.canHandlePageSetEvent(eventName)) {
+            this.reader.removeEventHandler(eventName, callback, callbackContext);
         }
-        else if (eventName === "keydown-right") {
-            this.reader.removeEventHandler(eventName);
-        } 
+        // Reader events
         else {
             this.off(eventName);
         }
@@ -7955,6 +8742,35 @@ Epub.PackageDocument = Backbone.Model.extend({
         });
 
         return pageNumber;
+    },
+
+    canHandlePageSetEvent : function (eventName) {
+
+        if (this.pageSetEvents[eventName] === true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    },
+
+    startPropogatingEvents : function () {
+
+        this.reader.attachEventHandler("atNextPage", function () {
+            this.trigger("atNextPage");
+        }, this);
+
+        this.reader.attachEventHandler("atPreviousPage", function () {
+            this.trigger("atPreviousPage");
+        }, this);
+
+        this.reader.attachEventHandler("layoutChanged", function (isSynthetic) {
+            this.trigger("layoutChanged", isSynthetic);
+        }, this);
+
+        this.reader.attachEventHandler("displayedContentChanged", function () {
+            this.trigger("displayedContentChanged");
+        }, this);        
     }
 });
 
@@ -8006,7 +8822,7 @@ Epub.PackageDocument = Backbone.Model.extend({
             return epubReaderView.getCurrentPage();
         },
         on : function (eventName, callback, callbackContext) {
-            return epubReaderView.assignEventHandler(eventName, callback, callbackContext);
+            return epubReaderView.attachEventHandler(eventName, callback, callbackContext);
         },
         off : function (eventName) {
             return epubReaderView.removeEventHandler(eventName);
@@ -8016,9 +8832,14 @@ Epub.PackageDocument = Backbone.Model.extend({
         },
         resizeContent : function () {
             return epubReaderView.reader.fitCurrentPagesView();
+        },
+        customize : function (customProperty, styleNameOrCSS) {
+            epubReaderView.customize(customProperty, styleNameOrCSS);
+            return this;
         }
     };
-}; 
+};
+
 
     // -------------- Initialization of viewer ------------------ //
     var epubParser = new EpubParserModule(packageDocumentURL, packageDocumentXML);
@@ -8087,8 +8908,9 @@ Epub.PackageDocument = Backbone.Model.extend({
         resizeContent : function () { 
             return epubViewer.resizeContent(); 
         },
-        getToc: function() {
-            return epub.getToc();
+        customize : function (customElement, styleNameOrCSSObject) {
+            epubViewer.customize(customElement, styleNameOrCSSObject);
+            return this;
         }
     };
 };

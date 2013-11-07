@@ -208,6 +208,11 @@ root {
 
 /* READER */
 
+#returns-home {
+    font-size: 12px;
+    color: gray;
+}
+
 #reader-content {
     postion: relative;
 }
@@ -240,6 +245,11 @@ root {
 
 #reader {
     margin-top: 10px;
+}
+
+.progress {
+    margin-top: 20px;
+    height: 10px !important;
 }
 
 /* INPUTS POPUP */
