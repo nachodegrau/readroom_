@@ -13,10 +13,10 @@ _readroom.inputsView = Backbone.View.extend({
     },
     setReplies: function() {
         // Adelanto una posición en array de modelos para que el índice se situe en el primer input
-        var nextElement = this.collection.next().getElement();
+        //var nextElement = this.collection.next().getElement();
         
         // Busco las replicas a este input
-        nextElement.showInputReplies(nextElement.get("id"));
+        //nextElement.showInputReplies(nextElement.get("id"));
     },
     render: function() {
         $(this.el).html(this.template(this.collection));

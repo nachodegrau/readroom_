@@ -35,9 +35,11 @@ _readroom.inputsCollection = Backbone.Collection.extend({
             data: data,
             success: function(data) {
                 var those = that;
+                $(reader.get("context")).off("click", ".openInputPopup");
                 $(reader.get("context")).on("click", ".openInputPopup", function() {
                     those.viewInputs(this); 
                 });
+                console.log("HOLAAAA");
                 that.setInputsInBook();
             },
             fail: function(data) {
@@ -48,7 +50,9 @@ _readroom.inputsCollection = Backbone.Collection.extend({
     
     // Pongo todos los inputs en el párrafo correspondiente
     setInputsInBook: function() {
+        console.log("num inputs: " + this.length);
         this.each(function(input) {
+           //console.log("id: " + input.get("id") + " quote: " + input.get("input_quote"));
            input.setInputInBook();
         });
     },
@@ -72,7 +76,9 @@ _readroom.inputsCollection = Backbone.Collection.extend({
         
         $("#input-" + inputsArray[1]).show();
         
+        console.log("AAAAA");
         $("#inputs-popup").foundation("reveal", "open");
+        
     }
 });
 
@@ -89,9 +95,7 @@ _readroom.repliesCollection = Backbone.Collection.extend({
             },
             success: function(collection) {
                 // pinto las replies en el popup debajo del input
-                
-                console.log(collection);
-                
+
                 var repliesview = new _readroom.repliesView({el: $("#input-" + id + "-replies"), collection: collection });
                 repliesview.render();
             },

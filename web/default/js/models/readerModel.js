@@ -160,12 +160,12 @@ _readroom.readerModel = Backbone.Model.extend({
         // Busco todos los inputs que hay en ese iframe
         inputs.searchAllInputsByBook(currentBook.get("id"), reader.get("currentSpine"));
         
+        $(this.get("context")).off("click", ".openInputPopup");
         // Añado el evento de click al icono azul
         $(this.get("context")).on("click", ".openInputPopup", function() {
             inputs.viewInputs(this); 
         });
-        
-        console.log($(this.get("context").find("#heading_id_2")));
+       
         /*
         $(this.get("context")).hammer({ prevent_default: true }).on("swipe", "#heading_id_2", function() {
             alert("swipe");

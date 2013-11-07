@@ -64,22 +64,27 @@ _readroom.inputModel = Backbone.Model.extend({
         var $elements = contents.find("p:contains('" + this.get("input_quote") + "')");
         $elements.addClass("inputs");
         
-        // cambio el contenido del elemento con los nuevos elementos
-        var text = $elements.html();
-        $elements.html(text.replace(this.get("input_quote"), "<span class='quote' data-inputid='" + this.get("id") + "'>" + this.get("input_quote") + "</span>"));
-        that = this;
-        // pongo ls id's de los inputs que hay en ese elemento
-        $elements.each(function() {
-            if(typeof $(this).data("inputs") != "undefined") {
-                $(this).data("inputs", $(this).data("inputs") + "," + that.get('id'));
-            } else {
-                $(this).data("inputs", "," + that.get('id'));
-            }
-        });
+        console.log($elements);
         
-        var afterEl = $elements.next();
-        if(afterEl.attr("class") != "openInputPopup") {
-            $elements.after("<div class='openInputPopup'> <div>inputs</div></div>");
+        // Compruebo que haya encontrado la cita en cuestión
+        if ($elements.length != 0) {
+            // cambio el contenido del elemento con los nuevos elementos
+            var text = $elements.html();
+            $elements.html(text.replace(this.get("input_quote"), "<span class='quote' data-inputid='" + this.get("id") + "'>" + this.get("input_quote") + "</span>"));
+            that = this;
+            // pongo ls id's de los inputs que hay en ese elemento
+            $elements.each(function() {
+                if(typeof $(this).data("inputs") != "undefined") {
+                    $(this).data("inputs", $(this).data("inputs") + "," + that.get('id'));
+                } else {
+                    $(this).data("inputs", "," + that.get('id'));
+                }
+            });
+
+            var afterEl = $elements.next();
+            if(afterEl.attr("class") != "openInputPopup") {
+                $elements.after("<div class='openInputPopup' data-reveal-id='inputs-popup'> <div>inputs</div></div>");
+            }
         }
     },
             

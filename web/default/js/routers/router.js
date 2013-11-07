@@ -48,7 +48,7 @@ _readroom.router = Backbone.Router.extend({
         
         // voy a buscar a la BBDD todas las publicaciones que se han hecho sobre ese capítulo
         inputs = new _readroom.inputsCollection();
-        inputs.searchAllInputsByBook(currentBook.get("id"), reader.get("currentSpine"));
+        //inputs.searchAllInputsByBook(currentBook.get("id"), reader.get("currentSpine"));
  
 
         // inicializo la lista de capítulos
