@@ -41,6 +41,32 @@
                                 <%= input.attributes.comment %>
                             </div>
                         </div>
+                        <div class="row collapse">
+                            <div id="input-<%= input.attributes.id %>-replies" class="input-replies large-12 columns">
+                                <img src="{{asset('default/images/ajax-loader.gif')}}" /> Cargando comentarios...
+                            </div>
+                        </div>
+                        <div class="new-reply-form">
+                            <form id="input-<%= input.attributes.id %>-reply-form" action="javascript:null">
+                                <div class="row ">
+                                    <div class="large-1 columns">
+                                        <img width="100%" src="{{ asset('readers/images/') }}<%= currentUser.get('image') %>"> 
+                                    </div>
+                                    <div class="large-10 columns">
+                                        <textarea id="new-reply-text"> </textarea>
+                                    </div>
+                                
+                                    <div class="large-1 columns">
+                                        <button class="reply-send-button small right disabled" data-idinput="<%= input.attributes.id %>" DISABLED> Enviar </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="reply-loader loader large-11 push-1 columns"> 
+                                        <img src="{{asset('default/images/ajax-loader.gif')}}" /> Enviando comentario...
+                                    </div>
+                                </div>
+                            </form>
+                       </div>
                     </div>
                     <% } else { %>
                     <div class="input-media large-6 columns"> 
@@ -141,7 +167,7 @@
         <div class="input-reply">
             <div class="row collapse">
                 <div class=" large-1 columns">
-                    <img width= "30px" src="{{ asset('readers/images/') }}<%= reply.attributes.reader_image %>"> 
+                    <img width= "75%" src="{{ asset('readers/images/') }}<%= reply.attributes.reader_image %>"> 
                     
                 </div>
                 <div class="large-11 columns"> 

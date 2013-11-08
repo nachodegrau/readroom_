@@ -307,6 +307,11 @@ root {
     background: #F2F2F2;
     margin-top: 1px;
     padding: 5px;
+    text-align: justify;
+}
+
+.input-replies {
+   
 }
 
 #new-reply-text {

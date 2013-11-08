@@ -8,7 +8,7 @@ _readroom.inputsView = Backbone.View.extend({
     events: {
         "click #prev-input": "previousInput",
         "click #next-input": "nextInput",
-        "keyup .new-reply-form textarea": "enableSubmit",
+        "keyup #new-reply-text": "enableSubmit",
         "click .reply-send-button": "saveReply",
         "click #close-reveal-input": "closeReveal"
     },
@@ -91,6 +91,7 @@ _readroom.inputsView = Backbone.View.extend({
      * Activa y desactiva el botón en función de si no hay nada escrito en el textarea
      */
     enableSubmit: function(ev) {
+        console.log("enable submit");
         if ($(ev.currentTarget).val().length == 0) {
             $(".reply-send-button").addClass("disabled");
             $(".reply-send-button").attr("disabled", "disabled");
