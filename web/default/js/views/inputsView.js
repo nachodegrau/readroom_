@@ -111,9 +111,23 @@ _readroom.inputsView = Backbone.View.extend({
         var reply = new _readroom.replyModel({input_id: $(ev.currentTarget).data("idinput"), comment: comment});
         reply.saveInputReply();
     },
+            
    closeReveal: function() {
        $("#inputs-popup").foundation("reveal", "close");
-   }
+   },
+           
+   destroy_view: function() {
+
+    //COMPLETELY UNBIND THE VIEW
+    this.undelegateEvents();
+
+    $(this.el).removeData().unbind(); 
+
+    //Remove view from DOM
+    this.remove();  
+    Backbone.View.prototype.remove.call(this);
+
+    }
 
 });
 

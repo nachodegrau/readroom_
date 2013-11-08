@@ -27,9 +27,10 @@ _readroom.booksCatalogView = Backbone.View.extend({
     },
             
     showPopupDescription: function(ev) {
+        console.log("showPopupDescription");
         var book = new _readroom.bookModel();
         book = this.collection.get($(ev.currentTarget).data("book-id"));
-        bookDescriptionView = new _readroom.bookDescriptionView({el:$("#book-description"), model: book});
+        bookDescriptionView.model = book;
         bookDescriptionView.render();
         $('#book-description').foundation('reveal', 'open');
     },

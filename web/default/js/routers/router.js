@@ -20,6 +20,7 @@ _readroom.router = Backbone.Router.extend({
        $("#reader-content").empty();
        $("#login-page").hide();
        $("#account-page").hide();
+       this.destroyInputViews();
        this.initUserMenu();
        this.initCategories();
        var booksCatalog = new _readroom.booksCollection();
@@ -70,6 +71,7 @@ _readroom.router = Backbone.Router.extend({
         this.checkUser();
         this.initUserMenu();
         this.initCategories();
+        this.destroyInputViews();
         $("#left-bar").css({"left": "-" + leftBarWith + "px"});
         $("#books-catalog").empty();
         $("#books-catalog").show();
@@ -83,6 +85,7 @@ _readroom.router = Backbone.Router.extend({
             
     login: function() {
         this.initUserMenu();
+        this.destroyInputViews();
         $("#left-bar").css({"left": "-" + leftBarWith + "px"});
         $("#login-page").show();
         $("#reader-content").empty();
@@ -102,6 +105,7 @@ _readroom.router = Backbone.Router.extend({
             
     account: function() {
         this.initUserMenu();
+        this.destroyInputViews();
         $("#left-bar").css({"left": "-" + leftBarWith + "px"});
         $("#main-content").css({"margin-left": "0"});
         $("#login-page").empty();
@@ -203,6 +207,13 @@ _readroom.router = Backbone.Router.extend({
             }
         });
 
+    },
+    
+    destroyInputViews: function() {
+        if(!_.isUndefined(inputsView)) {
+            console.log("DESTROY VIEW");
+            inputsView.destroy_view();
+        }
     },
     
     checkUser: function() {

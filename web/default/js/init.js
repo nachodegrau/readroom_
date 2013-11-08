@@ -17,6 +17,8 @@ $(function() {
     // inicializo la entidad history de Backbone para poder uilizar las rutas
     Backbone.history.start();
     
+    bookDescriptionView = new _readroom.bookDescriptionView({el:$("#book-description")});
+    
     router.initFacebook();
        
 });

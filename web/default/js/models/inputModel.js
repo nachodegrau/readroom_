@@ -71,8 +71,6 @@ _readroom.inputModel = Backbone.Model.extend({
         var $elements = contents.find("p:contains('" + this.get("input_quote") + "')");
         $elements.addClass("inputs");
         
-        console.log("$elements.length: " + $elements.length);
-        
         // Compruebo que haya encontrado la cita en cuestión
         if ($elements.length != 0) {
             // cambio el contenido del elemento con los nuevos elementos
@@ -92,13 +90,12 @@ _readroom.inputModel = Backbone.Model.extend({
                 $elements.html(text.replace(this.get("input_quote"), "<span class='quote' data-inputid='" + this.get("id") + "'>" + this.get("input_quote") + "</span>"));
             }
             
-            
             // pongo ls id's de los inputs que hay en ese elemento
             $elements.each(function() {
                 // Si ya existe algun input en el párrafo
                 if(typeof $(this).data("inputs") != "undefined") {
-                    
                     var idsArray = $(this).data("inputs").split(",");
+                    // Compruebo que ese input no esté ya en la lista de id's
                     if(!router.in_array(that.get('id'),idsArray)) {
                        $(this).data("inputs", $(this).data("inputs") + "," + that.get('id')); 
                     }
