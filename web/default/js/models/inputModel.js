@@ -16,6 +16,10 @@ _readroom.inputModel = Backbone.Model.extend({
     initialize: function(attrs, opts) {
         
     },
+    
+    /*
+     * Esta función hace la llamada AJAX para guardar la publicación
+     */
     saveInput: function() {
         var that = this;
         $("#left-bar .loading-container").show();
@@ -54,8 +58,11 @@ _readroom.inputModel = Backbone.Model.extend({
         });
         
     },
-    
+    /*
+     * Esta función se encarga de introducir dentro del iframe la información de las publicaciones hechas sobre el mismo
+     */
     setInputInBook: function() {
+        var that = this;
         // rescato el iframe y recojo todos los contenidos
         var iframe = $("iframe")[this.get("book_spine")];
         var contents = $(iframe).contents();
@@ -64,30 +71,57 @@ _readroom.inputModel = Backbone.Model.extend({
         var $elements = contents.find("p:contains('" + this.get("input_quote") + "')");
         $elements.addClass("inputs");
         
-        console.log($elements);
+        console.log("$elements.length: " + $elements.length);
         
         // Compruebo que haya encontrado la cita en cuestión
         if ($elements.length != 0) {
             // cambio el contenido del elemento con los nuevos elementos
             var text = $elements.html();
-            $elements.html(text.replace(this.get("input_quote"), "<span class='quote' data-inputid='" + this.get("id") + "'>" + this.get("input_quote") + "</span>"));
-            that = this;
+            
+            // Compruebo que la cita no tenga ya el span con class=quote
+            var quotes = $elements.children(".quote");
+            var exist = 0;
+            for(var i=0; i<quotes.length; i++) {
+                if($(quotes[i]).data("inputid") == this.get("id")) {
+                    exist = 1;
+                }
+            }
+            
+            // Si no existe le pongo el span=quote
+            if(exist == 0) {
+                $elements.html(text.replace(this.get("input_quote"), "<span class='quote' data-inputid='" + this.get("id") + "'>" + this.get("input_quote") + "</span>"));
+            }
+            
+            
             // pongo ls id's de los inputs que hay en ese elemento
             $elements.each(function() {
+                // Si ya existe algun input en el párrafo
                 if(typeof $(this).data("inputs") != "undefined") {
-                    $(this).data("inputs", $(this).data("inputs") + "," + that.get('id'));
-                } else {
+                    
+                    var idsArray = $(this).data("inputs").split(",");
+                    if(!router.in_array(that.get('id'),idsArray)) {
+                       $(this).data("inputs", $(this).data("inputs") + "," + that.get('id')); 
+                    }
+                } 
+                // Si no existe ningún input en el párrafo
+                else {
                     $(this).data("inputs", "," + that.get('id'));
                 }
             });
-
+            
+            // Añado un div debajo del párrafo que indica que allí hay alguna publicación
             var afterEl = $elements.next();
             if(afterEl.attr("class") != "openInputPopup") {
                 $elements.after("<div class='openInputPopup' data-reveal-id='inputs-popup'> <div>inputs</div></div>");
             }
         }
     },
-            
+    
+    
+    
+    /*
+     * Para ver las réplicas a una publicación en concreto
+     */
     showInputReplies: function(id) {
         var replies = new _readroom.repliesCollection();
         replies.showReplies(id);
@@ -106,6 +140,9 @@ _readroom.replyModel = Backbone.Model.extend({
         
     },
     
+    /*
+     * Función que hace una llamada AJAX para guardar una réplica
+     */
     saveInputReply: function(input_id) {
         var that = this;
         this.save({},{

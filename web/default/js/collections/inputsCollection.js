@@ -37,9 +37,8 @@ _readroom.inputsCollection = Backbone.Collection.extend({
                 var those = that;
                 $(reader.get("context")).off("click", ".openInputPopup");
                 $(reader.get("context")).on("click", ".openInputPopup", function() {
-                    those.viewInputs(this); 
+                    that.viewInputs(this); 
                 });
-                console.log("HOLAAAA");
                 that.setInputsInBook();
             },
             fail: function(data) {
@@ -50,9 +49,7 @@ _readroom.inputsCollection = Backbone.Collection.extend({
     
     // Pongo todos los inputs en el párrafo correspondiente
     setInputsInBook: function() {
-        console.log("num inputs: " + this.length);
         this.each(function(input) {
-           //console.log("id: " + input.get("id") + " quote: " + input.get("input_quote"));
            input.setInputInBook();
         });
     },
@@ -62,7 +59,9 @@ _readroom.inputsCollection = Backbone.Collection.extend({
         // recojo el campo inputs del párrafo comentado que es un string con los id's de los inputs separados por ","
         var inputsData = $(ev).prev().data("inputs");
         var inputsToView = new _readroom.inputsCollection();
-
+        
+        console.log(inputsData);
+        
         // Guardo en inputsToView los inputs que hay para ese párrafo en particular
         var inputsArray = inputsData.split(",");
         for (var i = 1; i < inputsArray.length; i++) {

@@ -29,10 +29,9 @@ _readroom.configurationView = Backbone.View.extend({
         "change #font-size-selector": "changeFontSize"
     },
     initialize: function() {
-        console.log("configurationView");
+        
     },
     render: function() {
-        console.log("configurationView render");
         $(this.el).html(this.template());
         return this;
     },

@@ -134,6 +134,7 @@ root {
 #left-bar-chapters ul li {
     list-style: none;
     cursor: pointer;
+    font-size: 12px;
 }
 
 .chapter.current {

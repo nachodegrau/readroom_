@@ -13,6 +13,7 @@ _readroom.inputsView = Backbone.View.extend({
         "click #close-reveal-input": "closeReveal"
     },
     setReplies: function() {
+        console.log(this);
         // Adelanto una posición en array de modelos para que el índice se situe en el primer input
         var nextElement = this.collection.next().getElement();
         
