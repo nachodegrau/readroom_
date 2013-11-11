@@ -10,7 +10,8 @@ _readroom.readerView = Backbone.View.extend({
        "click #next-page": "nextPage",
        "click #open-inputs-bar": "openInputsMenu",
        "click #open-chapters-bar": "openChaptersMenu",
-       "click #open-config-bar": "openConfigMenu"
+       "click #open-config-bar": "openConfigMenu",
+       "click #returns-home": "returnHome"
    },
    initialize: function() {
 
@@ -19,6 +20,11 @@ _readroom.readerView = Backbone.View.extend({
     render: function() {
         $(this.el).html(this.template());
         $("#reader-book-title").html("<span class='black-text'>" + currentBook.get("book_name") + "</span>" + " by " + currentBook.get("book_author"));
+        
+        if(navigator.userAgent.indexOf("Mobile") !== -1) {
+            $("#next-page").hide();
+            $("#prev-page").hide();
+        }
         return this;
     },
     
@@ -60,6 +66,9 @@ _readroom.readerView = Backbone.View.extend({
         if (reader != null) {
             reader.resizeContent();
         }
+    },
+    returnHome: function() {
+        location.href= absoluteUrl + "#";
     }
 });
 

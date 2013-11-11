@@ -38,6 +38,11 @@ root {
     display: none;
 }
 
+
+.ui-loader {
+    display: none !important;
+}
+
 /* ESTRUCTURA */
 
 #main-header {
@@ -210,6 +215,7 @@ root {
 /* READER */
 
 #returns-home {
+    z-index: 100;
     font-size: 12px;
     color: gray;
 }

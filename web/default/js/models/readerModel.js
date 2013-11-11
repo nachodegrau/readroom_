@@ -53,18 +53,27 @@ _readroom.readerModel = Backbone.Model.extend({
     },
             
     setChapters: function($tocXML) {
-        var that = this;
-        var spine = -1,
-        chapters = [],
-        currentSpineSrc = "";
+        var that = this,
+        chapters = [];
         
-        //var depth = $tocXML.find('meta[name="dtb:depth"]').attr("content");
+        var depth = $tocXML.find('meta[name="dtb:depth"]').attr("content");
         
         var $elem = $tocXML.find("navMap");
-                
-        $elem.children("navPoint").each( function() {
-            var chapter = {};
-            
+        
+        chapters = this.chaptersTreeNavigate(depth - 1, $elem.children("navPoint"));
+        
+        this.set({chapters: chapters});
+        
+    },
+    
+    chaptersTreeNavigate: function(depth, $elem) {
+        var that = this;
+        var nodes = [];
+        var spine = -1,
+        currentSpineSrc = "";
+        var i = 0;
+        
+        $elem.each(function() {
             // divido el src entre archivo e ID
             var src = $(this).find("content").attr("src").split("#");
             // busco el spine
@@ -76,13 +85,23 @@ _readroom.readerModel = Backbone.Model.extend({
             if(src[1] == null) {
                 src[1] = 0;
             }
-            chapter.elementId = src[1];
-            chapter.spine = spine;
-            chapter.name = $(this).children("navLabel").children("text").text();
-            chapters.push(chapter);
+            var chapter = {
+                name: $(this).children("navLabel").children("text").text(),
+                elementId: src[1],
+                spine: spine,
+                children: []
+            };
+            
+            if($(this).children("navPoint").length == 0 || depth == 0) {
+                nodes[i] = chapter;
+            } else {
+                nodes[i] = chapter;
+                nodes[i].children = that.chaptersTreeNavigate(depth, $(this).children("navPoint"));
+            }
+            i++;
         });
-        this.set({chapters: chapters});
         
+        return nodes;
     },
     
     getXML: function(url) {
@@ -171,67 +190,21 @@ _readroom.readerModel = Backbone.Model.extend({
             inputs.viewInputs(this); 
         });
         
-        //var that = this;
-        $(this.get("context")).on("mouseup", function() {
-            var iframe = $("iframe.readium-flowing-content")[that.get("currentSpine")];
-            var iframeWindow = iframe.contentWindow;
-            var iframeDocument = iframe.contentDocument;
-
-            if (window.getSelection) {  // all browsers, except IE before version 9
-                var range = iframeWindow.getSelection();
-                console.log(range, range.toString());
-                return range.toString();
-            } 
-            else {
-                if (document.selection.createRange) { // Internet Explorer
-                    var range = iframeDocument.selection.createRange();
-                    return range.text;
-                }
-            }
-        });
+        $(this.get("context")).on("mouseup", that.getSelectedText);
         
         $(this.get("context")).on("touchend", function() {
-            var timer = setInterval(function() {
-
-                var iframeWindow = that.get("iframe").contentWindow;
-                var iframeDocument = that.get("iframe").contentDocument;
-
-                //alert(iframeWindow);
-
-                if (window.getSelection) {  // all browsers, except IE before version 9
-                    try {
-                        var range = iframeWindow.getSelection().getRangeAt(0);
-                        that.set({text: range.toString()});//alert(range.toString());
-                    } catch (err) {
-                        //alert(err);
-                    }
-                    return range.toString();
-                } 
-                else {
-                    if (document.selection.createRange) { // Internet Explorer
-                        var range = iframeDocument.selection.createRange();
-                        return range.text;
-                    }
-                }
-            //clearTimeout(this);
-            }, 100);
-            
+            var timer = setInterval(that.getSelectedText, 100);
         });
         
-        $(this.get("context")).on("swipeleft", function() { 
-            that.nextPage();
-        });
-        
-        $(this.get("context")).on("swiperight", function() { 
-            that.previousPage();
-        });
-       
-        /*
-        $(this.get("context")).hammer({ prevent_default: true }).on("swipe", "#heading_id_2", function() {
-            alert("swipe");
-        });*/
-        
-        //setInterval(this.getSelectedText, 150);
+        if(navigator.userAgent.indexOf("Mobile") !== -1) {
+            $(this.get("context")).on("swipeleft", function() { 
+                that.nextPage();
+            });
+
+            $(this.get("context")).on("swiperight", function() { 
+                that.previousPage();
+            });
+        }
         
     },
     
@@ -260,19 +233,23 @@ _readroom.readerModel = Backbone.Model.extend({
     },
     
     getSelectedText: function() {
-        var iframe = $("iframe.readium-flowing-content")[this.get("currentSpine")];
-        var iframeWindow = iframe.contentWindow;
-        var iframeDocument = iframe.contentDocument;
-        
+        var iframeWindow = reader.get("iframe").contentWindow;
+        var iframeDocument = reader.get("iframe").contentDocument;
+
         if (window.getSelection) {  // all browsers, except IE before version 9
-            var range = iframeWindow.getSelection();
-            alert(range);
-            return range.toString();
-        } 
+            try {
+                var range = iframeWindow.getSelection().getRangeAt(0);
+                that.set({text: range.toString()});
+                $("#selected-text").html(range.toString());
+            } catch (err) {
+                //alert(err);
+            }
+        }
         else {
             if (document.selection.createRange) { // Internet Explorer
                 var range = iframeDocument.selection.createRange();
-                return range.text;
+                that.set({text: range.text});
+                $("#selected-text").html(range.toString());
             }
         }
     },
