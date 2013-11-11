@@ -9,9 +9,12 @@ _readroom.booksCatalogView = Backbone.View.extend({
    events: {
      "mouseover .book-image": "showButtons",
      "mouseout .book-image": "showButtons",
-     "click .book-image": "showPopupDescription",
+     /*"click .book-image": "showPopupDescription",
      "click .book-name": "showPopupDescription",
-     "click .book-author": "showPopupDescription",
+     "click .book-author": "showPopupDescription",*/
+     "click .book-image": "goToReaderPage",
+     "click .book-name": "goToReaderPage",
+     "click .book-author": "goToReaderPage",
      "click #book-read-button": "goToReaderPage"
    },
    initialize: function() {

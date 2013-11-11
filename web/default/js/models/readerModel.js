@@ -156,6 +156,7 @@ _readroom.readerModel = Backbone.Model.extend({
         // Guardo el contexto del iframe en cuestión a partir del spine
         var iframe = $("iframe.readium-flowing-content")[this.get("currentSpine")];
         var context = $(iframe).contents();
+        this.set({iframe: iframe});
         this.set({context: context});
         
         // Añado a la cabecera del iframe el css de los inputs
@@ -169,11 +170,68 @@ _readroom.readerModel = Backbone.Model.extend({
         $(this.get("context")).on("click", ".openInputPopup", function() {
             inputs.viewInputs(this); 
         });
+        
+        //var that = this;
+        $(this.get("context")).on("mouseup", function() {
+            var iframe = $("iframe.readium-flowing-content")[that.get("currentSpine")];
+            var iframeWindow = iframe.contentWindow;
+            var iframeDocument = iframe.contentDocument;
+
+            if (window.getSelection) {  // all browsers, except IE before version 9
+                var range = iframeWindow.getSelection();
+                console.log(range, range.toString());
+                return range.toString();
+            } 
+            else {
+                if (document.selection.createRange) { // Internet Explorer
+                    var range = iframeDocument.selection.createRange();
+                    return range.text;
+                }
+            }
+        });
+        
+        $(this.get("context")).on("touchend", function() {
+            var timer = setInterval(function() {
+
+                var iframeWindow = that.get("iframe").contentWindow;
+                var iframeDocument = that.get("iframe").contentDocument;
+
+                //alert(iframeWindow);
+
+                if (window.getSelection) {  // all browsers, except IE before version 9
+                    try {
+                        var range = iframeWindow.getSelection().getRangeAt(0);
+                        that.set({text: range.toString()});//alert(range.toString());
+                    } catch (err) {
+                        //alert(err);
+                    }
+                    return range.toString();
+                } 
+                else {
+                    if (document.selection.createRange) { // Internet Explorer
+                        var range = iframeDocument.selection.createRange();
+                        return range.text;
+                    }
+                }
+            //clearTimeout(this);
+            }, 100);
+            
+        });
+        
+        $(this.get("context")).on("swipeleft", function() { 
+            that.nextPage();
+        });
+        
+        $(this.get("context")).on("swiperight", function() { 
+            that.previousPage();
+        });
        
         /*
         $(this.get("context")).hammer({ prevent_default: true }).on("swipe", "#heading_id_2", function() {
             alert("swipe");
         });*/
+        
+        //setInterval(this.getSelectedText, 150);
         
     },
     
@@ -181,9 +239,9 @@ _readroom.readerModel = Backbone.Model.extend({
     * función que añade o quita el listener que permite publicar el libro en función del estado en que se encuentre
     */
     chagePublishStatus: function(inputText) {
-        that = this;
-        
-        var text = that.getSelectedText();
+        var that = this;
+        //var text = that.getSelectedText();
+        var text = that.get("text");
         if (text != "") {
             var input = new _readroom.inputModel({
                 book_spine: that.get("currentSpine"),
@@ -208,6 +266,7 @@ _readroom.readerModel = Backbone.Model.extend({
         
         if (window.getSelection) {  // all browsers, except IE before version 9
             var range = iframeWindow.getSelection();
+            alert(range);
             return range.toString();
         } 
         else {
