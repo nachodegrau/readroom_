@@ -184,15 +184,15 @@ _readroom.readerModel = Backbone.Model.extend({
         // Busco todos los inputs que hay en ese iframe
         inputs.searchAllInputsByBook(currentBook.get("id"), reader.get("currentSpine"));
         
+        $(this.get("context")).on("mouseup", that.getSelectedText);
+        
         $(this.get("context")).off("click", ".openInputPopup");
         // Añado el evento de click al icono azul
         $(this.get("context")).on("click", ".openInputPopup", function() {
             inputs.viewInputs(this); 
         });
         
-        $(this.get("context")).on("mouseup", that.getSelectedText);
-        
-        //if(navigator.userAgent.indexOf("Mobile") !== -1) {
+        if(navigator.userAgent.indexOf("Mobile") !== -1) {
             $(this.get("context")).on("touchend", function() {
                 var timer = setInterval(that.getSelectedText, 100);
             });
@@ -202,16 +202,15 @@ _readroom.readerModel = Backbone.Model.extend({
                 swipe:function(event, direction, distance, duration, fingerCount) {
                   if(direction == "left") {
                       that.nextPage();
-                  } else if(direction == "right"){
+                  } else if(direction == "right") {
                       that.previousPage();
                   }
                 },
                 //Default is 75px, set to 0 for demo so any distance triggers swipe
-                 threshold:50
+                 threshold:50,
+                 excludedElements:$.fn.swipe.defaults.excludedElements+", .openInputPopup"
             });
-            
-            
-        //}
+        }
         
     },
     

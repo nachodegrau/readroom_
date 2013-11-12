@@ -13,6 +13,7 @@ root {
 /* CLASES GLOBALES*/
 
 .loading-container {
+    margin-top: 200px;
     text-align: center;
 }
 
@@ -150,6 +151,10 @@ root {
 
 #books-catalog {
     margin-top: 20px;
+}
+
+.book {
+    margin-bottom: 10px;
 }
 
 .book-image {

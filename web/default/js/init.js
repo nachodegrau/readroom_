@@ -13,6 +13,7 @@ $(function() {
     Backbone.emulateJSON = true;
     // creo una instancia del router
     router = new _readroom.router;
+    socialRouter = new _readroom.socialRouter;
 
     // inicializo la entidad history de Backbone para poder uilizar las rutas
     Backbone.history.start();

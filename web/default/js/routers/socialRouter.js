@@ -9,7 +9,15 @@ _readroom.socialRouter = Backbone.Router.extend({
     },
     
     userProfile: function(nameUser, idUser) {
-        alert("Aiiii mamitaaa");
+        $("#left-bar").css({"left": "-" + leftBarWith + "px"});
+        $("#main-content").css({"margin-left": "0"});
+        $("#books-catalog").hide();
+        $("#reader-content").empty();
+        $("#login-page").hide();
+        $("#account-page").hide();
+        router.destroyInputViews();
+        router.initUserMenu();
+        
     }
 });
 

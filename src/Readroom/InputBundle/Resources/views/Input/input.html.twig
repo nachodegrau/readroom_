@@ -53,7 +53,7 @@
                                         <img width="100%" src="{{ asset('readers/images/') }}<%= currentUser.get('image') %>"> 
                                     </div>
                                     <div class="large-10 columns">
-                                        <textarea id="new-reply-text"> </textarea>
+                                        <textarea id="new-reply-text" style="max-width:100%;"> </textarea>
                                     </div>
                                 
                                     <div class="large-1 columns">
@@ -73,7 +73,7 @@
                         <% if(input.attributes.type == 1) { %> 
                         <img src="{{ asset('inputs/files/') }}<%= input.attributes.source %>" />
                         <% } else if (input.attributes.type == 2) { %>
-                        <video width="475" controls>
+                        <video width="100%" controls>
                             <source src="{{ asset('inputs/files/') }}<%= input.attributes.source %>" type="video/mp4">
                         </video>
                         <% } %>

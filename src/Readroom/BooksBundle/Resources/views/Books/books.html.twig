@@ -2,7 +2,8 @@
 <div class="row"> 
     <div id="books-catalog" class="large-12 columns">
         <div class="loading-container"> 
-            <img src="{{ asset('default/images/loader.gif') }}"/>
+            <img src="{{ asset('default/images/loader-intro.gif') }}"/>
+            <h3> Cargando contenido</h3>
         </div>
     </div>
 </div>
@@ -15,24 +16,12 @@
             
             <%  for(var i=0; i<models.length; i++) { %>
             <% var book=models[i]; %>
-                <% if (i < models.length - 1 || i==0) { %>
-                    <div class="large-3 columns">
-                <% } else { %>
-                    <% var offset = models.length/4 - Math.floor( models.length/4 ) %>
-                    <% if(offset == 0) { %>
-                        <div class="large-3 columns">
-                    <% } else if(offset == 0.25) { %>
-                        <div class="large-3 pull-9 columns">
-                    <% } else if(offset == 0.5) { %>
-                        <div class="large-3 pull-6 columns">
-                    <% } else if(offset == 0.75) { %>
-                        <div class="large-3 pull-3 columns">
-                    <% } %>
-               <% } %>
+               
+                    <div class="book large-3 columns left">
                         <div class="row">
                             <div class="book-image large-12 columns" data-book-id="<%= book.attributes.id %>">
                                 <div class="book-read-button" data-book-id="<%= book.attributes.id %>" >LEER </div>
-                                <img src="/<%= book.attributes.book_front %>" />
+                                <img src="{{ asset('books/') }}<%= book.attributes.book_front %>" />
                             </div>
                         </div>
                         <div class="row">
