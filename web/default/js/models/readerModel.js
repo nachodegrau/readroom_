@@ -192,19 +192,26 @@ _readroom.readerModel = Backbone.Model.extend({
         
         $(this.get("context")).on("mouseup", that.getSelectedText);
         
-        $(this.get("context")).on("touchend", function() {
-            var timer = setInterval(that.getSelectedText, 100);
-        });
-        
-        if(navigator.userAgent.indexOf("Mobile") !== -1) {
-            $(this.get("context")).on("swipeleft", function() { 
-                that.nextPage();
+        //if(navigator.userAgent.indexOf("Mobile") !== -1) {
+            $(this.get("context")).on("touchend", function() {
+                var timer = setInterval(that.getSelectedText, 100);
             });
-
-            $(this.get("context")).on("swiperight", function() { 
-                that.previousPage();
+            
+            $(this.get("context")).swipe({
+                //Generic swipe handler for all directions
+                swipe:function(event, direction, distance, duration, fingerCount) {
+                  if(direction == "left") {
+                      that.nextPage();
+                  } else if(direction == "right"){
+                      that.previousPage();
+                  }
+                },
+                //Default is 75px, set to 0 for demo so any distance triggers swipe
+                 threshold:50
             });
-        }
+            
+            
+        //}
         
     },
     

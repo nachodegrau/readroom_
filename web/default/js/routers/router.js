@@ -217,7 +217,7 @@ _readroom.router = Backbone.Router.extend({
     },
     
     checkUser: function() {
-        if (typeof currentUser.get("id") == "undefined") {
+        if (typeof currentUser.get("id") == "undefined" || currentUser.get("id") == null) {
             location.href = absoluteUrl + "#login";
         }
     },
