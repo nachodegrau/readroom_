@@ -2,6 +2,7 @@
 
 namespace Readroom\DBBundle\Entity;
 
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -11,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="readers")
  * @ORM\Entity(repositoryClass="Readroom\DBBundle\Entity\ReaderRepository")
  */
-class Reader
+class Reader extends BaseUser
 {
 	/**
 	 * @ORM\Id
@@ -30,16 +31,6 @@ class Reader
 	 */
 	protected $reader_second_name;
 
-	/**
-	 * @ORM\Column(type="string", length=45)
-	 */
-	protected $reader_email;
-        
-        /**
-	 * @ORM\Column(type="string", length=250, nullable=true)
-	 */
-	protected $password;
-        
         /**
 	 * @ORM\Column(type="string", length=250, nullable=true)
 	 */
@@ -113,6 +104,7 @@ class Reader
 
 	public function __construct()
 	{
+                parent::__construct();
 		$this->complaints = new ArrayCollection();
 		$this->inputs = new ArrayCollection();
 		$this->loans = new ArrayCollection();
@@ -192,52 +184,6 @@ class Reader
 		return $this->reader_second_name;
 	}
 
-	/**
-	 * Set the value of reader_email.
-	 *
-	 * @param string $reader_email
-	 * @return \Readroom\DBBundle\Entity\Reader
-	 */
-	public function setReaderEmail($reader_email)
-	{
-		$this->reader_email = $reader_email;
-
-		return $this;
-	}
-
-	/**
-	 * Get the value of reader_email.
-	 *
-	 * @return string
-	 */
-	public function getReaderEmail()
-	{
-		return $this->reader_email;
-	}
-        
-        /**
-	 * Set the value of password.
-	 *
-	 * @param string password
-	 * @return \Readroom\DBBundle\Entity\Reader
-	 */
-	public function setPassword($password)
-	{
-		$this->password = $password;
-
-		return $this;
-	}
-
-	/**
-	 * Get the value of password.
-	 *
-	 * @return string
-	 */
-	public function getPassword()
-	{
-		return $this->password;
-	}
-        
         /**
 	 * Set the value of password.
 	 *

@@ -44,6 +44,10 @@ root {
     display: none !important;
 }
 
+.error {
+    color: red;
+}
+
 /* ESTRUCTURA */
 
 #main-header {

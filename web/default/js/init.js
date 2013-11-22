@@ -28,7 +28,8 @@ $(function() {
  * Incializo el usuario si existe
  */
 
-var initCurrentBook = function(book) {    
+var initCurrentBook = function(book) {
+    console.log(book);
     currentBook = new _readroom.bookModel();
     
     if(book != null) {

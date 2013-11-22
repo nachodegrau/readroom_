@@ -251,4 +251,74 @@ class Controller extends ContainerAware
     {
         return $this->container->get($id);
     }
+    
+    /* FUNCIONES COMPARTIDAS PARA VARIOS CONTROLADORES READROOM */
+    
+    public function setUserArray($currentUser) {
+        //$currentUser = new \Readroom\DBBundle\Entity\Reader();
+        $user = array(
+            "id" => $currentUser->getId(),
+            "username" => $currentUser->getUsername(),
+            "name" => $currentUser->getReaderName(),
+            "surname" => $currentUser->getReaderSecondName(),
+            "email" => $currentUser->getEmail(),
+            "image" => $currentUser->getReaderImage(),
+            "isFacebook" => $currentUser->getIsFacebook(),
+            "password" => null,
+            "error" => 0
+       );
+
+        return $user;
+    }
+    
+    public function setBookArray($currentBook) {
+        $book = array(
+            "id" => $currentBook->getId(),
+            "book_name" => $currentBook->getBookName(),
+            "book_author" => $currentBook->getBookAuthor(),
+            "book_front" => $currentBook->getBookFront(),
+            "book_synopsis" => $currentBook->getBookSynopsis(),
+            "source" => $currentBook->getSource(),
+            "opf_name" => $currentBook->getOpfName(),
+            "publication_year" => $currentBook->getPublicationYear(),
+            "book_price" => $currentBook->getBookPrice(),
+            "ISBN_code" => $currentBook->getISBNCode(),
+            "exist" => false
+        );
+
+        return $book;
+    }
+    
+    public function setRepliesArray($reply) {
+        $book = array(
+            "id" => $reply->getId(),
+            "reader_id" => $reply->getReader()->getId(),
+            "reader_name" => $reply->getReader()->getReaderName(),
+            "reader_image" => $reply->getReader()->getReaderImage(),
+            "comment" => $reply->getComent(),
+            "reply_date" => $reply->getDate()
+        );
+
+        return $book;
+    }
+    
+    public function inputToArray($input) {
+        
+        $returnInput = array(
+            "id" => $input->getId(),
+            "book_id" => $input->getBook()->getId(),
+            "reader_id" => $input->getReader()->getId(),
+            "reader_name" => $input->getReader()->getReaderName() . " " . $input->getReader()->getReaderSecondName(),
+            "reader_image" => $input->getReader()->getReaderImage(),
+            "input_quote" => $input->getInputQuote(),
+            "input_quote_mini" => substr($input->getInputQuote(),0,100),
+            "comment" => $input->getComment(),
+            "book_spine" => $input->getBookSpine(),
+            "input_date" => $input->getInputDate(),
+            "source" => $input->getSource(),
+            "type" => $input->getType()
+        );
+        
+        return $returnInput;
+    }
 }

@@ -24,9 +24,9 @@
 <script type="text/html" id="template-user-menu">
     <a href="#"> 
         <% if(isFacebook == true) { %>
-            <img width="20px" height="20px" src="<%= image %>"/> <span id="user-name-menu"><%= name %></span>
+            <img width="20px" height="20px" src="<%= image %>"/> <span id="user-name-menu"><%= username %></span>
         <% } else { %>
-            <img id="user-image-menu" width="20px" height="20px" src="{{asset('readers/')}}images/<%= image %>"/> <span><%= name %></span>
+            <img id="user-image-menu" width="20px" height="20px" src="{{asset('readers/')}}images/<%= image %>"/> <span><%= username %></span>
         <% } %>
     </a>
 
@@ -61,20 +61,28 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <input type="text" name="userMail" placeholder="e-mail" /> 
+                    <input type="text" name="_username" placeholder="Usuario o e-mail" /> 
                 </div>
             </div>
             <div class="row collapse">
                 <div class="large-9 columns">
-                    <input type="password" name="userPassword" placeholder="Contraseña" />
+                    <input type="password" name="_password" placeholder="Contraseña" />
                 </div>
                 
                 <div class="large-3 columns">
                     <button id="user-login-submit" class="small button right"> Enviar </button>
                 </div>
             </div>
+            <div class="row collapse" style="text-align: left;">
+                <div class="large-1 columns" > 
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                </div>
+                <div class="large-11 columns">
+                    <label for="remember_me">Recuérdame</label>
+                </div>
+            </div>
             <div class="row">
-                <div id="login-form-submit-info" class="user-form-submit-info large-12 columns"></div>
+                <div id="login-form-submit-info" class="user-form-submit-info large-12 columns error"></div>
             </div>
         </form>
 </script>
@@ -88,7 +96,12 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <input type="text" name="userMail" placeholder="e-mail" /> 
+                    <input type="text" name="userUsername" placeholder="Nombre de usuario" /> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <input type="text" name="userMail" placeholder="E-mail" /> 
                 </div>
             </div>
             <div class="row collapse">
@@ -101,7 +114,7 @@
                 </div>
             </div>
             <div class="row">
-                <div id="login-form-submit-info" class="user-form-submit-info large-12 columns"></div>
+                <div id="save-user-form-submit-info" class="user-form-submit-info large-12 columns"></div>
             </div>
         </form>
 </script>
@@ -154,12 +167,22 @@
             
             <div class="row">
                 <div class="large-12 columns">
+                    <input type="text" name="userUsername" placeholder="Nombre de usuario" value="<%= username %>" /> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <input type="text" name="userMail" placeholder="e-mail" value="<%= email %>"/> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
                     <input type="text" name="userName" placeholder="Nombre" value="<%= name %>" /> 
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <input type="text" name="userMail" placeholder="e-mail" value="<%= mail %>"/> 
+                    <input type="text" name="userSurname" placeholder="Apellidos" value="<%= surname %>" /> 
                 </div>
             </div>
             <div class="row">

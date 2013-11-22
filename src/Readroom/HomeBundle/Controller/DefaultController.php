@@ -14,9 +14,9 @@ class DefaultController extends Controller {
 
     public function indexAction() {
         // inicio sesión nada más entrar en la aplicación
-        $session = new Session();
-        $session->start();
-
+        //$session = new Session();
+        //$session->start();
+        $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
         $book = null;
         $user = null;
@@ -27,19 +27,21 @@ class DefaultController extends Controller {
             $currentBook = $em->getRepository('ReadroomDBBundle:Book')->find($session->get("currentBook"));
             $book = $this->setBookArray($currentBook);
         }
-
-        if ($session->get("userId") != null) {
-            // Busco al currentUser
-
-            $currentUser = $em->getRepository('ReadroomDBBundle:Reader')->find($session->get("userId"));
+        
+        $currentUser = $this->getUser();
+        
+        if($currentUser != null) {
             $user = $this->setUserArray($currentUser);
         }
-
+        
         $categories = $em->getRepository('ReadroomDBBundle:Category')->findBy(array("category_status" => true), array('parent_id' => 'ASC'));
         $categoriesArray = $this->setCategoriesArray($categories, 1);
 
         return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 'currentBook' => ($book == null) ? null : $book,
                     'currentUser' => ($user == null) ? null : $user));
+        
+        /*return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 'currentBook' => null,
+                    'currentUser' => null));*/
     }
 
     

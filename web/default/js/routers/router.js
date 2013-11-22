@@ -84,6 +84,7 @@ _readroom.router = Backbone.Router.extend({
     },
             
     login: function() {
+        this.checkUser("login");
         this.initUserMenu();
         this.destroyInputViews();
         $("#left-bar").css({"left": "-" + leftBarWith + "px"});
@@ -104,6 +105,7 @@ _readroom.router = Backbone.Router.extend({
     },
             
     account: function() {
+        this.checkUser();
         this.initUserMenu();
         this.destroyInputViews();
         $("#left-bar").css({"left": "-" + leftBarWith + "px"});
@@ -195,8 +197,12 @@ _readroom.router = Backbone.Router.extend({
             ignore: ".ignore",
             errorElement: 'small',
             rules: {
-                userName: {
+                userUsername: {
                     required: true
+                },
+                userMail: {
+                    required: true,
+                    email: true
                 },
                 userPassword: {
                     required: true
@@ -216,9 +222,11 @@ _readroom.router = Backbone.Router.extend({
         }
     },
     
-    checkUser: function() {
+    checkUser: function(page) {
         if (typeof currentUser.get("id") == "undefined" || currentUser.get("id") == null) {
             location.href = absoluteUrl + "#login";
+        } else if(page == "login") {
+            location.href = absoluteUrl + "#library/" + currentUser.get("id");
         }
     },
     

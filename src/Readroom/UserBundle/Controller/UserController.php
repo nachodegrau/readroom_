@@ -93,25 +93,23 @@ class UserController extends Controller
         if ($this->getRequest()->isXmlHttpRequest()) {
             
             // rescato las variables que he enviado por AJAX
-            $user_array = array();
-            $user_array = json_decode($request->request->get("model"));
             
             // Creo un nuevo usuario con los datos que vienen de la vista
             $user = new Reader();
-            $user->setReaderEmail($user_array->{"mail"});
-            $user->setPassword(hash('sha512',$user_array->{"password"}));
+            $user->setUsername($request->request->get("userUsername"));
+            $user->setEmail($request->request->get("userMail"));
+            $user->setPlainPassword($request->request->get("userPassword"));
+            $user->isEnabled(true);
+            
             
             // Busco si existe algún registro con el mismo nombre o e-mail
             $em = $this->getDoctrine()->getManager();
-            $userResults = $em->getRepository('ReadroomDBBundle:Reader')->findUserByEmail($user->getReaderEmail());
+            $userResults = $em->getRepository('ReadroomDBBundle:Reader')->findBy(array('email' => $user->getEmail() , "username" => $user->getUsername()));
             
             // Si no existe lo meto en la BBDD
             if (sizeof($userResults) == 0) {
                 $em->persist($user);
                 $em->flush();
-                
-                // Guardo al usuario en sesión
-                $this->storeUserInSession($user);
                 
                 $return = json_encode(array("id" => $user->getId(), "error" => 0));//jscon encode the array
                 return new Response($return,200, array('Content-Type' => 'application/json'));
@@ -123,7 +121,7 @@ class UserController extends Controller
                 return new Response($return,200, array('Content-Type' => 'application/json'));
             }
             
-            $response->headers->set('Content-Type', 'application/json');
+            //$response->headers->set('Content-Type', 'application/json');
             
         } else {
             return new Response($return,404);
@@ -138,17 +136,18 @@ class UserController extends Controller
             $user_array = json_decode($request->request->get("model"));
             
             $session = $this->getRequest()->getSession();
-
             $em = $this->getDoctrine()->getManager();
-            $reader = $em->getRepository('ReadroomDBBundle:Reader')->find($session->get("userId"));
+            $reader = $em->getRepository('ReadroomDBBundle:Reader')->find($this->getUser()->getId());
             
             if ($user_array->{"typeUpdate"} == "datos_personales") {
+                $reader->setUsername( $user_array->{"username"} );
+                $reader->setEmail( $user_array->{"mail"} );
                 $reader->setReaderName( $user_array->{"name"} );
-                $reader->setReaderEmail( $user_array->{"mail"} );
+                $reader->setReaderSecondName( $user_array->{"surname"} );
                                 
             } else if($user_array->{"typeUpdate"} == "contrasena") {
-                if($reader->getPassword() == hash('sha512',$user_array->{"reader_password"} )) {
-                    $reader->setPassword(hash('sha512',$user_array->{"reader_new_password"} ));
+                if($reader->getPlainPassword() == $user_array->{"reader_password"} ) {
+                    $reader->setPlainPassword(hash('sha512',$user_array->{"reader_new_password"} ));
                 }
             }
             
@@ -169,7 +168,7 @@ class UserController extends Controller
             $session = $this->getRequest()->getSession();
             
             $em = $this->getDoctrine()->getManager();
-            $reader = $em->getRepository('ReadroomDBBundle:Reader')->find($session->get("userId"));
+            $reader = $em->getRepository('ReadroomDBBundle:Reader')->find($this->getUser()->getId());
             
             $ruta="readers/images/";
                 

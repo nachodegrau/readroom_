@@ -9,7 +9,7 @@ user_facebook_login:
    methods: [POST]
    
 user_save:
-   path: /user
+   path: /save_user
    defaults: { _controller: ReadroomUserBundle:User:addUser }
    methods: [POST]
    

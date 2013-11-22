@@ -16,18 +16,18 @@ _readroom.loginView = Backbone.View.extend({
         
         return this;
     },
-    enviaDatos: function() {
+    enviaDatos: function(form) {
         // loading...
         $("#login-form-submit-info").html("cargando...");
 
         // introduzco los datos del formulario dentro del modelo
-        this.model.set({
-            mail: $("#user-login-form").find("input[name='userMail']").val(), 
-            password: $("#user-login-form").find("input[name='userPassword']").val(),
+        /*this.model.set({
+            _username: $("#user-login-form").find("input[name='userMail']").val(), 
+            _password: $("#user-login-form").find("input[name='userPassword']").val(),
             isFacebook: false
-        });
+        });*/
         
-        this.model.enviaDatos();
+        this.model.enviaDatos(form);
         
     },
     
@@ -90,7 +90,9 @@ _readroom.accountView = Backbone.View.extend({
             },
             submitHandler: function(form) {
                 that.model.set({
+                    username: $(form).find("input[name='userUsername']").val(),
                     name: $(form).find("input[name='userName']").val(),
+                    surname: $(form).find("input[name='userSurname']").val(),
                     mail: $(form).find("input[name='userMail']").val()
                 });
                

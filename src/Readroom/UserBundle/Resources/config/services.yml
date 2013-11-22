@@ -2,6 +2,21 @@ parameters:
 #    readroom_user.example.class: Readroom\UserBundle\Example
 
 services:
-#    readroom_user.example:
-#        class: %readroom_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+     readroom_user.always_true_csrf_provider:
+         class: Readroom\UserBundle\Form\Extension\Csrf\CsrfProvider\AlwaysTrueCsrfProvider
+         arguments: 
+           - @session
+           - %kernel.secret%
+     
+     readroom_user.ajax_authentication_success_handler:
+         class: Readroom\UserBundle\Security\Http\Authentication\AjaxAuthenticationSuccessHandler
+         tags:
+            - { name: 'monolog.logger', channel: 'security' }
+         calls:
+            - [setSerializer, ["@serializer"]]
+            
+     readroom_user.ajax_authentication_failure_handler:
+         class: Readroom\UserBundle\Security\Http\Authentication\AjaxAuthenticationFailureHandler
+         
+     readroom_user.ajax_logout_success_handler:
+         class: Readroom\UserBundle\Security\Http\Authentication\AjaxLogoutSuccessHandler

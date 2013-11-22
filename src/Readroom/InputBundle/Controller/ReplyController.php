@@ -23,7 +23,7 @@ class ReplyController extends Controller
             
             // busco el libro y el lector de este input
             $em = $this->getDoctrine()->getManager();
-            $reader = $em->getRepository('ReadroomDBBundle:Reader')->find($session->get("userId"));
+            $reader = $em->getRepository('ReadroomDBBundle:Reader')->find($this->getUser()->getId());
             $input = $em->getRepository('ReadroomDBBundle:Input')->find($request_array->{"input_id"});
             
             // lleno la instancia con los datos

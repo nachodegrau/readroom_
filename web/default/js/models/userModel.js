@@ -9,31 +9,91 @@ _readroom.userModel = Backbone.Model.extend({
         isFacebook: false,
         readerName: null,
         readerSecondName: null,
-        image: null
+        image: null,
+        username: null,
+        email: null
     },
     initialize: function(attrs, opts) {
 
     },
-    enviaDatos: function() {
-        this.fetch({
-            data: $.param(this.toJSON()), 
+    enviaDatos: function(form) {
+        
+        var $form = $(form);
+        
+        $.ajax({
+            context: this,
+            type: 'POST',
+            url: 'login_check',
+            data: $form.serialize(),
+            dataType: 'json',
+            success: function(data, textStatus, errorThrown) {
+                
+                currentUser.set({
+                    id: data.id,
+                    books: data.books,
+                    email: data.email,
+                    username: data.username,
+                    enabled: data.enabled,
+                    inputs: data.inputs,
+                    replies: data.replies,
+                    image: data.reader_image
+                });
+                
+                location.href = absoluteUrl + "#library/" + currentUser.get("id");
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(errorThrown);
+                switch(errorThrown) {
+                    case "Forbidden": 
+                        $("#login-form-submit-info").html("el e-mail o la contraseña son erróneos");
+                        break;
+                    default:
+                        $("#login-form-submit-info").html("Ha ocurrido un error en el proceso de Login");
+                        break;
+                }
+            }
+        });
+        
+    },
+    
+    registraUsuario: function(form) {
+        
+        var $form = $(form);
+
+        $.ajax({
+            context: this,
+            type: 'POST',
+            url: 'save_user',
+            data: $form.serialize(),
+            dataType: 'json',
             success: function(data) {
-                if(data.get("error") == 0) {
-                    currentUser = data;
-                    location.href = absoluteUrl + "#library/" + data.get("id");
+                console.log(data.error);
+                if(data.error == 0) {
+                    currentUser.set({
+                        id: data.id,
+                        books: data.books,
+                        email: data.email,
+                        username: data.username,
+                        enabled: data.enabled,
+                        inputs: data.inputs,
+                        replies: data.replies,
+                        image: data.reader_image
+                    });
+                    location.href = absoluteUrl + "#library/" + currentUser.get("id");
                 } else {
-                    $("#login-form-submit-info").html("el e-mail o la contraseña son erróneos");
+                    $("#save-user-form-submit-info").html("Este Usuario ya exite");
                 }
             },
-            fail: function(data) {
-                $("#login-form-submit-info").html("Ha ocurrido un error en el proceso de Login");
+            error: function(jqXHR) {
+                $("#save-user-form-submit-info").html("Ha ocurrido un error en el proceso de registro");
             }
         });
     },
+    
     modificarDatos: function(type) {
         $("#loading-account-" + type).show();
-        var that = this;
         $("#left-bar .loading-container").show();
+        var that = this;
         
         if(type == 1) {
             this.set({typeUpdate: "datos_personales" });
@@ -93,16 +153,18 @@ _readroom.userModel = Backbone.Model.extend({
             console.log("Facebook logout");
             FB.logout();
         }
-        this.destroy({
-            success: function() {
-                currentUser.set({id: null});
-                router.initUserMenu();
-                location.href = absoluteUrl +"#"; 
-            }, 
-            fail: function() {
-                Console.log("Error al cerrar sesión");
-            }
+        
+        $.ajax({
+            url: absoluteUrl + "logout",
+            type: 'GET', //Metodo que usaremos
+            datatype:'json',
+          }).success(function(data) {
+              currentUser.set({id: null});
+              currentUser.destroy();
+              router.initUserMenu();
+              location.href = absoluteUrl +"#"; 
         });
+        
     }
 });
 

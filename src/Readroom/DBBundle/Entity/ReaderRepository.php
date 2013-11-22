@@ -11,7 +11,7 @@ use Doctrine\ORM\EntityRepository;
 class ReaderRepository extends EntityRepository{
     
     public function findUserByEmail($mail) {
-        return $this->createQueryBuilder('u')->select()->where('u.reader_email=:mail')
+        return $this->createQueryBuilder('u')->select()->where('u.email=:mail')
                 ->setParameter("mail", $mail)->getQuery()->getArrayResult();
     }
     
