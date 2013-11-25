@@ -40,6 +40,7 @@ _readroom.booksCatalogView = Backbone.View.extend({
             
     goToReaderPage: function(ev) {
         currentBook = this.collection.get($(ev.currentTarget).data("book-id"));
+        location.href = absoluteUrl + "#room";
         currentBook.storeCurrentBookInSession();
     }
 });

@@ -52,3 +52,8 @@ user_has_books_delete:
   path: /user_has_books
   defaults: { _controller: ReadroomUserBundle:UserHasBooks:deleteUserHasBooks }
   methods: [DELETE]
+  
+add_friend_relationship:
+  path: /friend
+  defaults: { _controller: ReadroomUserBundle:Friends:addRelation }
+  methods: [POST]

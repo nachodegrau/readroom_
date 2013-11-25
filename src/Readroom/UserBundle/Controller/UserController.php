@@ -16,40 +16,15 @@ class UserController extends Controller
         // Login Usuario
         if ($this->getRequest()->isXmlHttpRequest()) {
             
-            // Creo un nuevo usuario con los datos que vienen de la vista
-            $user = new Reader();
-            $user->setReaderEmail($request->query->get("mail"));
-            $user->setIsFacebook(false);
-            $user->setPassword($request->query->get("password"));
-            
-            // Busco en la BBDD si existe un usuario con ese email
             $em = $this->getDoctrine()->getManager();
-            $userResults = new Reader();
-            $userResults = $em->getRepository('ReadroomDBBundle:Reader')->findBy(array('reader_email' => $user->getReaderEmail()));
+            $user = $em->getRepository('ReadroomDBBundle:Reader')->find($request->query->get("id"));
             
-                // Si existe...
-                if(count($userResults) == 1) { 
-                    // Comprobamos que la contraseña es correnta
-                    if($userResults[0]->getPassword() == hash('sha512', $user->getPassword())) {
-                        //$session = new Session();
-                        $session = $this->getRequest()->getSession();
-                        $session->set("user", $userResults[0]);
-
-                        //Guardo al usuario en sesión
-                        $this->storeUserInSession($userResults[0]);
-                        
-                        $return = json_encode($this->setUserArray($userResults[0]));
-                   } 
-                   // Si no existe lanzamos error
-                   else {
-                       $return = json_encode(array("error" => 1));
-                   }
-                } 
-                // Si no existe lanzamos error
-                else {
-                    $return = json_encode(array("error" => 1));
-                }
-            
+            if(sizeof($user) == 1) {
+                $serializer = $this->container->get('jms_serializer');
+                $return = $serializer->serialize($user, 'json');
+            } else if(sizeof($user) == 0) {
+                $return = json_encode(array("error" => "userNotFound"));
+            }
             return new Response($return,200, array('Content-Type' => 'application/json'));
         }    
     }
@@ -152,9 +127,10 @@ class UserController extends Controller
             }
             
             $em->flush();
-            $readerArray = $this->setUserArray($reader);
+            //$readerArray = $this->setUserArray($reader);
+            $serializer = $this->container->get('jms_serializer');
+            $return = $serializer->serialize($reader, 'json');
             
-            $return = json_encode($readerArray);
             return new Response($return,200, array('Content-Type' => 'application/json'));
         } else {
             return new Response("",404);

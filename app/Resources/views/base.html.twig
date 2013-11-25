@@ -64,17 +64,20 @@
                 var rootUsers = '{{ asset('readers/') }}';
                 var absoluteUrl = '{{url('readroom_home_homepage')}}';
                 var currentBookJSON = {{currentBook|json_encode|raw}};
-                var currentUserJSON = {{currentUser|json_encode|raw}};
+                {#var currentUserJSON = {{currentUser|json_encode|raw}};#}
+                var currentUserJSON = {{ currentUser | serialize | raw}}; 
                 var categoriesJSON = {{categories|json_encode|raw}}; 
      
             </script>
             
             <script type="text/javascript" src="{{ asset('default/js/routers/router.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('default/js/routers/socialRouter.js') }}" ></script>
+            
             <script type="text/javascript" src="{{ asset('default/js/models/userModel.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('default/js/models/userHasBooksModel.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('default/js/views/loginView.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('default/js/views/saveUserView.js') }}" ></script>
+            <script type="text/javascript" src="{{ asset('default/js/views/socialNetworkViews.js') }}" ></script>
             
             <script type="text/javascript" src="{{ asset('default/js/models/categoryModel.js') }}" ></script>
             <script type="text/javascript" src="{{ asset('default/js/collections/categoriesCollection.js') }}" ></script>

@@ -29,7 +29,6 @@ $(function() {
  */
 
 var initCurrentBook = function(book) {
-    console.log(book);
     currentBook = new _readroom.bookModel();
     
     if(book != null) {

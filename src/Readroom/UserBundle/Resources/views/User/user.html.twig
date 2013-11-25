@@ -24,16 +24,16 @@
 <script type="text/html" id="template-user-menu">
     <a href="#"> 
         <% if(isFacebook == true) { %>
-            <img width="20px" height="20px" src="<%= image %>"/> <span id="user-name-menu"><%= username %></span>
+            <img width="20px" height="20px" src="<%= reader_image %>"/> <span id="user-name-menu"><%= username %></span>
         <% } else { %>
-            <img id="user-image-menu" width="20px" height="20px" src="{{asset('readers/')}}images/<%= image %>"/> <span><%= username %></span>
+            <img id="user-image-menu" width="20px" height="20px" src="{{asset('readers/')}}images/<%= reader_image %>"/> <span><%= username %></span>
         <% } %>
     </a>
 
     <ul class="dropdown">
         <li id="go-to-library"><a >mi biblioteca</a></li>
         <li class="divider"></li>
-        <li id="go-to-library"><a >mi perfil</a></li>
+        <li id="go-to-profile"><a >mi perfil</a></li>
         <li class="divider"></li>
         <li id="go-to-account"><a >mi cuenta</a></li>
         <li class="divider"></li>
@@ -142,7 +142,7 @@
             <% if(isFacebook == false) { %>
                 <div class="row">
                     <div class="large-3 columns">
-                        <img id="preview-image-account" src="{{asset('readers/')}}images/<%= image %>" />
+                        <img id="preview-image-account" src="{{asset('readers/')}}images/<%= reader_image %>" />
                     </div>
                     <div class="large-9 columns"> 
                         <input style="color: white" id="account-image" class="file" type="file" name="archivos" multiple="multiple" />
@@ -177,12 +177,12 @@
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <input type="text" name="userName" placeholder="Nombre" value="<%= name %>" /> 
+                    <input type="text" name="userName" placeholder="Nombre" value="<%= reader_name %>" /> 
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <input type="text" name="userSurname" placeholder="Apellidos" value="<%= surname %>" /> 
+                    <input type="text" name="userSurname" placeholder="Apellidos" value="<%= reader_second_name %>" /> 
                 </div>
             </div>
             <div class="row">

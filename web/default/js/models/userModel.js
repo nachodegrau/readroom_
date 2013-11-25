@@ -7,14 +7,36 @@ _readroom.userModel = Backbone.Model.extend({
     url: absoluteUrl + "user",
     defaults: {
         isFacebook: false,
-        readerName: null,
-        readerSecondName: null,
-        image: null,
+        reader_name: null,
+        reader_second_name: null,
+        reader_image: null,
         username: null,
-        email: null
+        email: null,
+        error: 0
     },
     initialize: function(attrs, opts) {
 
+    },
+            
+    getUser: function(id) {
+        var that = this;
+        this.fetch({
+            data: {
+                id: that.get("id")
+            },
+            success: function(data) {
+                if (data.get("error") == "userNotFound" ) {
+                    location.href = absoluteUrl + "#user-not-found";
+                } else {
+                    var profileView = new _readroom.profileView({el: $("#user-profile"), model: data});
+                    profileView.render();
+                }
+            },
+            fail: function(data) {
+               
+            }
+        });
+        
     },
     enviaDatos: function(form) {
         
@@ -36,7 +58,7 @@ _readroom.userModel = Backbone.Model.extend({
                     enabled: data.enabled,
                     inputs: data.inputs,
                     replies: data.replies,
-                    image: data.reader_image
+                    reader_image: data.reader_image
                 });
                 
                 location.href = absoluteUrl + "#library/" + currentUser.get("id");
@@ -77,7 +99,7 @@ _readroom.userModel = Backbone.Model.extend({
                         enabled: data.enabled,
                         inputs: data.inputs,
                         replies: data.replies,
-                        image: data.reader_image
+                        reader_image: data.reader_image
                     });
                     location.href = absoluteUrl + "#library/" + currentUser.get("id");
                 } else {
@@ -142,7 +164,7 @@ _readroom.userModel = Backbone.Model.extend({
             cache: false, //Para que el formulario no guarde cache
           }).done(function(data) {
               $("#loading-account-image").hide();
-              currentUser.set({image: data.image});
+              currentUser.set({reader_image: data.image});
               $("#preview-image-account").attr("src", rootUsers + "images/" + data.image);
               $("#user-image-menu").attr("src", rootUsers + "images/" + data.image);
         });
@@ -187,7 +209,7 @@ _readroom.userFacebookModel = Backbone.Model.extend({
             
             FB.api('/me/picture', function(response) {
                 console.log(response);
-                that.set({image: response.data.url});
+                that.set({reader_image: response.data.url});
                 that.enviaDatos();
             });
 
@@ -213,4 +235,24 @@ _readroom.userFacebookModel = Backbone.Model.extend({
     }
 });
 
+
+_readroom.friendModel = Backbone.Model.extend({
+    url: absoluteUrl + "friend",
+    defaults: {
+        
+    },
+    initialize: function(attrs, opts) {
+
+    },
+    addRelation: function() {
+        this.save({},{
+            success: function(data) {
+                
+            },
+            fail: function(data) {
+            
+            }
+        });
+    }
+});
 

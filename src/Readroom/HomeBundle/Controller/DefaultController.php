@@ -9,13 +9,12 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Readroom\DBBundle\Entity\Book;
 use Readroom\DBBundle\Entity\Category;
 use Readroom\DBBundle\Entity\CategoriesDescription;
+use JMS\Serializer\SerializerInterface;
 
 class DefaultController extends Controller {
-
+    
     public function indexAction() {
-        // inicio sesión nada más entrar en la aplicación
-        //$session = new Session();
-        //$session->start();
+       
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
         $book = null;
@@ -31,7 +30,11 @@ class DefaultController extends Controller {
         $currentUser = $this->getUser();
         
         if($currentUser != null) {
-            $user = $this->setUserArray($currentUser);
+            //$user = $this->setUserArray($currentUser);
+            //$serializer = $this->container->get('jms_serializer');
+            $user = $currentUser;
+            //$user = $serializer->serialize($currentUser, 'json');
+            
         }
         
         $categories = $em->getRepository('ReadroomDBBundle:Category')->findBy(array("category_status" => true), array('parent_id' => 'ASC'));
@@ -40,8 +43,6 @@ class DefaultController extends Controller {
         return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 'currentBook' => ($book == null) ? null : $book,
                     'currentUser' => ($user == null) ? null : $user));
         
-        /*return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 'currentBook' => null,
-                    'currentUser' => null));*/
     }
 
     

@@ -357,3 +357,9 @@ root {
     width: 100%;
     margin-bottom: 10px;
 }
+
+/* PROFILE */
+
+#user-profile {
+    margin-top: 20px;
+}

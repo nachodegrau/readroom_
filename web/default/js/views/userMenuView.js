@@ -22,6 +22,7 @@ _readroom.userMenuView = Backbone.View.extend({
     events: {
         "click .category": "searchCategoryBooks",
         "click #go-to-library": "goToLibrary",
+        "click #go-to-profile": "goToProfile",
         "click #go-to-account": "goToAccount",
         "click #close-session": "destroySession"
     },
@@ -33,6 +34,9 @@ _readroom.userMenuView = Backbone.View.extend({
     },
     goToLibrary: function() {
         location.href = absoluteUrl + "#library/" + currentUser.get("id");
+    },
+    goToProfile: function() {
+        location.href = absoluteUrl + "#profile/" + currentUser.get("id");
     },
     goToAccount: function() {
         location.href = absoluteUrl + "#account/" + currentUser.get("id");

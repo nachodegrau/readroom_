@@ -101,6 +101,20 @@ class Reader extends BaseUser
 	 * @ORM\ManyToMany(targetEntity="Language", mappedBy="readers")
 	 */
 	protected $languages;
+        
+        /**
+        * @ORM\ManyToMany(targetEntity="Reader", mappedBy="myFriends")
+        **/
+       private $friendsWithMe;
+
+       /**
+        * @ORM\ManyToMany(targetEntity="reader", inversedBy="friendsWithMe")
+        * @ORM\JoinTable(name="friends",
+        *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+        *      inverseJoinColumns={@ORM\JoinColumn(name="friend_user_id", referencedColumnName="id")}
+        *      )
+        **/
+       private $myFriends;
 
 	public function __construct()
 	{
@@ -481,6 +495,52 @@ class Reader extends BaseUser
 	public function getLanguages()
 	{
 		return $this->languages;
+	}
+        
+        /**
+	 * Add Coleccion entity to collection.
+	 *
+	 * @param \Witbeat\DBBundle\Entity\Usuario $friend
+	 * @return \Witbeat\DBBundle\Entity\Usuario
+	 */
+	public function addFriendWithMe(Usuario $friend)
+	{
+		$this->friendsWithMe[] = $friend;
+
+		return $this;
+	}
+
+	/**
+	 * Get Coleccion entity collection.
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getFriendWithMe()
+	{
+		return $this->friendsWithMe;
+	}
+        
+        /**
+	 * Add Coleccion entity to collection.
+	 *
+	 * @param \Witbeat\DBBundle\Entity\Usuario $friend
+	 * @return \Witbeat\DBBundle\Entity\Usuario
+	 */
+	public function addMyFriends(Usuario $friend)
+	{
+		$this->myFriends[] = $friend;
+
+		return $this;
+	}
+
+	/**
+	 * Get Coleccion entity collection.
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getMyFriends()
+	{
+		return $this->myFriends;
 	}
 
 	public function __sleep()

@@ -1,0 +1,17 @@
+<div id="user-profile"> 
+
+</div>
+
+<script type="text/html" id="template-user-profile">
+    <div class="row">
+        <div class="large-3 columns">
+            <img src="{{asset('readers/images/')}}<%= reader_image %>">
+        </div>
+        <div class="large-9 columns">
+            <h3> <%= username %> </h3>
+            <% if(isCurrentUser == false) { %>
+                <a id="addFriend" class= "button small" > Añadir a mis amigos </a>
+            <% } %>
+        </div>
+    </div>
+</script>
