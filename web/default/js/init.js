@@ -6,7 +6,7 @@
 $(function() {
     initCurrentBook(currentBookJSON);
     initCurrentUser(currentUserJSON);
-    
+
     userFacebookFunctions = new _readroom.userFacebookModel();
     //userBooks = new _readroom.booksCollection();
     
@@ -15,12 +15,13 @@ $(function() {
     router = new _readroom.router;
     socialRouter = new _readroom.socialRouter;
 
+    
+    bookDescriptionView = new _readroom.bookDescriptionView({el: $("#book-description")});
+    
     // inicializo la entidad history de Backbone para poder uilizar las rutas
     Backbone.history.start();
     
-    bookDescriptionView = new _readroom.bookDescriptionView({el:$("#book-description")});
-    
-    router.initFacebook();
+    //router.initFacebook();
        
 });
 

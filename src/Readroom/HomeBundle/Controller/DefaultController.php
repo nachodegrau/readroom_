@@ -19,6 +19,7 @@ class DefaultController extends Controller {
         $em = $this->getDoctrine()->getManager();
         $book = null;
         $user = null;
+        
         // Compruebo si hay un usuario registrado
         if ($session->get("currentBook") != null) {
             // Busco al currentUser
@@ -30,9 +31,9 @@ class DefaultController extends Controller {
         $currentUser = $this->getUser();
         
         if($currentUser != null) {
-            //$user = $this->setUserArray($currentUser);
+            $user = $this->setUserArray($currentUser);
             //$serializer = $this->container->get('jms_serializer');
-            $user = $currentUser;
+            //$user = $currentUser;
             //$user = $serializer->serialize($currentUser, 'json');
             
         }
@@ -40,8 +41,8 @@ class DefaultController extends Controller {
         $categories = $em->getRepository('ReadroomDBBundle:Category')->findBy(array("category_status" => true), array('parent_id' => 'ASC'));
         $categoriesArray = $this->setCategoriesArray($categories, 1);
 
-        return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 'currentBook' => ($book == null) ? null : $book,
-                    'currentUser' => ($user == null) ? null : $user));
+        return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 
+            'currentUser' => ($user == null) ? null : $user, 'currentBook' => null));
         
     }
 

@@ -230,7 +230,8 @@ root {
 }
 
 #reader-content {
-    postion: relative;
+    position: relative;
+   
 }
 
 #reader-header {
@@ -260,6 +261,7 @@ root {
 }
 
 #reader {
+    position: relative;
     margin-top: 10px;
 }
 
@@ -358,8 +360,25 @@ root {
     margin-bottom: 10px;
 }
 
+#inputs-tooltip {
+    position: absolute;
+    display: none;
+    padding: 0 5px 0 5px;
+    background: white;
+    border:1px solid #E3E3E3;
+    z-index: 100;
+}
+
+#inputs-tooltip .inline-list {
+    margin-bottom: 5px;
+}
+
 /* PROFILE */
 
 #user-profile {
     margin-top: 20px;
+}
+
+.reveal-modal {
+    z-index: 200;
 }

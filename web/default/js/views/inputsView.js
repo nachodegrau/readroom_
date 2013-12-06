@@ -158,8 +158,35 @@ _readroom.repliesView = Backbone.View.extend({
     },
     render: function() {
         $(this.el).html(this.template(this.collection));
+        return this;
+    }
+});
+
+/*
+ * Vista tooltip
+ */
+
+_readroom.inputTooltipView = Backbone.View.extend({ 
+    template: _.template($("#template-input-tooltip").html()),
+    events: {
+        'click #open-cooments-popup': 'openCommentsPopup'
+    },        
+    initialize: function() {
+        
+    },
+    render: function() {
+        console.log("eh?");
+        $(this.el).html(this.template());
         
         return this;
+    },
+    openCommentsPopup: function() {
+        console.log("openCommentsPopup");
+        $("#social-popup").foundation("reveal", "open", {
+            animation: "fade",
+            animationSpeed: 200
+        });
+        $('#inputs-tooltip').hide();
     }
 });
 

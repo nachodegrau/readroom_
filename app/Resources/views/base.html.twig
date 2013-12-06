@@ -58,14 +58,17 @@
                 var reader;
                 var inputs;
                 var inputsView;
+                var inputsTooltipView;
+                var booksCatalogView;
+                var socialView;
                 var bookDescriptionView;
                 var rootUrl = '{{ asset('default/') }}';
                 var rootBooks = '{{ asset('books/') }}';
                 var rootUsers = '{{ asset('readers/') }}';
                 var absoluteUrl = '{{url('readroom_home_homepage')}}';
                 var currentBookJSON = {{currentBook|json_encode|raw}};
-                {#var currentUserJSON = {{currentUser|json_encode|raw}};#}
-                var currentUserJSON = {{ currentUser | serialize | raw}}; 
+                var currentUserJSON = {{currentUser|json_encode|raw}};
+                {#var currentUserJSON = {{ currentUser | serialize | raw}};#} 
                 var categoriesJSON = {{categories|json_encode|raw}}; 
      
             </script>

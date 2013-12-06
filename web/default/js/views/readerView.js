@@ -68,7 +68,8 @@ _readroom.readerView = Backbone.View.extend({
         }
     },
     returnHome: function() {
-        location.href= absoluteUrl + "#";
+        //location.href= absoluteUrl + "#";
+        router.navigate('', {trigger: true});
     }
 });
 

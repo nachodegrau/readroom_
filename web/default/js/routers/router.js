@@ -24,8 +24,15 @@ _readroom.router = Backbone.Router.extend({
        this.initUserMenu();
        this.initCategories();
        var booksCatalog = new _readroom.booksCollection();
-       var bookscatalogView = new _readroom.booksCatalogView({ collection: booksCatalog});
-       booksCatalog.searchAllBooks(bookscatalogView);
+       
+       if (booksCatalogView === null || _.isUndefined(booksCatalogView)) {
+           booksCatalogView = new _readroom.booksCatalogView({ el: $("#books-catalog"), collection: booksCatalog });
+       } else {
+           booksCatalogView.collection = booksCatalog; 
+          
+       }
+       
+       booksCatalog.searchAllBooks(booksCatalogView);
        $(window).off("resize");
     },
             
@@ -37,9 +44,15 @@ _readroom.router = Backbone.Router.extend({
         $("#login-page").hide();
         $("#account-page").hide();
         //this.initUserMenu();
-        this.initLeftBar();
+        //this.initLeftBar();
         var readerView = new _readroom.readerView({el: $("#reader-content")});
         readerView.render(); 
+        
+        inputsTooltipView = new _readroom.inputTooltipView({ el: $('#inputs-tooltip') });
+        inputsTooltipView.render();
+        
+        socialView = new _readroom.socialView({ el: $('#social-popup') });
+        socialView.render(); 
         
         // inicializo el ebook
         reader = new _readroom.readerModel();
@@ -121,6 +134,7 @@ _readroom.router = Backbone.Router.extend({
     },
             
     initUserMenu: function() {
+        console.log("INIT USER MENU");
         $("#main-header").show();
         var topbar = new _readroom.topBarView({el: $("#top-bar")});
         topbar.render();
@@ -138,6 +152,7 @@ _readroom.router = Backbone.Router.extend({
      * 
      */
     initCategories: function() {
+        console.log("initCategories");
         var categories = new _readroom.categoriesCollection(categoriesJSON);
         var categoriesView = new _readroom.categoriesView({el:$("#categories-menu"), collection: categories });
         

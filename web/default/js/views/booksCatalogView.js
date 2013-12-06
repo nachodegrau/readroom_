@@ -5,7 +5,6 @@
 
 _readroom.booksCatalogView = Backbone.View.extend({
    template: _.template($("#template-books-catalog").html()),
-   el: $("#books-catalog"),
    events: {
      "mouseover .book-image": "showButtons",
      "mouseout .book-image": "showButtons",
@@ -40,6 +39,7 @@ _readroom.booksCatalogView = Backbone.View.extend({
             
     goToReaderPage: function(ev) {
         currentBook = this.collection.get($(ev.currentTarget).data("book-id"));
+        console.log(this, currentBook);
         location.href = absoluteUrl + "#room";
         currentBook.storeCurrentBookInSession();
     }

@@ -259,10 +259,10 @@ class Controller extends ContainerAware
         $user = array(
             "id" => $currentUser->getId(),
             "username" => $currentUser->getUsername(),
-            "name" => $currentUser->getReaderName(),
-            "surname" => $currentUser->getReaderSecondName(),
+            "reader_name" => $currentUser->getReaderName(),
+            "reader_second_name" => $currentUser->getReaderSecondName(),
             "email" => $currentUser->getEmail(),
-            "image" => $currentUser->getReaderImage(),
+            "reader_image" => $currentUser->getReaderImage(),
             "isFacebook" => $currentUser->getIsFacebook(),
             "password" => null,
             "error" => 0

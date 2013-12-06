@@ -109,7 +109,7 @@
                             <form id="input-<%= input.attributes.id %>-reply-form" action="javascript:null">
                                 <div class="row collapse">
                                     <div class="large-1 columns">
-                                        <img width="30" height="30" src="{{ asset('readers/images/') }}<%= currentUser.get('image') %>"> 
+                                        <img width="30" height="30" src="{{ asset('readers/images/') }}<%= currentUser.get('reader_image') %>"> 
                                     </div>
                                     <div class="large-9 columns">
                                         <textarea id="new-reply-text"> </textarea>
@@ -187,6 +187,16 @@
    <% }); %>
    
    
+</script>
+
+<script type="text/html" id="template-input-tooltip">
+    <ul class="inline-list">
+        <li id="open-cooments-popup"><a>Comentar</a></li>
+        <li><a>R</a></li>
+        <li><a>V</a></li>
+        <li><a>A</a></li>
+        <li><a>N</a></li>
+      </ul>
 </script>
 
 

@@ -14,6 +14,7 @@ _readroom.socialView = Backbone.View.extend({
     },
     render: function() {
         $(this.el).html(this.template());
+        this.initForm();
         return this;
     },
     chagePublishStatus: function(ev) {
@@ -25,6 +26,25 @@ _readroom.socialView = Backbone.View.extend({
         } else {
             $("#publish-submit").removeClass("disabled");
         }
+    },
+    initForm: function() {
+        console.log("initForm");
+        $("#leftbar-social-form").validate({
+            ignore: ".ignore",
+            errorElement: 'small',
+            rules: {
+                archivos: {
+                    extension: "png|jpe?g|gif|mp4|ogg|webm"
+                },
+                publishContent: {
+                    required: true
+                }
+            },
+            submitHandler: function(form) {
+                console.log("SUBMIT");
+                reader.chagePublishStatus($("#publish-content").val());
+            }
+      });
     }
 });
 

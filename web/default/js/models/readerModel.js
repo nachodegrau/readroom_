@@ -149,8 +149,8 @@ _readroom.readerModel = Backbone.Model.extend({
             
     nextPage: function(callback) {
         var that = this;
+        $('#inputs-tooltip').hide();
         this.get("readium").nextPage(function() {
-            console.log("SALTO");
             // sumo el spine para que sume el spine correcto
             that.set({currentSpine: that.get("currentSpine") + 1});
             that.initSocial();
@@ -161,6 +161,7 @@ _readroom.readerModel = Backbone.Model.extend({
     
     previousPage: function(callback) {
         var that = this;
+        $('#inputs-tooltip').hide();
         this.get("readium").previousPage(function() {
             // resto el spine para que busque el iframe correcto
             that.set({currentSpine: that.get("currentSpine") - 1});
@@ -233,6 +234,7 @@ _readroom.readerModel = Backbone.Model.extend({
             input.saveInput();
             
         } else {
+            $('#inputs-tooltip').hide();
             alert("selecciona un fragmento");
         }
        
@@ -245,8 +247,16 @@ _readroom.readerModel = Backbone.Model.extend({
         if (window.getSelection) {  // all browsers, except IE before version 9
             try {
                 var range = iframeWindow.getSelection().getRangeAt(0);
+                var position = range.getBoundingClientRect();
+                console.log("position", position);
+                $('#inputs-tooltip').css({'left': (position.width/2) + position.left + "px", 'top': position.top + position.height + 50 + "px" });
                 that.set({text: range.toString()});
-                $("#selected-text").html(range.toString());
+                //$("#selected-text").html(range.toString());
+                if(range.toString() !== '') {
+                    $('#inputs-tooltip').show();
+                } else {
+                    $('#inputs-tooltip').hide();
+                }
             } catch (err) {
                 //alert(err);
             }

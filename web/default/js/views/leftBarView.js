@@ -13,8 +13,8 @@ _readroom.leftBarView = Backbone.View.extend({
     },
     render: function() {
         $(this.el).html(this.template(this.model.toJSON()));
-        var socialView = new _readroom.socialView({el: $("#left-bar-social")});
-        socialView.render();
+        //var socialView = new _readroom.socialView({el: $("#left-bar-social")});
+        //socialView.render();
         
         return this;
     },

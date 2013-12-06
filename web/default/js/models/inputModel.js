@@ -50,6 +50,7 @@ _readroom.inputModel = Backbone.Model.extend({
                 inputs.add(data);
                 $("#left-bar .loading-container").hide();
                 $("#left-bar .info").html("Publicado");
+                $("#social-popup").foundation("reveal", "close");
                 that.setInputInBook();
             },
             fail: function() {
