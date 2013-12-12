@@ -12,7 +12,10 @@ _readroom.userModel = Backbone.Model.extend({
         reader_image: null,
         username: null,
         email: null,
-        error: 0
+        error: 0,
+        is_my_friend: false,
+        exist_solicitude: false,
+        exist_solicitude_with_me: false
     },
     initialize: function(attrs, opts) {
 
@@ -25,6 +28,7 @@ _readroom.userModel = Backbone.Model.extend({
                 id: that.get("id")
             },
             success: function(data) {
+                console.log("USER OK", data);
                 if (data.get("error") == "userNotFound" ) {
                     location.href = absoluteUrl + "#user-not-found";
                 } else {
@@ -49,7 +53,7 @@ _readroom.userModel = Backbone.Model.extend({
             data: $form.serialize(),
             dataType: 'json',
             success: function(data, textStatus, errorThrown) {
-                
+                console.log("SUCCESS");
                 currentUser.set({
                     id: data.id,
                     books: data.books,

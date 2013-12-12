@@ -13,15 +13,16 @@ class UserController extends Controller
 {   
     public function showUserAction(Request $request)
     {
-        // Login Usuario
         if ($this->getRequest()->isXmlHttpRequest()) {
             
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository('ReadroomDBBundle:Reader')->find($request->query->get("id"));
             
             if(sizeof($user) == 1) {
-                $serializer = $this->container->get('jms_serializer');
-                $return = $serializer->serialize($user, 'json');
+                //$serializer = $this->container->get('jms_serializer');
+                //$return = $serializer->serialize($user, 'json');
+                $userArray = $this->setUserArray($user);
+                $return = json_encode($userArray);
             } else if(sizeof($user) == 0) {
                 $return = json_encode(array("error" => "userNotFound"));
             }
@@ -85,7 +86,11 @@ class UserController extends Controller
             if (sizeof($userResults) == 0) {
                 $em->persist($user);
                 $em->flush();
-                
+
+                $session = $this->getRequest()->getSession();
+                $session->start();
+                $session->set('User', $user);
+
                 $return = json_encode(array("id" => $user->getId(), "error" => 0));//jscon encode the array
                 return new Response($return,200, array('Content-Type' => 'application/json'));
                 

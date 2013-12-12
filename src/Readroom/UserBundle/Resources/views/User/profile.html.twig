@@ -10,7 +10,11 @@
         <div class="large-9 columns">
             <h3> <%= username %> </h3>
             <% if(isCurrentUser == false) { %>
-                <a id="addFriend" class= "button small" > Añadir a mis amigos </a>
+                <% if(exist_solicitude == false) { %>
+                    <button id="addFriend" class= "button small" > Añadir a mis amigos </button>
+                <% } else { %>
+                    <button id="addFriend" class= "button small disabled" disabled> Solicitud enviada </button>
+             <% } %>    
             <% } %>
         </div>
     </div>

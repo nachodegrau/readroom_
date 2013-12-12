@@ -57,3 +57,8 @@ add_friend_relationship:
   path: /friend
   defaults: { _controller: ReadroomUserBundle:Friends:addRelation }
   methods: [POST]
+  
+ad_solicitude:
+  path: /solicitude
+  defaults: { _controller: ReadroomUserBundle:Solicitude:addSolicitude }
+  methods: [POST]

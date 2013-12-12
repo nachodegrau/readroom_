@@ -112,14 +112,15 @@ class InputController extends Controller
     {
         if ($this->getRequest()->isXmlHttpRequest()) {
             //$user_array = array();
-            $session = $this->getRequest()->getSession();
+            //$session = $this->getRequest()->getSession();
             
             $em = $this->getDoctrine()->getManager();
-            //$inputs = $em->getRepository('ReadroomDBBundle:Input')
-            //        ->findAllByBookAndSpineInArray($request->query->get("idBook"), $request->query->get("spine"));
-            
+            /*$inputs = $em->getRepository('ReadroomDBBundle:Input')
+                    ->findAllByBookAndSpineInArray($request->query->get("idBook"), $request->query->get("spine"));*/
+
+
             $inputs = $em->getRepository('ReadroomDBBundle:Input')->findBy(array('book' => $request->query->get("idBook") , "book_spine" => $request->query->get("spine") ));
-            
+
             $inputsArray = array();
             for($i=0; $i<sizeof($inputs); $i++) {
                 $inputsArray[$i] = $this->inputToArray($inputs[$i]);

@@ -265,10 +265,42 @@ class Controller extends ContainerAware
             "reader_image" => $currentUser->getReaderImage(),
             "isFacebook" => $currentUser->getIsFacebook(),
             "password" => null,
-            "error" => 0
+            "error" => 0,
+            "my_solicitudes" => array(),
+            "solicitudes_with_me" => array(),
        );
 
+        foreach ($currentUser->getmySolicitudes() as $solicitude) {
+
+            array_push($user["my_solicitudes"], array(
+                "id" => $solicitude->getId(),
+                "username" => $solicitude->getReaderName(),
+                "reader_image" => $solicitude->getReaderImage()
+            ));
+        }
+        
+        
+        foreach ($currentUser->getSolicitudeWithMe() as $solicitude) {
+            array_push($user["solicitudes_with_me"], array(
+                "id" => $solicitude->getId(),
+                "username" => $solicitude->getReaderName(),
+                "reader_image" => $solicitude->getReaderImage()
+            ));
+        }
+        
+        
         return $user;
+    }
+    
+    public function setNotificationArray($notification) {
+        $notificationArray = array(
+            "id" => $notification->getId(),
+            "reader_maker_id" => $notification->getReaderMaker()->getId(),
+            "reader_receiver_id" => $notification->getReaderReceiver()->getId(),
+            "type_id" => $notification->getType()->getId()
+        );
+        
+        return $notificationArray;
     }
     
     public function setBookArray($currentBook) {

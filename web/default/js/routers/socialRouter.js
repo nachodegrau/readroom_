@@ -24,7 +24,6 @@ _readroom.socialRouter = Backbone.Router.extend({
             profileView = new _readroom.profileView({el: $("#user-profile"), model: currentUser});
             profileView.render();
         } else {
-            console.log("NOT CURRENT USER");
             var user = new _readroom.userModel({id: idUser});
             user.getUser();
         }

@@ -42,7 +42,7 @@ class DefaultController extends Controller {
         $categoriesArray = $this->setCategoriesArray($categories, 1);
 
         return $this->render('ReadroomHomeBundle:Default:index.html.twig', array('categories' => $categoriesArray, 
-            'currentUser' => ($user == null) ? null : $user, 'currentBook' => null));
+            'currentUser' => ($user == null) ? null : $user, 'currentBook' => ($book == null) ? null : $book));
         
     }
 
@@ -67,7 +67,7 @@ class DefaultController extends Controller {
                             "id" => $categories[$z]->getId(), 
                             "category_name" => $categories[$z]->getCategoriesDescriptions()[$language_id]->getCategoryName(),
                             "category_description" => $categories[$z]->getCategoriesDescriptions()[$language_id]->getCategoryDescription(),
-                            "sort_order" => $categories[$i]->getSortOrder() 
+                            "sort_order" => $categories[$i]->getSortOrder()
                         );
                         
                         // lo incluyo dentro

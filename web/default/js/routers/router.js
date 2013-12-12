@@ -20,6 +20,8 @@ _readroom.router = Backbone.Router.extend({
        $("#reader-content").empty();
        $("#login-page").hide();
        $("#account-page").hide();
+       $("#user-profile").empty();
+       $("#user-profile").hide();
        this.destroyInputViews();
        this.initUserMenu();
        this.initCategories();
@@ -43,6 +45,8 @@ _readroom.router = Backbone.Router.extend({
         $("#books-catalog").hide();
         $("#login-page").hide();
         $("#account-page").hide();
+        $("#user-profile").empty();
+        $("#user-profile").hide();
         //this.initUserMenu();
         //this.initLeftBar();
         var readerView = new _readroom.readerView({el: $("#reader-content")});
@@ -91,6 +95,8 @@ _readroom.router = Backbone.Router.extend({
         $("#reader-content").empty();
         $("#login-page").hide();
         $("#account-page").hide();
+        $("#user-profile").empty();
+        $("#user-profile").hide();
         
         var userBooks = new _readroom.userHasBooksModel({userId: idUser });
         userBooks.showUserBooks();
@@ -105,6 +111,8 @@ _readroom.router = Backbone.Router.extend({
         $("#reader-content").empty();
         $("#books-catalog").empty();
         $("#account-page").hide();
+        $("#user-profile").empty();
+        $("#user-profile").hide();
         var user = new _readroom.userModel();
         
         var loginView = new _readroom.loginView({el: $("#login-user"), model: user});
@@ -127,6 +135,8 @@ _readroom.router = Backbone.Router.extend({
         $("#reader-content").empty();
         $("#books-catalog").empty();
         $("#account-page").show();
+        $("#user-profile").empty();
+        $("#user-profile").hide();
         
         var account = new _readroom.accountView({el: $("#account-page"), model: currentUser});
         account.render();

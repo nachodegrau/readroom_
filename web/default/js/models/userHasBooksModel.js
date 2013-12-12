@@ -29,7 +29,8 @@ _readroom.userHasBooksModel = Backbone.Model.extend({
             success: function(data) {
                 var books = new _readroom.booksCollection();
                 books.set(data.get("books"));
-                var libraryView = new _readroom.booksCatalogView({collection: books});
+                var libraryView = new _readroom.booksCatalogView({el: $("#books-catalog"), collection: books});
+                console.log(libraryView);
                 libraryView.render();
             },
             fail: function() {

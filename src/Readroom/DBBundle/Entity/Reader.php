@@ -115,6 +115,22 @@ class Reader extends BaseUser
         *      )
         **/
        private $myFriends;
+       
+       /**
+        * @ORM\ManyToMany(targetEntity="Reader", mappedBy="mySolicitudes")
+        **/
+       private $solicitudesWithMe;
+
+       /**
+        * @ORM\ManyToMany(targetEntity="Reader", inversedBy="solicitudesWithMe")
+        * @ORM\JoinTable(name="solicitude",
+        *      joinColumns={@ORM\JoinColumn(name="reader_id", referencedColumnName="id")},
+        *      inverseJoinColumns={@ORM\JoinColumn(name="solicitude_user_id", referencedColumnName="id")}
+        *      )
+        **/
+       private $mySolicitudes;
+        
+        
 
 	public function __construct()
 	{
@@ -127,6 +143,10 @@ class Reader extends BaseUser
 		$this->replies = new ArrayCollection();
 		$this->books = new ArrayCollection();
 		$this->languages = new ArrayCollection();
+                $this->friendsWithMe = new ArrayCollection();
+                $this->myFriends = new ArrayCollection();
+                $this->solicitudesWithMe = new ArrayCollection();
+                $this->mySolicitudes = new ArrayCollection();
 	}
 
 	/**
@@ -500,10 +520,10 @@ class Reader extends BaseUser
         /**
 	 * Add Coleccion entity to collection.
 	 *
-	 * @param \Witbeat\DBBundle\Entity\Usuario $friend
-	 * @return \Witbeat\DBBundle\Entity\Usuario
+	 * @param \Witbeat\DBBundle\Entity\Reader $friend
+	 * @return \Witbeat\DBBundle\Entity\Reader
 	 */
-	public function addFriendWithMe(Usuario $friend)
+	public function addFriendWithMe(Reader $friend)
 	{
 		$this->friendsWithMe[] = $friend;
 
@@ -523,10 +543,10 @@ class Reader extends BaseUser
         /**
 	 * Add Coleccion entity to collection.
 	 *
-	 * @param \Witbeat\DBBundle\Entity\Usuario $friend
-	 * @return \Witbeat\DBBundle\Entity\Usuario
+	 * @param \Reader\DBBundle\Entity\Reader $friend
+	 * @return \Reader\DBBundle\Entity\Reader
 	 */
-	public function addMyFriends(Usuario $friend)
+	public function addMyFriends(Reader $friend)
 	{
 		$this->myFriends[] = $friend;
 
@@ -542,6 +562,53 @@ class Reader extends BaseUser
 	{
 		return $this->myFriends;
 	}
+        
+        /**
+	 * Add Coleccion entity to collection.
+	 *
+	 * @param \Readroom\DBBundle\Entity\Reader $friend
+	 * @return \Readroom\DBBundle\Entity\reader
+	 */
+	public function addSolicitudeWithMe(Notification $Solicitude)
+	{
+		$this->solicitudesWithMe[] = $Solicitude;
+
+		return $this;
+	}
+
+	/**
+	 * Get Coleccion entity collection.
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getSolicitudeWithMe()
+	{
+		return $this->solicitudesWithMe;
+	}
+        
+        /**
+	 * Add Coleccion entity to collection.
+	 *
+	 * @param \Readroom\DBBundle\Entity\Reader $friend
+	 * @return \Readroom\DBBundle\Entity\Reader
+	 */
+	public function addMySolicitudes(Reader $Solicitude)
+	{
+		$this->mySolicitudes[] = $mySolicitude;
+
+		return $this;
+	}
+
+	/**
+	 * Get Coleccion entity collection.
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getMySolicitudes()
+	{
+		return $this->mySolicitudes;
+	}
+
 
 	public function __sleep()
 	{
