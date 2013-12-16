@@ -353,4 +353,31 @@ class Controller extends ContainerAware
         
         return $returnInput;
     }
+
+    public function notificationsToArray($object, $type) {
+
+        switch($type) {
+            // si es una solicitud
+            case 0:
+                $result = array(
+                    "type" => $type,
+                    "reader_id" => $object->getId(),
+                    "reader_image" => $object->getReaderImage(),
+                    "username" => $object->getUsername()
+                );
+                break;
+            // Si es una notificación de un Input
+            case 1:
+                $result = array(
+                    "type" => $type,
+                    "reader_id" => $object->getId(),
+                    "reader_image"=> $object->getReaderImage(),
+                    "username" => $object->getUsername()
+                );
+                break;
+            default: break;
+        }
+
+        return $result;
+    }
 }

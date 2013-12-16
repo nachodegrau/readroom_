@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Readroom\UserBundle\ReadroomUserBundle(),
             new Readroom\CategoriesBundle\ReadroomCategoriesBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new ReadRoom\NotificationsBundle\ReadRoomNotificationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

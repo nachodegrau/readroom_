@@ -15,6 +15,7 @@ _readroom.socialRouter = Backbone.Router.extend({
         $("#reader-content").empty();
         $("#login-page").hide();
         $("#account-page").hide();
+        $("#user-profile").show();
         router.destroyInputViews();
         router.initUserMenu();
         

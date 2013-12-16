@@ -402,3 +402,29 @@ input[type=file] {
 .reveal-modal {
     z-index: 200;
 }
+
+/* SOLICITUDES */
+
+#notifications {
+
+}
+
+.notification {
+    background: white;
+    border: 1px solid black;
+    border-top: none;
+    width: 340px;
+    color: gray;
+    font-size: 14px;
+    padding:10px 10px 0 10px !important;
+}
+
+.notification a{
+    background: transparent !important;
+    padding: 0 !important;
+    margin:0 !important;
+}
+
+.notification-loader {
+    display: none;
+}

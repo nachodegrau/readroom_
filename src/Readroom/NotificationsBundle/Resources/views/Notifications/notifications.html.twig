@@ -1,0 +1,31 @@
+<script type="text/html" id="template-notifications">
+    <a href="#">
+        <img src="{{ asset('default/') }}images/notification-icon.png" />
+    </a>
+    <div id="notifications" class="dropdown">
+        <% _.each(models, function(notification) { %>
+            <% if ( notification.attributes.type == 0 ) { %>
+                <div class="notification">
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <span> Solicitud de amistad de: </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12 columns">
+                                <a class="notification-link" data-id-reader="<%= notification.attributes.reader_id %>">
+                                    <img src="{{ asset('readers/') }}images/<%= notification.attributes.reader_image %>" width="30px" style="margin: 10px 0 10px 0" />
+                                    <span style="padding: 0 10px 0 10px;"><%= notification.attributes.username %></span>
+                                </a>
+                                <button class="tiny accept-solicitude" data-id-reader="<%= notification.attributes.reader_id %>">Aceptar</button>
+                                <button class="tiny ignore-solicitude" data-id-reader="<%= notification.attributes.reader_id %>">Rechazar</button>
+                                <img class="notification-loader" src="{{ asset('default/') }}/images/ajax-loader.gif" />
+                            </div>
+                        </div>
+                </div>
+            <% } else if (notification.attributes.type == 1) { %>
+
+            <% } %>
+        <% }); %>
+    </div>
+</script>

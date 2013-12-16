@@ -251,10 +251,10 @@ _readroom.friendModel = Backbone.Model.extend({
     addRelation: function() {
         this.save({},{
             success: function(data) {
-                
+                $('.notification-loader').hide();
             },
             fail: function(data) {
-            
+                $('.notification-loader').hide();
             }
         });
     }

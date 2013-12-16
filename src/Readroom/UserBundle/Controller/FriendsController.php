@@ -13,15 +13,18 @@ class FriendsController extends Controller{
     
     public function addRelationAction(Request $request) {
         if ($this->getRequest()->isXmlHttpRequest()) {
-            
+
+            $model = array();
+            $model = json_decode($request->request->get('model'));
+
             $em = $this->getDoctrine()->getManager();
-            $user = $em->getRepository('ReadroomDBBundle:Reader')->find($request->query->get("currentUserId"));
-            $friend = $em->getRepository('ReadroomDBBundle:Reader')->find($request->query->get("friendId"));
+            $user = $em->getRepository('ReadroomDBBundle:Reader')->find($model->{"currentUserId"});
+            $friend = $em->getRepository('ReadroomDBBundle:Reader')->find($model->{"friendId"});
             if(sizeof($user) == 1 && sizeof($friend) == 1) {
                 $user->addMyFriends($friend);
+                $friend->addMyFriends($user);
                 $em->flush();
-                $serializer = $this->container->get('jms_serializer');
-                $return = $serializer->serialize($user, 'json');
+                $return = json_encode(array("error" => 0));
             } else if(sizeof($user) == 0) {
                 $return = json_encode(array("error" => "userNotFound"));
             }

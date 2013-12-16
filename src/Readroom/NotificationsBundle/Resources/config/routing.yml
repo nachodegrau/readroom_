@@ -1,0 +1,3 @@
+show_notification:
+    pattern:  /notifications
+    defaults: { _controller: ReadRoomNotificationsBundle:Notifications:showNotifications }

@@ -25,6 +25,7 @@ _readroom.router = Backbone.Router.extend({
        this.destroyInputViews();
        this.initUserMenu();
        this.initCategories();
+       this.initNotifications();
        var booksCatalog = new _readroom.booksCollection();
        
        if (booksCatalogView === null || _.isUndefined(booksCatalogView)) {
@@ -167,7 +168,16 @@ _readroom.router = Backbone.Router.extend({
         var categoriesView = new _readroom.categoriesView({el:$("#categories-menu"), collection: categories });
         
         categoriesView.render();
-    },        
+    },
+
+    /*
+    *
+    */
+    initNotifications: function() {
+        var notifications = new _readroom.notificationsCollection();
+        notifications.searchNotificationsByUser(currentUser.get("id"));
+    },
+
     /*
      * Inicializamos la barra de la izquierda
      */
